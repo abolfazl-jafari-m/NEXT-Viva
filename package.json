@@ -9,19 +9,33 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cookies-next": "^5.1.0",
+    "drizzle-orm": "^0.41.0",
+    "embla-carousel-react": "^8.5.2",
+    "i18next": "^24.2.3",
+    "motion": "^12.6.2",
+    "next": "15.2.4",
+    "next-auth": "^4.24.11",
+    "quill": "^2.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.4"
+    "react-hook-form": "^7.55.0",
+    "react-hot-toast": "^2.5.2",
+    "react-icons": "^5.5.0",
+    "slugify": "^1.6.6",
+    "zod": "^3.24.2",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "drizzle-kit": "^0.30.6",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
