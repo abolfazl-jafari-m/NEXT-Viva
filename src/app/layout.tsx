@@ -47,9 +47,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="fa" dir={"rtl"}>
+        <html lang="fa" dir={"rtl"} className={"no-scrollbar"}>
         <body
-            className={`${vazir.className}`}
+            className={`${vazir.className} no-scrollbar w-full h-screen bg-linear-to-l from-5% from-zinc-800 via-50% via-black to-primary to-85%`}
             cz-shortcut-listen="true"
         >
         {children}

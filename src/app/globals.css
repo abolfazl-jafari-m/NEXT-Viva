@@ -5,5 +5,17 @@
     --color-darkerGold : #A57A03;
     --color-darkChocolate : #400128;
     --color-primary: #1A1A1A;
-    --color-secondory : #E0E0E0
+    --color-secondary : #E0E0E0
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
