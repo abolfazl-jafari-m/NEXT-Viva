@@ -5,13 +5,16 @@ import original from "@/assets/images/original.svg"
 import bestPrice from "@/assets/images/number-one.svg"
 import delivery from "@/assets/images/delivery.svg"
 import louisVuitton from "@/assets/images/louis-vuitton-imagination.webp"
-import louisVuitton2 from "@/assets/images/LV-IMAGINATION.webp"
 import DebounceArrow from "@/components/shop/landing/DebounceArrow/DebounceArrow";
 import {FaCircleUser} from "react-icons/fa6";
+import Slider from "@/components/shop/singleProducts/slider/slider";
+import AddToCart from "@/components/shop/singleProducts/addToCart/addToCart";
+import Navigation from "@/components/shop/singleProducts/navigation/navigation";
 
 function SingleProducts() {
     return (
         <>
+            <Navigation />
             <section className={"flex flex-col items-center justify-center w-full h-full"}>
                 <div className={"grid grid-cols-2 w-4/5 items-center"}>
                     <div className={"flex flex-col gap-7 "}>
@@ -116,67 +119,9 @@ function SingleProducts() {
                         مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
                         ساسا مورد استفاده قرار گیرد.
                     </p>
-                    <form className={"flex flex-col gap-8"}>
-                        <div className={"flex flex-col gap-5"}>
-                            <label htmlFor={"volume"} className={"text-darkerGold font-semibold text-xl"}>حجم</label>
-                            <div className={"flex items-center w-fit gap-4"}>
-                                <div
-                                    className={"relative border-2 border-white has-checked:bg-darkChocolate w-full h-full rounded-md has-checked:border-gold py-2 px-8 w-fit hover:bg-darkChocolate cursor-pointer"}>
-                                    <span className={"text-white font-light text-nowrap"}>50 میل</span>
-                                    <input type={"radio"} name={"volume"} value={"50"}
-                                           className={"appearance-none absolute w-full h-full top-0 left-0 z-10"}/>
-                                </div>
-                                <div
-                                    className={"relative border-2 border-white has-checked:bg-darkChocolate w-full h-full rounded-md has-checked:border-gold py-2 px-8 w-fit hover:bg-darkChocolate cursor-pointer"}>
-                                    <span className={"text-white font-light text-nowrap"}>100 میل</span>
-                                    <input type={"radio"} name={"volume"} value={"100"}
-                                           className={"appearance-none absolute w-full h-full top-0 left-0 z-10"}/>
-                                </div>
-                                <div
-                                    className={"relative border-2 border-white has-checked:bg-darkChocolate w-full h-full rounded-md has-checked:border-gold py-2 px-8 w-fit hover:bg-darkChocolate cursor-pointer"}>
-                                    <span className={"text-white font-light text-nowrap"}>200 میل</span>
-                                    <input type={"radio"} name={"volume"} value={"200"}
-                                           className={"appearance-none absolute w-full h-full top-0 left-0 z-10"}/>
-                                </div>
-                            </div>
-                            <label htmlFor={"quantity"}
-                                   className={"text-darkerGold font-semibold text-xl"}>تعداد</label>
-                            <div
-                                className={"flex items-center gap-6 rounded-lg border border-darkChocolate px-3 py-2 bg-secondary w-fit"}>
-                                <button className={"text-xl"}>+</button>
-                                <span>3</span>
-                                <button className={" text-xl"}>-</button>
-
-                            </div>
-                        </div>
-                        <div className={"flex items-center gap-5"}>
-                            <button className={"bg-darkChocolate text-white rounded-md px-10 py-3"}>اضافه کردن به سبد
-                                خرید
-                            </button>
-                            <button className={"bg-darkChocolate  text-white rounded-md px-10 py-3"}>افزودن به علاقه
-                                مندی ها
-                            </button>
-                        </div>
-                    </form>
+                    <AddToCart />
                 </div>
-                <div className={"flex gap-5 items-center"}>
-                    <div className={"flex flex-col gap-10 "}>
-                        <Image src={louisVuitton.src} alt={"louis vitton"} className={"rounded-xl"} width={400}
-                               height={400}/>
-                        <div className={"flex items-center gap-5 justify-center"}>
-                            <span className={"p-1 rounded-full w-2 h-2 bg-white"}></span>
-                            <span className={"p-1 rounded-full w-2 h-2 bg-gold"}></span>
-                            <span className={"p-1 rounded-full w-2 h-2 bg-white"}></span>
-                        </div>
-                    </div>
-                    <div className={"flex flex-col gap-3 "}>
-                        <Image src={louisVuitton.src} alt={"louis vitton"} className={"rounded-xl"} width={150}
-                               height={150}/>
-                        <Image src={louisVuitton2.src} alt={"louis vitton"} className={"rounded-xl"} width={150}
-                               height={150}/>
-                        <Image src={image.src} alt={"louis vitton"} className={"rounded-xl"} width={150} height={150}/>
-                    </div>
-                </div>
+                <Slider />
             </section>
             <section className={"w-full min-h-full p-20"}>
                 <h3 className={"text-white font-semibold text-5xl mb-10"}>نظرات</h3>
