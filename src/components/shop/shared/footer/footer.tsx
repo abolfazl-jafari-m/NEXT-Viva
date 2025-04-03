@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from "next/image";
 import logo from "@/assets/images/logo.png"
-import {IoIosArrowUp} from "react-icons/io";
+import GoupBtn from "@/components/shop/shared/goupBtn/goupBtn";
+
 
 function Footer() {
     return (
@@ -19,9 +20,7 @@ function Footer() {
                 <p className={"text-white "} dir={"ltr"}><span
                     className={"text-lg text-gold mx-3 font-mono"}>@NV Design</span>طراحی توسط تیم </p>
             </div>
-            <div className={" text-white font-bold"}>
-                <IoIosArrowUp size={42}/>
-            </div>
+           <GoupBtn/>
         </footer>
     );
 }

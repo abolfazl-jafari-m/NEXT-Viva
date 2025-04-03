@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Dashboard() {
+function Input() {
     return (
         <div></div>
     );
 }
 
-export default Dashboard;
+export default Input;

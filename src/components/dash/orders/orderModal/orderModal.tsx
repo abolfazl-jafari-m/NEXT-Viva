@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Dashboard() {
+function OrderModal() {
     return (
         <div></div>
     );
 }
 
-export default Dashboard;
+export default OrderModal;

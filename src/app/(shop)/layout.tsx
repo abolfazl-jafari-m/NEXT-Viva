@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react';
 import Header from "@/components/shop/shared/header/header";
-import SocialLink from "@/components/shop/landing/socialLink/socialLink";
+
 
 
 function ShopLayout({children}: { children: ReactNode }) {

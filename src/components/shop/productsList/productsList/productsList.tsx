@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Dashboard() {
+function ProductsList() {
     return (
         <div></div>
     );
 }
 
-export default Dashboard;
+export default ProductsList;

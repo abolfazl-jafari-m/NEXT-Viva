@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Dashboard() {
+function Aside() {
     return (
         <div></div>
     );
 }
 
-export default Dashboard;
+export default Aside;
