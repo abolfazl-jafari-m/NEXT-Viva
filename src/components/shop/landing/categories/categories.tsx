@@ -7,7 +7,7 @@ import Image from "next/image";
 
 function Categories() {
     return (
-        <section className={"w-full h-full grid grid-cols-2"} id={"category"}>
+        <section className={"w-full h-screen grid grid-cols-2"} id={"category"}>
             <div
                 className={"  flex items-center justify-between"}>
                 <Image src={bitter.src} alt={"bitter"} width={250} height={250}/>

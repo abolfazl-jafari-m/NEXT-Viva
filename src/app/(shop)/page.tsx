@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "@/components/shop/landing/slider/Slider";
-import DebounceArrow from "@/components/shop/landing/DebounceArrow/DebounceArrow";
 import Categories from "@/components/shop/landing/categories/categories";
 import Latest from "@/components/shop/landing/latest/latest";
 import BestSeller from "@/components/shop/landing/specials/bestSeller";
@@ -14,9 +13,6 @@ export default function Home() {
             <Categories/>
             <Latest />
             <BestSeller />
-            <a href={"#category"}>
-                <DebounceArrow/>
-            </a>
             <Footer />
         </>
 

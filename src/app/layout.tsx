@@ -49,7 +49,7 @@ export default function RootLayout({
     return (
         <html lang="fa" dir={"rtl"} className={"no-scrollbar"}>
         <body
-            className={`${vazir.className} no-scrollbar w-full h-screen bg-linear-to-l from-5% from-zinc-800 via-50% via-black to-primary to-85%`}
+            className={`${vazir.className} no-scrollbar`}
             cz-shortcut-listen="true"
         >
         {children}

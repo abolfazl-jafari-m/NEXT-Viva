@@ -10,12 +10,13 @@ import {FaCircleUser} from "react-icons/fa6";
 import Slider from "@/components/shop/singleProducts/slider/slider";
 import AddToCart from "@/components/shop/singleProducts/addToCart/addToCart";
 import Navigation from "@/components/shop/singleProducts/navigation/navigation";
+import SocialLink from "@/components/shop/landing/socialLink/socialLink";
 
-function SingleProducts() {
+ function SingleProducts() {
     return (
         <>
             <Navigation />
-            <section className={"flex flex-col items-center justify-center w-full h-full"}>
+            <section className={"flex flex-col items-center justify-center w-full h-screen relative"}>
                 <div className={"grid grid-cols-2 w-4/5 items-center"}>
                     <div className={"flex flex-col gap-7 "}>
                         <h2 className={"font-semibold text-gold text-xl"}>لویی ویتون امجینیشن</h2>
@@ -56,8 +57,9 @@ function SingleProducts() {
 
                 </div>
                 <DebounceArrow/>
+                <SocialLink />
             </section>
-            <section className={"grid grid-cols-2 items-center w-full h-full"}>
+            <section className={"grid grid-cols-2 items-center w-full h-screen"}>
                 <div className={"flex items-center justify-center"}>
                     <Image src={louisVuitton.src} alt={"louis Vuitton"} width={400} height={400}
                            className={"rounded-2xl drop-shadow-lg"}/>
@@ -106,7 +108,7 @@ function SingleProducts() {
                     </div>
                 </div>
             </section>
-            <section className={"h-full grid grid-cols-2 w-full px-32 py-10 justify-items-center"}>
+            <section className={"h-screen grid grid-cols-2 w-full px-32 py-10 justify-items-center"}>
                 <div className={"flex flex-col gap-8"}>
                     <div className={"flex flex-col gap-3"}>
                         <h1 className={"text-5xl text-darkerGold"}>لویی ویتون امجینیشن</h1>
@@ -123,7 +125,7 @@ function SingleProducts() {
                 </div>
                 <Slider />
             </section>
-            <section className={"w-full min-h-full p-20"}>
+            <section className={"w-full min-h-screen p-20"}>
                 <h3 className={"text-white font-semibold text-5xl mb-10"}>نظرات</h3>
                 <div className={"flex flex-col gap-10"}>
                     <form className={"flex flex-col gap-4"}>

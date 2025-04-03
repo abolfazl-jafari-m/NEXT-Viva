@@ -2,10 +2,13 @@ import React from 'react';
 import Image from "next/image";
 import menperfume from "@/assets/images/category-mens.png";
 import {IoIosArrowForward} from "react-icons/io";
+import SocialLink from "@/components/shop/landing/socialLink/socialLink";
+import DebounceArrow from "@/components/shop/landing/DebounceArrow/DebounceArrow";
 
 function Slider() {
     return (
-        <section className={"w-full h-full flex items-center gap-8 justify-center relative p-10"}>
+        <section className={"w-full h-screen  flex items-center gap-8 justify-center relative p-10"}>
+            <SocialLink/>
             <div className={"text-white flex-col flex gap-8  w-1/3"}>
                 <h2 className={"font-semibold text-gold text-5xl"}>ژان پال گوتیه</h2>
                 <p className={"text-white"}>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
@@ -31,6 +34,9 @@ function Slider() {
                     <IoIosArrowForward/>
                 </button>
             </div>
+            <a href={"#category"}>
+                <DebounceArrow/>
+            </a>
         </section>
     );
 }
