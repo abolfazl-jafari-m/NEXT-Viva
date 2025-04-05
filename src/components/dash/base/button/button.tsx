@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {ButtonHTMLAttributes, ReactNode} from 'react';
 
-function Button() {
+interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    className: string,
+    type: "button" | "submit" | "reset" | undefined,
+    children: ReactNode
+}
+
+function Button({className, type, children}: IProps) {
     return (
-        <button></button>
+        <button className={className} type={type}>
+            {children}
+        </button>
     );
 }
 

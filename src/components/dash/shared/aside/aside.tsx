@@ -3,7 +3,6 @@ import Image from "next/image";
 import logo from "@/assets/images/logo.png";
 import {MdDashboard, MdOutlineInventory, MdOutlineShoppingCartCheckout} from "react-icons/md";
 import {TbPerfume} from "react-icons/tb";
-import {FaUsers} from "react-icons/fa6";
 import {CiLogout} from "react-icons/ci";
 
 function Aside() {
