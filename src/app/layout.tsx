@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import "./globals.css";
 import localFont from 'next/font/local'
+import {Toaster} from "react-hot-toast";
 
 const vazir = localFont({
     src: [
@@ -53,6 +54,7 @@ export default function RootLayout({
             cz-shortcut-listen="true"
         >
         {children}
+        <Toaster/>
         </body>
         </html>
     );
