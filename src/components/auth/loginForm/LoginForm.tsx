@@ -6,7 +6,7 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {getUser, login} from "@/services/users";
 import {useLocalStorage} from "@/hooks/useLocalStorage";
 import {redirect} from "next/navigation";
-import toast from "react-hot-toast";
+import Link from "next/link";
 
 
 type Inputs = {
@@ -65,7 +65,9 @@ function LoginForm() {
                 </div>
                 {errors.password && <p className={"text-sm text-red-600"}>{errors.password.message}</p>}
             </div>
-            <p className={"text-sm text-white/70 font-semibold text-center"}>هنوز ثبت نام نکرده اید ؟</p>
+            <Link href={"/register"} className={"cursor-pointer"}>
+                <p className={"text-sm text-white/70 font-semibold text-center"}>هنوز ثبت نام نکرده اید ؟</p>
+            </Link>
             <button
                 className={"font-light py-2 px-8 self-center cursor-pointer rounded-lg bg-darkerGold text-white/80"}
             >ورود
