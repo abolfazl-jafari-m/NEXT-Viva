@@ -65,7 +65,7 @@ function Orders() {
     ]
     const [filter, setFilter] = useState<string>("All");
     const [sortBy, setSortBy] = useState<string>("");
-    const filteredOrders = useMemo(() => ordersFilter(orders, filter, sortBy), [filter, orders, sortBy]);
+    const filteredOrders = useMemo(() => ordersFilter(orders, filter, sortBy), [filter,, sortBy]);
     return (
         <div className={"flex flex-col gap-3 p-10"}>
             <div>

@@ -3,8 +3,6 @@ import React, {ChangeEvent, useMemo, useState} from 'react';
 import {pagination} from "@/lib/utils/helpers";
 import Button from "@/components/dash/base/button/button";
 import {
-    MdDelete,
-    MdEdit,
     MdOutlineKeyboardArrowLeft,
     MdOutlineKeyboardArrowRight,
     MdOutlinePendingActions
