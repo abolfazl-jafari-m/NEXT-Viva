@@ -51,20 +51,20 @@ function OrdersTable({orders}: { orders: any[] }) {
                         return (
                             <tr key={item.id}
                                 className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200"}>
-                                <td>{item.name}</td>
-                                <td>{item.totalPrice}</td>
-                                <td>{new Date().toLocaleDateString("fa", {
+                                <td className={"w-1/5"}>{item.name}</td>
+                                <td className={"w-1/5"}>{item.totalPrice}</td>
+                                <td className={"w-1/5"}>{new Date().toLocaleDateString("fa", {
                                     year: "2-digit",
                                     month: "long",
                                     day: "numeric"
                                 })}</td>
-                                <td>
+                                <td className={"w-1/5"}>
                                     <div className={"w-full flex justify-center h-full"}>
                                         {item.status === "delivered" ? <FaFileCircleCheck size={20}/> :
                                             <MdOutlinePendingActions size={22}/>}
                                     </div>
                                 </td>
-                                <td className={"mx-auto p-2"}>
+                                <td className={"mx-auto p-2 w-1/5"}>
                                     <Button
                                         className={"bg-sky-900 px-6 py-0.5 rounded-md text-white text-xs cursor-pointer"}
                                         type={"button"}>

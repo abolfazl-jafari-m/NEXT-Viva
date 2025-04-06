@@ -4,6 +4,7 @@ import OrdersTable from "@/components/dash/orders/ordersTable/ordersTable";
 import {RxDropdownMenu} from "react-icons/rx";
 import {FaSortNumericDown} from "react-icons/fa";
 import {ordersFilter} from "@/lib/utils/helpers";
+import SelectBox from "@/components/dash/base/SelectBox/SelectBox";
 
 function Orders() {
     const orders = [
@@ -65,7 +66,7 @@ function Orders() {
     ]
     const [filter, setFilter] = useState<string>("All");
     const [sortBy, setSortBy] = useState<string>("");
-    const filteredOrders = useMemo(() => ordersFilter(orders, filter, sortBy), [filter,, sortBy]);
+    const filteredOrders = useMemo(() => ordersFilter(orders, filter, sortBy), [filter, sortBy]);
     return (
         <div className={"flex flex-col gap-3 p-10"}>
             <div>
@@ -73,40 +74,24 @@ function Orders() {
             </div>
             <div className={"flex flex-col gap-4"}>
                 <div className={" mr-auto flex items-center gap-15"}>
-                    <div className={"flex items-center gap-2"}>
-                        <label htmlFor={"filtering"}>فیلتر سفارشها :</label>
-                        <div className={"bg-secondary rounded-lg relative cursor-pointer px-8 py-1"}>
-                            <select
-                                id={"filtering"}
-                                value={filter}
-                                onChange={(e: ChangeEvent<HTMLSelectElement>) => setFilter(e.target.value)}
-                                className={"appearance-none w-full h-full outline-none border-none  text-sm  text-center bg-secondary pl-4 block"}>
-                                <option value={"All"}>همه</option>
-                                <option value={"pending"}>در حال انتظار</option>
-                                <option value={"delivered"}>تحویل شده</option>
-                            </select>
-                            <div className={"absolute top-1/2 -translate-y-1/2 left-2  "}>
-                                <RxDropdownMenu/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"flex items-center gap-2"}>
-                        <label htmlFor={"sort"}>مرتب سازی:</label>
-                        <div className={"bg-secondary rounded-lg relative cursor-pointer px-6 py-1"}>
-                            <select
-                                id={"sort"}
-                                value={sortBy}
-                                onChange={(e: ChangeEvent<HTMLSelectElement>) => setSortBy(e.target.value)}
-                                className={"appearance-none w-full h-full outline-none border-none  text-sm  text-center bg-secondary pl-4 block"}>
-                                <option value={""}>--</option>
-                                <option value={"price"}> براساس قیمت</option>
-                                <option value={"date"}>براساس تاریخ سفارش</option>
-                            </select>
-                            <div className={"absolute top-1/2 -translate-y-1/2 left-2  "}>
-                                <FaSortNumericDown/>
-                            </div>
-                        </div>
-                    </div>
+                    <SelectBox id={"sort"}
+                               value={sortBy}
+                               onChange={(e: ChangeEvent<HTMLSelectElement>) => setSortBy(e.target.value)}
+                               label={"مرتب سازی"} icon={<FaSortNumericDown/>}
+                               options={
+                                   [{value: "", label: "--"},
+                                       {value: "price", label: "براساس قیمت"},
+                                       {value: "date", label: "براساس تاریخ سفارش"}
+                                   ]}/>
+                    <SelectBox id={"filtering"}
+                               value={filter}
+                               onChange={(e: ChangeEvent<HTMLSelectElement>) => setFilter(e.target.value)}
+                               label={"فیلتر سفارشها"} icon={<RxDropdownMenu/>}
+                               options={
+                                   [{value: "All", label: "همه"},
+                                       {value: "pending", label: "در حال انتظار"},
+                                       {value: "delivered", label: "تحویل شده"}
+                                   ]}/>
                 </div>
                 <OrdersTable orders={filteredOrders}/>
             </div>

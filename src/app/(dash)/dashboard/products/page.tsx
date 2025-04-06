@@ -80,7 +80,7 @@ function Products() {
         } else {
             return []
         }
-    }, [search , products]);
+    }, [search ]);
     return (
         <div className={"flex flex-col gap-4 p-10"}>
             <div className={"flex items-center justify-between w-full"}>
