@@ -4,6 +4,7 @@ import ProductsTable from "@/components/dash/products/productsTable/productsTabl
 import Input from "@/components/dash/base/input/input";
 import {FaSearch} from "react-icons/fa";
 import Button from "@/components/dash/base/button/button";
+import Link from "next/link";
 
 function Products() {
     const products = [
@@ -80,16 +81,18 @@ function Products() {
         } else {
             return []
         }
-    }, [search ]);
+    }, [search]);
     return (
         <div className={"flex flex-col gap-4 p-10"}>
             <div className={"flex items-center justify-between w-full"}>
                 <div className={"flex items-center gap-4"}>
                     <h1 className={"font-bold text-4xl"}>محصولات</h1>
-                    <Button className={"bg-darkChocolate px-4 py-1 rounded-md text-white text-sm cursor-pointer"}
-                            type={"button"}>
-                        افزودن محصول
-                    </Button>
+                    <Link href={"/dashboard/products/add"}>
+                        <Button className={"bg-darkChocolate px-4 py-1 rounded-md text-white text-sm cursor-pointer"}
+                                type={"button"}>
+                            افزودن محصول
+                        </Button>
+                    </Link>
                 </div>
                 <div
                     className={"flex items-center gap-2 border border-black bg-secondary  px-4 py-1 rounded-md"}>

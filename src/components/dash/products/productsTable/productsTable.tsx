@@ -4,6 +4,7 @@ import {MdDelete, MdEdit, MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRigh
 import {LuArrowDownWideNarrow} from "react-icons/lu";
 import {pagination} from "@/lib/utils/helpers";
 import Button from "@/components/dash/base/button/button";
+import Link from "next/link";
 
 function ProductTable({products}: { products: any[] }) {
     const [current, setCurrent] = useState<number>(0);
@@ -54,15 +55,17 @@ function ProductTable({products}: { products: any[] }) {
                                 <td>{item.category}</td>
                                 <td className={"mx-auto"}>
                                     <div className={"flex items-center justify-center gap-2"}>
+                                        <Link href={`/dashboard/products/edit/${item.id}`}>
+                                            <Button
+                                                className={"bg-yellow-700 rounded-md p-2 text-white text-sm hover:bg-yellow-500 cursor-pointer"}
+                                                type={"button"}>
+                                                <MdEdit/>
+                                            </Button>
+                                        </Link>
                                         <Button
-                                            className={"bg-rose-800 p-2 rounded-md text-white text-sm hover:bg-rose-600"}
+                                            className={"bg-rose-800 p-2 rounded-md text-white text-sm hover:bg-rose-600 cursor-pointer"}
                                             type={"button"}>
                                             <MdDelete/>
-                                        </Button>
-                                        <Button
-                                            className={"bg-yellow-700 rounded-md p-2 text-white text-sm hover:bg-yellow-500"}
-                                            type={"button"}>
-                                            <MdEdit/>
                                         </Button>
                                     </div>
                                 </td>
