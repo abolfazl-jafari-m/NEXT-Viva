@@ -4,6 +4,7 @@ import logo from "@/assets/images/logo.png";
 import {MdDashboard, MdOutlineInventory, MdOutlineShoppingCartCheckout} from "react-icons/md";
 import {TbPerfume} from "react-icons/tb";
 import {CiLogout} from "react-icons/ci";
+import NavLink from "@/components/dash/base/navLink/navLink";
 
 function Aside() {
     return (
@@ -16,22 +17,11 @@ function Aside() {
                     </div>
                     <nav>
                         <ul className={"flex flex-col gap-4 "}>
-                            <li className={"flex items-center hover:bg-darkChocolate text-white gap-3 justify-between px-7 py-3 cursor-pointer w-full "}>
-                                <p className={"text-lg"}>داشبورد</p>
-                                <MdDashboard/>
-                            </li>
-                            <li className={"flex items-center hover:bg-darkChocolate text-white gap-3 justify-between px-7 py-3 cursor-pointer w-full"}>
-                                <p className={"text-lg"}>محصولات</p>
-                                <TbPerfume/>
-                            </li>
-                            <li className={"flex items-center hover:bg-darkChocolate text-white gap-3 justify-between px-7 py-3 cursor-pointer w-full "}>
-                                <p className={"text-lg"}>سفارشها</p>
-                                <MdOutlineShoppingCartCheckout/>
-                            </li>
-                            <li className={"flex items-center hover:bg-darkChocolate text-white gap-3 justify-between px-7 py-3 cursor-pointer w-full"}>
-                                <p className={"text-lg"}>موجودی</p>
-                                <MdOutlineInventory/>
-                            </li>
+                            <NavLink label={"داشبورد"} icon={<MdDashboard/>} href={"/dashboard"}/>
+                            <NavLink label={"محصولات"} icon={<TbPerfume/>} href={"/dashboard/products"}/>
+                            <NavLink label={"سفارشها"} icon={<MdOutlineShoppingCartCheckout/>}
+                                     href={"/dashboard/orders"}/>
+                            <NavLink label={"موجودی"} icon={<MdOutlineInventory/>} href={"/dashboard/inventory"}/>
                         </ul>
                     </nav>
                 </div>
