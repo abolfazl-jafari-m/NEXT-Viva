@@ -6,9 +6,9 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
 }
 
-function Button({className, type, children}: IProps) {
+function Button({className, type, children, ...res}: IProps) {
     return (
-        <button className={className} type={type}>
+        <button className={className} type={type} {...res}>
             {children}
         </button>
     );

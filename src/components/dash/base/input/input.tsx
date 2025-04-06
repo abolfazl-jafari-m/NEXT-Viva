@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {InputHTMLAttributes} from 'react';
 
-function Input() {
+interface IProps extends InputHTMLAttributes<HTMLInputElement> {
+    className: string,
+    name: string
+}
+
+function Input({className, name, ...res}: IProps) {
     return (
-        <input/>
+        <input className={className} name={name} {...res}/>
     );
 }
 

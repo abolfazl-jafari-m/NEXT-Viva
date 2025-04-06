@@ -5,3 +5,19 @@ export function pagination(array: any [], perPage: number, current: number) {
     }
     return paginatedItems[current];
 }
+
+export function ordersFilter(orders: any[], filter: string, sortBy: string) {
+    let items = []
+    items = orders.filter(item => {
+        if (filter !== "All") {
+            return item.status === filter
+        }
+        return item
+    })
+    if (sortBy !== "") {
+        items.sort((a, b) => {
+            return sortBy === "price" ? +b.totalPrice - +a.totalPrice : Date.parse(b.createdAt) - Date.parse(a.createdAt)
+        })
+    }
+    return items
+}
