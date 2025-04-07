@@ -1,5 +1,5 @@
 "use client"
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import {FaRegEye} from "react-icons/fa";
 import {FaRegEyeSlash} from "react-icons/fa";
 import {SubmitHandler, useForm} from "react-hook-form";
@@ -7,6 +7,7 @@ import {getUser, login} from "@/services/users";
 import {useLocalStorage} from "@/hooks/useLocalStorage";
 import {redirect} from "next/navigation";
 import Link from "next/link";
+
 
 
 type Inputs = {
@@ -35,6 +36,7 @@ function LoginForm() {
             })
         ;
     }
+
     return (
         <form className={"flex flex-col w-full gap-8"} onSubmit={handleSubmit(handleLogin)}>
             <div className={"flex flex-col gap-2"}>
