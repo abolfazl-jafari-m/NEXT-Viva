@@ -38,7 +38,7 @@ function ProductTable({products}: { products: any[] }) {
                         <th className={"p-1 "}>تصویر</th>
                         <th className={"p-1 "}>نام محصول</th>
                         <th className={"p-1 "}>قیمت</th>
-                        <th className={"p-1 "}>دسته بندی</th>
+                        <th className={"p-1 "}>برند</th>
                         <th className={"p-1 "}>فعالیت</th>
                     </tr>
                     </thead>
@@ -48,11 +48,12 @@ function ProductTable({products}: { products: any[] }) {
                             <tr key={item.id}
                                 className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200"}>
                                 <td className={"p-2"}>
-                                    <img src={item.image} alt={item.name} className={"w-10 h-10 rounded-md mx-auto"}/>
+                                    <img src={`http://api.alikooshesh.ir:3000${item.images[0]}`} alt={item.title}
+                                         className={"w-10 h-10 rounded-md mx-auto"}/>
                                 </td>
-                                <td>{item.name}</td>
+                                <td>{item.title}</td>
                                 <td>{item.price}</td>
-                                <td>{item.category}</td>
+                                <td>{item.brand}</td>
                                 <td className={"mx-auto"}>
                                     <div className={"flex items-center justify-center gap-2"}>
                                         <Link href={`/dashboard/products/edit/${item.id}`}>

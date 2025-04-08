@@ -5,10 +5,12 @@ import Select, {CSSObjectWithLabel} from "react-select";
 
 import FileUpload from "@/components/dash/base/fileUpload/fileUpload";
 import Button from "@/components/dash/base/button/button";
+import {useRouter} from "next/navigation";
 
 const style = {control: (base: CSSObjectWithLabel) => ({...base, border: 0, boxShadow: "none"})}
 
 function ProductForm() {
+    const router = useRouter();
     return (
         <form className={"grid grid-cols-2 gap-10 w-full h-full"}>
             <div className={"flex flex-col gap-4"}>
@@ -169,11 +171,13 @@ function ProductForm() {
                     </div>
                 </div>
                 <div className={"flex items-center gap-5 mt-auto self-end"}>
-                    <Button className={"py-2 px-8 font-bold bg-secondary  rounded-md shadow shadow-black"}
+                    <Button className={"py-2 px-8 font-bold bg-secondary  rounded-md shadow shadow-black cursor-pointer"}
+                            onClick={() => router.back()}
                             type={"button"}>
                         بازگشت
                     </Button>
-                    <Button className={"py-2 px-8 font-bold bg-darkChocolate text-white rounded-md shadow shadow-black"} type={"submit"}>
+                    <Button className={"py-2 px-8 font-bold bg-darkChocolate text-white rounded-md shadow shadow-black"}
+                            type={"submit"}>
                         افزودن محصول
                     </Button>
                 </div>

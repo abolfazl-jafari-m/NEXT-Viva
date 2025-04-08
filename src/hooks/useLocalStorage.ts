@@ -9,7 +9,7 @@ export const useLocalStorage = (key: string, initialValue: string | null = null)
         }
     });
     useEffect(() => {
-        if (value) {
+        if (value && isClient) {
             localStorage.setItem(key, JSON.stringify(value));
         }
     }, [key, value]);

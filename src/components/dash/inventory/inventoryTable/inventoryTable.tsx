@@ -44,9 +44,9 @@ function InventoryTable({inventoryList}: { inventoryList: any[] }) {
                         return (
                             <tr key={item.id}
                                 className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200"}>
-                                <td className={"w-1/3 px-2 py-1"}> {item.name}</td>
+                                <td className={"w-1/3 px-2 py-1"}> {item.title}</td>
                                 <TableCell value={item.price} className={"w-1/3 px-2"}/>
-                                <TableCell value={item.count} className={"w-1/3 px-2"}/>
+                                <TableCell value={item.inventory} className={"w-1/3 px-2"}/>
                             </tr>
                         )
                     })}

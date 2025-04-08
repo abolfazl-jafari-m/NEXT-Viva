@@ -36,7 +36,7 @@ function FileUpload({name, id}: { name: string, id: string }) {
         }
     }
     return (
-        <div className={"bg-secondary flex flex-col  p-10 gap-8 overflow-hidden"}>
+        <div className={"bg-secondary flex flex-col  p-5 gap-5 overflow-hidden"}>
             {!loading ?
                ( <>
                     <div className={"flex items-center justify-center gap-10"}>

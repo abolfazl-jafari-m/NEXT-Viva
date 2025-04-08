@@ -51,9 +51,9 @@ function OrdersTable({orders}: { orders: any[] }) {
                         return (
                             <tr key={item.id}
                                 className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200"}>
-                                <td className={"w-1/5"}>{item.name}</td>
+                                <td className={"w-1/5"}>{item.customer_name}</td>
                                 <td className={"w-1/5"}>{item.totalPrice}</td>
-                                <td className={"w-1/5"}>{new Date().toLocaleDateString("fa", {
+                                <td className={"w-1/5"}>{new Date(item.createdAt).toLocaleDateString("fa", {
                                     year: "2-digit",
                                     month: "long",
                                     day: "numeric"
