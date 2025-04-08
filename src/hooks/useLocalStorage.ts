@@ -1,9 +1,12 @@
 import {useEffect, useState} from "react";
 
 export const useLocalStorage = (key: string, initialValue: string | null = null) => {
+    const [isClient, setIsClient] = useState(false);
     const [value, setValue] = useState(() => {
-        const item = localStorage.getItem(key);
-        return item ? JSON.parse(item) : initialValue
+        if (isClient) {
+            const item = localStorage.getItem(key);
+            return item ? JSON.parse(item) : initialValue
+        }
     });
     useEffect(() => {
         if (value) {
@@ -11,5 +14,10 @@ export const useLocalStorage = (key: string, initialValue: string | null = null)
         }
     }, [key, value]);
 
+    useEffect(() => {
+        setIsClient(true)
+    }, []);
+
     return [value, setValue];
+
 }
