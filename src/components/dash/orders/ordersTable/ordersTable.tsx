@@ -10,8 +10,9 @@ import {
 import {LuArrowDownWideNarrow} from "react-icons/lu";
 import {FaFileCircleCheck} from "react-icons/fa6";
 import Link from "next/link";
+import {Order} from "@/interfaces/interfaces";
 
-function OrdersTable({orders}: { orders: any[] }) {
+function OrdersTable({orders}: { orders: Order[] }) {
     const [current, setCurrent] = useState<number>(0);
     const [itemPerPage, setItemPerPage] = useState<string>("5");
 

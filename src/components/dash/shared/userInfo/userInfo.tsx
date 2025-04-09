@@ -3,10 +3,11 @@ import React, {useEffect, useState} from 'react';
 import {FaUser} from "react-icons/fa6";
 import {getUser} from "@/services/users";
 import {BeatLoader} from "react-spinners";
+import {UserInterface} from "@/interfaces/interfaces";
 
 
 function UserInfo() {
-    const [user, setUser] = useState<any>(null);
+    const [user, setUser] = useState<UserInterface | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
     useEffect(() => {

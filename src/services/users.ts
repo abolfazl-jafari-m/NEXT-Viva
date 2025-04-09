@@ -1,13 +1,13 @@
-import axiosInstance from "@/lib/instance/axios";
+import {axiosInstance as axios} from "@/lib/instance/axios";
 
 
 export async function login(email: string, password: string) {
-    const response = await axiosInstance.post("/api/users/login", {email, password});
+    const response = await axios.post("/api/users/login", {email, password});
     return response.data;
 }
 
 export async function getUser(accessToken: string) {
-    const response = await axiosInstance.get("/api/users/me", {
+    const response = await axios.get("/api/users/me", {
         headers: {
             "Authorization": `Bearer ${accessToken}`
         }

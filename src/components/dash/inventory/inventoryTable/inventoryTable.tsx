@@ -4,8 +4,9 @@ import {pagination} from "@/lib/utils/helpers";
 import {MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight} from "react-icons/md";
 import {LuArrowDownWideNarrow} from "react-icons/lu";
 import TableCell from "@/components/dash/inventory/tableCell/tableCell";
+import {Product} from "@/interfaces/interfaces";
 
-function InventoryTable({inventoryList}: { inventoryList: any[] }) {
+function InventoryTable({inventoryList}: { inventoryList: Product[] }) {
     const [current, setCurrent] = useState<number>(0);
     const [itemPerPage, setItemPerPage] = useState<string>("5");
 

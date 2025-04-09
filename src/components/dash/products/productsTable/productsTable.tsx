@@ -5,8 +5,9 @@ import {LuArrowDownWideNarrow} from "react-icons/lu";
 import {pagination} from "@/lib/utils/helpers";
 import Button from "@/components/dash/base/button/button";
 import Link from "next/link";
+import {Product} from "@/interfaces/interfaces";
 
-function ProductTable({products}: { products: any[] }) {
+function ProductTable({products}: { products: Product[] }) {
     const [current, setCurrent] = useState<number>(0);
     const [itemPerPage, setItemPerPage] = useState<string>("5");
 

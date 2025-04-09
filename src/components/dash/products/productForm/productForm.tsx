@@ -6,6 +6,7 @@ import Select, {CSSObjectWithLabel} from "react-select";
 import FileUpload from "@/components/dash/base/fileUpload/fileUpload";
 import Button from "@/components/dash/base/button/button";
 import {useRouter} from "next/navigation";
+import {brands, concentration, fragrances, genders, positions, seasons, volumes} from "@/constants/productsForm";
 
 const style = {control: (base: CSSObjectWithLabel) => ({...base, border: 0, boxShadow: "none"})}
 
@@ -53,10 +54,7 @@ function ProductForm() {
                             styles={style}
                             className={"rounded-md border-2 !border-darkChocolate !outline-none"} name={"brand"}
                             placeholder={"انتخاب کنید"}
-                            options={[{value: 1, label: "ساواج"}, {value: 2, label: "تام فورد"}, {
-                                value: 3,
-                                label: "لویی ویتون"
-                            }]} isRtl={true}/>
+                            options={brands} isRtl={true}/>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <label htmlFor={"volume"} className={"font-bold"}>
@@ -68,8 +66,7 @@ function ProductForm() {
                             id={"volume"}
                             isMulti={true}
                             placeholder={"انتخاب کنید"}
-                            options={[{value: 1, label: "125"}, {value: 2, label: "50"},
-                                {value: 3, label: "100"}, {value: 4, label: "200"}, {value: 5, label: "250"},]}
+                            options={volumes}
                             isRtl={true}/>
                     </div>
                     <div className={"flex flex-col gap-2"}>
@@ -81,10 +78,7 @@ function ProductForm() {
                             className={"rounded-md border-2 !border-darkChocolate !outline-none"} name={"concentration"}
                             id={"concentration"}
                             placeholder={"انتخاب کنید"}
-                            options={[{value: 1, label: "پرفیوم"}, {value: 2, label: "ادوپرفیوم"}, {
-                                value: 3,
-                                label: "ادوتویلت"
-                            }]} isRtl={true}/>
+                            options={concentration} isRtl={true}/>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <label htmlFor={"gender"} className={"font-bold"}>
@@ -95,10 +89,7 @@ function ProductForm() {
                             className={"rounded-md border-2 !border-darkChocolate !outline-none"} name={"gender"}
                             id={"gender"}
                             placeholder={"انتخاب کنید"}
-                            options={[{value: 1, label: "مردانه"}, {value: 2, label: "زنانه"}, {
-                                value: 3,
-                                label: "مردانه و زنانه"
-                            },]} isRtl={true}/>
+                            options={genders} isRtl={true}/>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <label htmlFor={"season"} className={"font-bold"}>
@@ -110,10 +101,7 @@ function ProductForm() {
                             id={"season"}
                             isMulti={true}
                             placeholder={"انتخاب کنید"}
-                            options={[{value: 1, label: "ساواج"}, {value: 2, label: "تام فورد"}, {
-                                value: 3,
-                                label: "لویی ویتون"
-                            }]} isRtl={true}/>
+                            options={seasons} isRtl={true}/>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <label htmlFor={"position"} className={"font-bold"}>
@@ -125,8 +113,7 @@ function ProductForm() {
                             id={"position"}
                             isMulti={true}
                             placeholder={"انتخاب کنید"}
-                            options={[{value: 1, label: "125"}, {value: 2, label: "50"},
-                                {value: 3, label: "100"}, {value: 4, label: "200"}, {value: 5, label: "250"},]}
+                            options={positions}
                             isRtl={true}/>
                     </div>
                     <div className={"flex flex-col gap-2"}>
@@ -139,10 +126,7 @@ function ProductForm() {
                             id={"fragrance"}
                             placeholder={"انتخاب کنید"}
                             isMulti={true}
-                            options={[{value: 1, label: "پرفیوم"}, {value: 2, label: "ادوپرفیوم"}, {
-                                value: 3,
-                                label: "ادوتویلت"
-                            }]} isRtl={true}/>
+                            options={fragrances} isRtl={true}/>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <label htmlFor={"inventory"} className={"font-bold"}>

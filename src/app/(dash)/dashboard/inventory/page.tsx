@@ -2,11 +2,12 @@ import React, {Suspense} from 'react';
 import Button from "@/components/dash/base/button/button";
 import InventoryTable from "@/components/dash/inventory/inventoryTable/inventoryTable";
 import TableLoader from "@/components/dash/base/tableLoader/tableLoader";
+import {API_KEY, API_URL} from "@/constants/configs";
 
 async function Inventory() {
-    const data = await fetch("http://api.alikooshesh.ir:3000/api/records/products", {
+    const data = await fetch(`${API_URL}/api/records/products`, {
         headers: {
-            api_key: 'next-ecoomerce-ajm-L3dvJVrLEmQ9DzF8VM9JaC5dHbvu8ULKsZFo9Jab78uWxenM6PYJlwaW2G2QmvJKNqei37hNVsuxj7hcc56jzvAqL3vXuzFIxTj5GW0oKp8POWfPD'
+            api_key: API_KEY
         }
     });
     const products = await data.json();

@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from "@/components/dash/base/button/button";
+import {Order, OrderItems} from "@/interfaces/interfaces";
 
-function OrderDetails({order}: any) {
+function OrderDetails({order} : {order :Order}) {
     return (
         <div className={"grid grid-cols-12 gap-10 grid-rows-2"}>
             <div
@@ -17,7 +18,7 @@ function OrderDetails({order}: any) {
                     </thead>
                     <tbody>
                     {
-                        order.items.map((item: any) => (
+                        order.items.map((item: OrderItems) => (
                             <tr className={"odd:bg-secondary even:bg-white text-black text-center"} key={item.title}>
                                 <td className={"p-2 min-w-fit"}>{item.title} - {item.volume} ml</td>
                                 <td>{item.price}</td>

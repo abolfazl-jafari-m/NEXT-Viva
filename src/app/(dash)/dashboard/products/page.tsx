@@ -7,12 +7,13 @@ import Button from "@/components/dash/base/button/button";
 import Link from "next/link";
 import {getProducts} from "@/services/products";
 import dynamic from "next/dynamic";
+import {Product} from "@/interfaces/interfaces";
 
 const TableLoader = dynamic(() => import("@/components/dash/base/tableLoader/tableLoader"), {ssr: false})
 
 function Products() {
     const [search, setSearch] = useState<string>("");
-    const [products, setProducts] = useState<any[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {

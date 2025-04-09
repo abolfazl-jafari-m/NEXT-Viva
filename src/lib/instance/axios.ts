@@ -1,10 +1,11 @@
 import axios from "axios";
 import toast from "react-hot-toast";
+import {API_KEY, API_URL} from "@/constants/configs";
 
-const axiosInstance = axios.create({
-    baseURL: "http://api.alikooshesh.ir:3000",
+export const axiosInstance = axios.create({
+    baseURL:API_URL,
     headers: {
-        "api_key": "next-ecoomerce-ajm-L3dvJVrLEmQ9DzF8VM9JaC5dHbvu8ULKsZFo9Jab78uWxenM6PYJlwaW2G2QmvJKNqei37hNVsuxj7hcc56jzvAqL3vXuzFIxTj5GW0oKp8POWfPD"
+        "api_key": API_KEY
     }
 });
 
@@ -15,5 +16,3 @@ axiosInstance.interceptors.response.use(function (response) {
         position: "top-left"
     })
 })
-
-export default  axiosInstance

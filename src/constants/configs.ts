@@ -1,0 +1,2 @@
+export const API_URL = "http://api.alikooshesh.ir:3000";
+export const API_KEY = "next-ecoomerce-ajm-L3dvJVrLEmQ9DzF8VM9JaC5dHbvu8ULKsZFo9Jab78uWxenM6PYJlwaW2G2QmvJKNqei37hNVsuxj7hcc56jzvAqL3vXuzFIxTj5GW0oKp8POWfPD"

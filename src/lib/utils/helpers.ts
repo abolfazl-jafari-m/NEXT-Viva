@@ -1,3 +1,5 @@
+import {Order} from "@/interfaces/interfaces";
+
 export function pagination(array: any [], perPage: number, current: number) {
     const paginatedItems = [];
     for (let i = 0; i < array.length; i += perPage) {
@@ -6,7 +8,7 @@ export function pagination(array: any [], perPage: number, current: number) {
     return paginatedItems[current];
 }
 
-export function ordersFilter(orders: any[], filter: string, sortBy: string) {
+export function ordersFilter(orders: Order[], filter: string, sortBy: string) {
     let items = []
     items = orders.filter(item => {
         if (filter !== "All") {

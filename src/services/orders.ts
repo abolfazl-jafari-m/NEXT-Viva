@@ -1,20 +1,17 @@
-import axiosInstance from "@/lib/instance/axios";
+import {axiosInstance as axios} from "@/lib/instance/axios";
+import {API_KEY, API_URL} from "@/constants/configs";
 
 export async function getOrders() {
-    const response = await axiosInstance("/api/records/orders", {
-        headers: {
-            api_key: "next-ecoomerce-ajm-L3dvJVrLEmQ9DzF8VM9JaC5dHbvu8ULKsZFo9Jab78uWxenM6PYJlwaW2G2QmvJKNqei37hNVsuxj7hcc56jzvAqL3vXuzFIxTj5GW0oKp8POWfPD"
-        }
-    })
+    const response = await axios("/api/records/orders")
     return response.data
 }
 
 
 export async function getOrderById(id: string) {
     try {
-        const response = await fetch(`http://api.alikooshesh.ir:3000/api/records/orders/${id}`, {
+        const response = await fetch(`${API_URL}/api/records/orders/${id}`, {
             headers: {
-                api_key: "next-ecoomerce-ajm-L3dvJVrLEmQ9DzF8VM9JaC5dHbvu8ULKsZFo9Jab78uWxenM6PYJlwaW2G2QmvJKNqei37hNVsuxj7hcc56jzvAqL3vXuzFIxTj5GW0oKp8POWfPD"
+                api_key: API_KEY
             }
         })
         if (!response.ok) {
