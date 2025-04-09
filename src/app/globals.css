@@ -1,11 +1,37 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "yekan";
+    src: url("../assets/fonts/bYekan/BYekan.ttf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "yekan";
+    src: url("../assets/fonts/bYekan/BYekanBold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "fuzzy";
+    src: url("../assets/fonts/fuzzy/FuzzyBubbles-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "yekan";
+    src: url("../assets/fonts/fuzzy/FuzzyBubbles-Regular.ttf");
+    font-weight: normal;
+}
+
 @theme {
     --color-gold: #D4AF37;
-    --color-darkerGold : #A57A03;
-    --color-darkChocolate : #400128;
+    --color-darkerGold: #A57A03;
+    --color-darkChocolate: #400128;
     --color-primary: #1A1A1A;
-    --color-secondary : #E0E0E0
+    --color-secondary: #E0E0E0;
+    --font-fuzzy: "fuzzy";
+    --font-yekan: "yekan"
 }
 html {
     scroll-behavior: smooth;
