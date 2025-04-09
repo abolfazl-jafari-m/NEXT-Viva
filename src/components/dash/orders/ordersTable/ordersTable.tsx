@@ -9,6 +9,7 @@ import {
 } from "react-icons/md";
 import {LuArrowDownWideNarrow} from "react-icons/lu";
 import {FaFileCircleCheck} from "react-icons/fa6";
+import Link from "next/link";
 
 function OrdersTable({orders}: { orders: any[] }) {
     const [current, setCurrent] = useState<number>(0);
@@ -65,11 +66,13 @@ function OrdersTable({orders}: { orders: any[] }) {
                                     </div>
                                 </td>
                                 <td className={"mx-auto p-2 w-1/5"}>
-                                    <Button
-                                        className={"bg-sky-900 px-6 py-0.5 rounded-md text-white text-xs cursor-pointer"}
-                                        type={"button"}>
-                                        بررسی سفارش
-                                    </Button>
+                                    <Link href={`/dashboard/orders/${item.id}`}>
+                                        <Button
+                                            className={"bg-sky-900 px-6 py-0.5 rounded-md text-white text-xs cursor-pointer"}
+                                            type={"button"}>
+                                            بررسی سفارش
+                                        </Button>
+                                    </Link>
                                 </td>
                             </tr>
                         )
