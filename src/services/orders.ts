@@ -3,7 +3,7 @@ import {API_KEY, API_URL} from "@/constants/configs";
 
 export async function getOrders() {
     const response = await axios("/api/records/orders")
-    return response.data
+    return response.data.records;
 }
 
 

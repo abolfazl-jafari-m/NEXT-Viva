@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import "./globals.css";
 import localFont from 'next/font/local'
 import {Toaster} from "react-hot-toast";
+import ReactQueryProvider from "@/lib/providers/reactQueryProvider";
 
 const vazir = localFont({
     src: [
@@ -53,7 +54,9 @@ export default function RootLayout({
             className={`${vazir.className} no-scrollbar`}
             cz-shortcut-listen="true"
         >
-        {children}
+        <ReactQueryProvider>
+            {children}
+        </ReactQueryProvider>
         <Toaster/>
         </body>
         </html>

@@ -1,5 +1,5 @@
 "use client"
-import React, {ChangeEvent, useEffect, useMemo, useState} from 'react';
+import React, {ChangeEvent, useMemo, useState} from 'react';
 import OrdersTable from "@/components/dash/orders/ordersTable/ordersTable";
 import {RxDropdownMenu} from "react-icons/rx";
 import {FaSortNumericDown} from "react-icons/fa";
@@ -7,21 +7,21 @@ import {ordersFilter} from "@/lib/utils/helpers";
 import SelectBox from "@/components/dash/base/SelectBox/SelectBox";
 import {getOrders} from "@/services/orders";
 import dynamic from "next/dynamic";
-const TableLoader = dynamic(()=>import("@/components/dash/base/tableLoader/tableLoader") , {ssr : false})
+import {useQuery} from "@tanstack/react-query";
+import {Order} from "@/interfaces/interfaces";
+
+const TableLoader = dynamic(() => import("@/components/dash/base/tableLoader/tableLoader"), {ssr: false})
 
 function Orders() {
-    const [orders, setOrders] = useState([]);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const {isLoading, data: orders} = useQuery<Order[]>({queryKey: ["orders"], queryFn: getOrders})
     const [filter, setFilter] = useState<string>("All");
     const [sortBy, setSortBy] = useState<string>("");
-    const filteredOrders = useMemo(() => ordersFilter(orders, filter, sortBy), [filter, sortBy, orders]);
 
-
-    useEffect(() => {
-        getOrders().then((res) => {
-            setOrders(res.records);
-        }).finally(()=>setIsLoading(false));
-    }, [orders]);
+    const filteredOrders = useMemo(() => {
+        if (orders) {
+            return ordersFilter(orders, filter, sortBy)
+        } else return []
+    }, [filter, sortBy, orders]);
 
     if (isLoading) return (<div className={"flex items-center justify-center flex-col gap-7 p-10"}><TableLoader/></div>)
     return (

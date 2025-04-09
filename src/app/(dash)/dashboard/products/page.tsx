@@ -1,5 +1,5 @@
 "use client";
-import React, {ChangeEvent, useEffect, useMemo, useState} from 'react';
+import React, {ChangeEvent, useMemo, useState} from 'react';
 import ProductsTable from "@/components/dash/products/productsTable/productsTable";
 import Input from "@/components/dash/base/input/input";
 import {FaSearch} from "react-icons/fa";
@@ -8,23 +8,16 @@ import Link from "next/link";
 import {getProducts} from "@/services/products";
 import dynamic from "next/dynamic";
 import {Product} from "@/interfaces/interfaces";
+import {useQuery} from "@tanstack/react-query";
 
 const TableLoader = dynamic(() => import("@/components/dash/base/tableLoader/tableLoader"), {ssr: false})
 
 function Products() {
     const [search, setSearch] = useState<string>("");
-    const [products, setProducts] = useState<Product[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-
-    useEffect(() => {
-        getProducts().then((res) => {
-            setProducts(res.records)
-        }).finally(() => setIsLoading(false));
-    }, []);
-
+    const {isLoading, data: products} = useQuery<Product[]>({queryKey: ["products"], queryFn: getProducts});
     const filteredProducts = useMemo(() => {
-        const items = products.filter(item => item.title.startsWith(search))
-        if (items.length > 0) {
+        const items = products?.filter(item => item.title.startsWith(search))
+        if (items && items.length > 0) {
             return items;
         } else {
             return []

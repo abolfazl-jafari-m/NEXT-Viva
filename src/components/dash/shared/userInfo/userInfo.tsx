@@ -1,19 +1,17 @@
 "use client"
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {FaUser} from "react-icons/fa6";
 import {getUser} from "@/services/users";
 import {BeatLoader} from "react-spinners";
 import {UserInterface} from "@/interfaces/interfaces";
+import {useQuery} from "@tanstack/react-query";
 
 
 function UserInfo() {
-    const [user, setUser] = useState<UserInterface | null>(null);
-    const [isLoading, setIsLoading] = useState<boolean>(true)
-
-    useEffect(() => {
-        getUser(JSON.parse(localStorage.getItem("token") as string)).then(res => setUser(res)).finally(() => setIsLoading(false))
-    }, []);
-
+    const {isLoading, data: user} = useQuery<UserInterface>({
+        queryKey: ["user"],
+        queryFn: async () => await getUser(JSON.parse(localStorage.getItem("token") as string))
+    })
     if (isLoading) return <BeatLoader/>
 
     return (
