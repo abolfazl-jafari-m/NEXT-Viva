@@ -22,7 +22,7 @@ function UserInfo() {
                 className={"rounded-lg bg-darkChocolate overflow-hidden text-white shadow-md shadow-black w-8.5 h-8.5 text-xl flex items-center justify-center max-sm:h-6.5 max-sm:w-6.5 "}>
                 {
                     user ? <img src={`http://api.alikooshesh.ir:3000${user.avatar}`} alt={"avatar"}
-                                className={"w-full h-full"}/> : <FaUser/>
+                                className={"w-full h-full"}/> : <FaUser  className={"p-1"}/>
                 }
             </div>
         </li>

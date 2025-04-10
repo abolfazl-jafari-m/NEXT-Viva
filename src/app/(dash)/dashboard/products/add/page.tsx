@@ -5,7 +5,7 @@ const ProductForm = dynamic(() => import('@/components/dash/products/productForm
 
 function AddProduct() {
     return (
-        <div className={"flex items-center justify-center p-8 "}>
+        <div className={"mx-auto p-8 max-xl:p-4 max-md:h-dvh overflow-y-auto"}>
             <ProductForm/>
         </div>
     );

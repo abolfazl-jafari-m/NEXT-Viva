@@ -41,7 +41,7 @@ function FileUpload({name, id}: { name: string, id: string }) {
         <div className={"bg-secondary flex flex-col  p-5 gap-5 overflow-hidden"}>
             {!loading ?
                 (<>
-                    <div className={"flex items-center justify-center gap-10"}>
+                    <div className={"flex items-center justify-center gap-10 max-sm:flex-col"}>
                         <div
                             className={"rounded-md border-2 border-darkChocolate h-32 w-32 relative flex items-center justify-center"}>
                             {image ? (<><img src={image as string} alt={"image"} className={"w-full h-full"}/>
@@ -54,7 +54,7 @@ function FileUpload({name, id}: { name: string, id: string }) {
                         <div className={"flex flex-col gap-2"}>
                             {
                                 !image ?
-                                    (<><p>برای اپلود فایل روی دکمه زیر کلیک کنید</p>
+                                    (<><p className={"text-center"}>برای اپلود فایل روی دکمه زیر کلیک کنید</p>
                                         <button type={"button"}
                                                 className={"bg-primary text-white px-8 py-2 rounded-md shadow shadow-black cursor-pointer"}
                                                 onClick={() => inputRef.current?.click()}>آپلود

@@ -12,7 +12,7 @@ async function Order({params}: { params: Promise<{ id: string }> }) {
     }
 
     return (
-        <div className={"p-10"}>
+        <div className={"p-10 max-xl:p-5 "}>
             <OrderDetails order={order}/>
         </div>
     );

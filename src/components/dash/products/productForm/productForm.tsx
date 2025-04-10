@@ -13,7 +13,7 @@ const style = {control: (base: CSSObjectWithLabel) => ({...base, border: 0, boxS
 function ProductForm() {
     const router = useRouter();
     return (
-        <form className={"grid grid-cols-2 gap-10 w-full h-full"}>
+        <form className={"grid grid-cols-2 gap-10 w-full  max-md:grid-cols-1"}>
             <div className={"flex flex-col gap-4"}>
                 <div className={"flex flex-col gap-2"}>
                     <label htmlFor={"title"} className={"font-bold"}>
@@ -29,7 +29,7 @@ function ProductForm() {
                     <Input className={"rounded-md border-2 border-darkChocolate px-2 py-1"} name={"shortDes"}
                            id={"shortDes"}/>
                 </div>
-                <div className={"grid grid-cols-2 gap-5 w-full"}>
+                <div className={"grid grid-cols-2 max-xs:grid-cols-1 gap-5 w-full"}>
                     <div className={"flex flex-col gap-2"}>
                         <label htmlFor={"price"} className={"font-bold"}>
                             قیمت
@@ -154,13 +154,13 @@ function ProductForm() {
                         <FileUpload name={"images"} id={"images"}/>
                     </div>
                 </div>
-                <div className={"flex items-center gap-5 mt-auto self-end"}>
-                    <Button className={"py-2 px-8 font-bold bg-secondary  rounded-md shadow shadow-black cursor-pointer"}
+                <div className={"flex items-center gap-5 mt-auto self-end max-md:self-center"}>
+                    <Button className={"py-2 px-8 font-bold bg-secondary  rounded-md shadow shadow-black cursor-pointer max-md:px-6 max-md:text-sm"}
                             onClick={() => router.back()}
                             type={"button"}>
                         بازگشت
                     </Button>
-                    <Button className={"py-2 px-8 font-bold bg-darkChocolate text-white rounded-md shadow shadow-black"}
+                    <Button className={"py-2 px-8 font-bold bg-darkChocolate text-white rounded-md shadow shadow-black max-md:px-6 max-md:text-sm"}
                             type={"submit"}>
                         افزودن محصول
                     </Button>

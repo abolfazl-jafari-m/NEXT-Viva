@@ -16,7 +16,7 @@ function DashLayout({children}: { children: ReactNode }) {
                     <Aside/>
                 </aside>
                 <header
-                    className={"col-span-10 bg-secondary row-span-1 flex items-center max-xl:col-span-9 max-md:col-span-full"}>
+                    className={"col-span-10 bg-secondary row-span-1 flex items-center max-xl:col-span-9 max-md:col-span-full "}>
                     <Header/>
                 </header>
                 <main className={"col-span-10  row-span-11 max-xl:col-span-9 max-md:col-span-full"}>
