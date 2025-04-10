@@ -31,7 +31,8 @@
     --color-primary: #1A1A1A;
     --color-secondary: #E0E0E0;
     --font-fuzzy: "fuzzy";
-    --font-yekan: "yekan"
+    --font-yekan: "yekan";
+    --breakpoint-xs: 30rem;
 }
 html {
     scroll-behavior: smooth;

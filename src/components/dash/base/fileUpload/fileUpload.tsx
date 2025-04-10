@@ -31,14 +31,16 @@ function FileUpload({name, id}: { name: string, id: string }) {
             formData.append('image', file as File)
             uploadImage(formData).then((res) => {
                 setValues(prevState => [...prevState, res.downloadLink]);
+            }).finally(() => {
                 setImage(null);
-            }).finally(() => setLoading(false))
+                setLoading(false);
+            })
         }
     }
     return (
         <div className={"bg-secondary flex flex-col  p-5 gap-5 overflow-hidden"}>
             {!loading ?
-               ( <>
+                (<>
                     <div className={"flex items-center justify-center gap-10"}>
                         <div
                             className={"rounded-md border-2 border-darkChocolate h-32 w-32 relative flex items-center justify-center"}>
@@ -92,7 +94,8 @@ function FileUpload({name, id}: { name: string, id: string }) {
                     }
                 </>)
                 :
-                (<div className={"flex items-center justify-center"}><BarLoader  className={"bg-darkChocolate text-darkChocolate"}/></div>)
+                (<div className={"flex items-center justify-center"}><BarLoader
+                    className={"bg-darkChocolate text-darkChocolate"}/></div>)
             }
 
         </div>

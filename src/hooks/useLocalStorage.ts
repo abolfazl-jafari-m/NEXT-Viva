@@ -12,7 +12,7 @@ export const useLocalStorage = (key: string, initialValue: string | null = null)
         if (value && isClient) {
             localStorage.setItem(key, JSON.stringify(value));
         }
-    }, [key,  , isClient]);
+    }, [key, , isClient, value]);
 
     useEffect(() => {
         setIsClient(true)

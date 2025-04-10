@@ -8,12 +8,12 @@ const UserInfo = dynamic(() => import("@/components/dash/shared/userInfo/userInf
 
 function HeaderNav() {
     return (
-        <ul className={"flex items-center gap-3"}>
+        <ul className={"flex items-center gap-1.5"}>
             <UserInfo/>
-            <li className={"rounded-lg bg-darkChocolate text-white p-2 shadow shadow-black text-xl"}>
+            <li className={"rounded-lg bg-darkChocolate text-white p-2 shadow shadow-black text-xl max-sm:text-sm max-sm:p-1.5"}>
                 <IoIosSettings/>
             </li>
-            <li className={"rounded-lg bg-darkChocolate text-white p-2 shadow shadow-black text-xl"}>
+            <li className={"rounded-lg bg-darkChocolate text-white p-2 shadow shadow-black text-xl  max-sm:text-sm max-sm:p-1.5"}>
                 <BiSolidBellRing/>
             </li>
         </ul>

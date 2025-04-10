@@ -12,6 +12,8 @@ import {useQuery} from "@tanstack/react-query";
 
 const TableLoader = dynamic(() => import("@/components/dash/base/tableLoader/tableLoader"), {ssr: false})
 
+
+
 function Products() {
     const [search, setSearch] = useState<string>("");
     const {isLoading, data: products} = useQuery<Product[]>({queryKey: ["products"], queryFn: getProducts});
@@ -22,8 +24,8 @@ function Products() {
         } else {
             return []
         }
-    }, [search, products]);
 
+    }, [search, products]);
     if (isLoading) return (<div className={"flex items-center justify-center flex-col gap-7 p-10"}>
         <TableLoader/>
     </div>)
