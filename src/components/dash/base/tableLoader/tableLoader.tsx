@@ -6,7 +6,7 @@ function TableLoader() {
         <ContentLoader
             width={1000}
             height={550}
-            className={"max-md:w-[500px]"}
+            className={"xl:w-4/5 max-xl:w-5/6 max-sm:w-7/8 mx-auto max-h-[500px] max-xl:max-h-[400px] max-md:max-h-[330px] "}
             viewBox="0 0 1000 550"
             backgroundColor="#eaeced"
             foregroundColor="#ffffff"

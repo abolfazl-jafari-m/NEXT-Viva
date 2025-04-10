@@ -21,7 +21,7 @@ async function Inventory() {
                     ذخیره
                 </Button>
             </div>
-            <Suspense fallback={<div className={"flex items-center justify-center w-full h-full"}><TableLoader/></div>}>
+            <Suspense fallback={<TableLoader/>}>
                 <InventoryTable inventoryList={products.records}/>
             </Suspense>
         </div>

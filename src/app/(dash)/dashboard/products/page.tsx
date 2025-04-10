@@ -26,9 +26,7 @@ function Products() {
         }
 
     }, [search, products]);
-    if (isLoading) return (<div className={"flex items-center justify-center flex-col gap-7 p-10"}>
-        <TableLoader/>
-    </div>)
+    if (isLoading) return (<TableLoader/>)
     return (
         <div className={"flex flex-col gap-4 p-10 max-md:p-5"}>
             <div className={"flex items-center justify-between w-full max-sm:flex-col gap-5"}>

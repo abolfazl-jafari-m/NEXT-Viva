@@ -23,7 +23,7 @@ function Orders() {
         } else return []
     }, [filter, sortBy, orders]);
 
-    if (isLoading) return (<div className={"flex items-center justify-center flex-col gap-7 p-10"}><TableLoader/></div>)
+    if (isLoading) return (<TableLoader/>)
     return (
         <div className={"flex flex-col gap-3 p-10 max-md:p-5"}>
             <div>
