@@ -12,11 +12,11 @@ async function Inventory() {
     });
     const products = await data.json();
     return (
-        <div className={"flex flex-col gap-5 p-10"}>
+        <div className={"flex flex-col gap-5 p-10 max-md:p-4"}>
             <div className={"flex items-center justify-between"}>
-                <h1 className={"font-bold text-3xl"}>لیست موجودی</h1>
+                <h1 className={"font-bold text-3xl max-md:text-2xl"}>لیست موجودی</h1>
                 <Button
-                    className={"bg-darkChocolate py-2 px-8 rounded-lg shadow shadow text-white text-sm cursor-pointer"}
+                    className={"bg-darkChocolate py-2 px-8 rounded-lg shadow shadow text-white text-sm cursor-pointer max-md:px-6 py-1.5"}
                     type={"button"}>
                     ذخیره
                 </Button>

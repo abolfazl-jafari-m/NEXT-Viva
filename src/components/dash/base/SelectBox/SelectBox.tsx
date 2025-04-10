@@ -16,8 +16,8 @@ interface Option {
 function SelectBox({label, options, icon, id, ...res}: IProps) {
     return (
         <div className={"flex items-center gap-2"}>
-            <label htmlFor={id}>{label} :</label>
-            <div className={"bg-secondary rounded-lg relative cursor-pointer px-8 py-1"}>
+            <label className={"font-semibold max-lg:text-sm text-nowrap"} htmlFor={id}>{label} :</label>
+            <div className={"bg-secondary rounded-lg relative cursor-pointer px-8 max-md:px-5 py-1"}>
                 <select
                     {...res}
                     className={"appearance-none w-full h-full outline-none border-none  text-sm  text-center bg-secondary pl-4 block"}>

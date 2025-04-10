@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 function DashLayout({children}: { children: ReactNode }) {
     return (
             <div
-                className={"bg-white w-full h-screen min-lg:min-h-screen overflow-hidden grid grid-cols-12  grid-rows-12"}>
+                className={"bg-white w-full min-h-screen  grid grid-cols-12 overflow-x-hidden  grid-rows-12 max-md:pb-12"}>
                 <aside className={"col-span-2 row-span-full bg-primary py-5 max-xl:col-span-3 max-md:hidden"}>
                     <Aside/>
                 </aside>

@@ -30,20 +30,20 @@ function Products() {
         <TableLoader/>
     </div>)
     return (
-        <div className={"flex flex-col gap-4 p-10"}>
-            <div className={"flex items-center justify-between w-full"}>
-                <div className={"flex items-center gap-4"}>
-                    <h1 className={"font-bold text-4xl"}>محصولات</h1>
+        <div className={"flex flex-col gap-4 p-10 max-md:p-5"}>
+            <div className={"flex items-center justify-between w-full max-sm:flex-col gap-5"}>
+                <div className={"flex items-center gap-4 max-sm:justify-between max-md:w-full max-md:gap-2.5"}>
+                    <h1 className={"font-bold text-4xl max-lg:text-2xl"}>محصولات</h1>
                     <Link href={"/dashboard/products/add"}>
-                        <Button className={"bg-darkChocolate px-4 py-1 rounded-md text-white text-sm cursor-pointer"}
+                        <Button className={"bg-darkChocolate px-4 py-1 rounded-md text-white text-sm cursor-pointer text-nowrap"}
                                 type={"button"}>
                             افزودن محصول
                         </Button>
                     </Link>
                 </div>
                 <div
-                    className={"flex items-center gap-2 border border-black bg-secondary  px-4 py-1 rounded-md"}>
-                    <Input className={"flex-1 outline-none border-none bg-transparent"} name={"search"}
+                    className={"flex items-center gap-2 border border-black bg-secondary  px-4 py-1 rounded-md max-sm:w-full"}>
+                    <Input className={"flex-1 outline-none border-none bg-transparent "} name={"search"}
                            value={search}
                            onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
                            placeholder={"جستجو کنید"}/>

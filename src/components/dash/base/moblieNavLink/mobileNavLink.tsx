@@ -13,9 +13,9 @@ interface IProps {
 function MobileNavLink({label, href, icon}: IProps) {
     const pathName = usePathname();
     return (
-        <li className={`hover:bg-darkChocolate rounded-full  px-2 py-1 group  cursor-pointer w-full  text-white ${(pathName === href && "bg-darkChocolate text-primary ")} `}>
+        <li className={`hover:bg-darkChocolate rounded-full  px-2.5 py-1.5 group  cursor-pointer w-full  text-white ${(pathName === href && "bg-darkChocolate text-primary ")} `}>
             <Link href={href} className={"flex items-center gap-3 justify-center "}>
-                <p className={`${(pathName !== href && "hidden group-hover:block ")}`}>{label}</p>
+                <p className={`${(pathName !== href && "hidden group-hover:block max-md:text-sm ")}`}>{label}</p>
                 {icon}
             </Link>
         </li>

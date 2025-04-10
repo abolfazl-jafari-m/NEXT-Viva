@@ -37,39 +37,39 @@ function OrdersTable({orders}: { orders: Order[] }) {
 
     return (
         <>
-            <div className={"overflow-x-auto w-full max-h-[500px] overflow-y-auto no-scrollbar"}>
+            <div className={"overflow-x-auto w-full max-h-[500px]  max-xl:max-h-[400px] max-md:max-h-[330px]  overflow-y-auto no-scrollbar "}>
                 <table className={"border border-black border-collapse w-full  bg-darkChocolate"}>
                     <thead className={"bg-darkChocolate text-white sticky top-0 left-0 right-0 w-full"}>
-                    <tr className={"text-xl  text-center w-full"}>
-                        <th className={"p-1 "}>نام کاربر</th>
-                        <th className={"p-1 "}>مبلغ سفارش</th>
-                        <th className={"p-1 "}>زمان ثبت</th>
-                        <th className={"p-1 "}>وضعیت تحویل</th>
-                        <th className={"p-1 "}>فعالیت</th>
+                    <tr className={"text-xl  text-center w-full max-md:text-lg max-sm:text-[15px]"}>
+                        <th className={"p-1  text-nowrap"}>نام کاربر</th>
+                        <th className={"p-1  text-nowrap"}>مبلغ سفارش</th>
+                        <th className={"p-1  text-nowrap"}>زمان ثبت</th>
+                        <th className={"p-1  text-nowrap"}>وضعیت تحویل</th>
+                        <th className={"p-1  text-nowrap"}>فعالیت</th>
                     </tr>
                     </thead>
                     <tbody>
                     {paginatedItems.map(item => {
                         return (
                             <tr key={item.id}
-                                className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200"}>
-                                <td className={"w-1/5"}>{item.customer_name}</td>
-                                <td className={"w-1/5"}>{item.totalPrice}</td>
-                                <td className={"w-1/5"}>{new Date(item.createdAt).toLocaleDateString("fa", {
+                                className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200 max-md:text-sm"}>
+                                <td className={"w-1/5 p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.customer_name}</td>
+                                <td className={"w-1/5 p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.totalPrice}</td>
+                                <td className={"w-1/5 p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{new Date(item.createdAt).toLocaleDateString("fa", {
                                     year: "2-digit",
                                     month: "long",
                                     day: "numeric"
                                 })}</td>
-                                <td className={"w-1/5"}>
+                                <td className={"w-1/5 p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>
                                     <div className={"w-full flex justify-center h-full"}>
                                         {item.status === "delivered" ? <FaFileCircleCheck size={20}/> :
                                             <MdOutlinePendingActions size={22}/>}
                                     </div>
                                 </td>
-                                <td className={"mx-auto p-2 w-1/5"}>
+                                <td className={"mx-auto p-2 w-1/5max-sm:border max-sm:border-black/50 text-nowrap"}>
                                     <Link href={`/dashboard/orders/${item.id}`}>
                                         <Button
-                                            className={"bg-sky-900 px-6 py-0.5 rounded-md text-white text-xs cursor-pointer"}
+                                            className={"bg-sky-900 px-6 py-0.5 rounded-md text-white text-xs cursor-pointer text-nowrap"}
                                             type={"button"}>
                                             بررسی سفارش
                                         </Button>
@@ -82,7 +82,7 @@ function OrdersTable({orders}: { orders: Order[] }) {
                     </tbody>
                 </table>
             </div>
-            <div className={"flex items-center gap-6"}>
+            <div className={"flex items-center gap-6 max-md:justify-between"}>
                 <div className={"flex items-center gap-4 text-lg"}>
                     <MdOutlineKeyboardArrowRight onClick={prev}/>
                     <MdOutlineKeyboardArrowLeft onClick={next}/>

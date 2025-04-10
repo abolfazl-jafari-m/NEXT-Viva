@@ -25,7 +25,7 @@ import {MonthlyChart} from "@/constants/charts";
 
 function MonthlySales() {
     return (
-        <div className={"h-[400px] p-5  rounded-md bg-primary text-white shadow shadow-black"}>
+        <div className={"h-[400px] p-5  rounded-md bg-primary text-white shadow shadow-black max-md:h-[305px] flex items-center justify-center "}>
             <Bar data={MonthlyChart.data} options={MonthlyChart.options}/>
         </div>
     );

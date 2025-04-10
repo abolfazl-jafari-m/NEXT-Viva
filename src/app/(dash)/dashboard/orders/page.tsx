@@ -25,12 +25,12 @@ function Orders() {
 
     if (isLoading) return (<div className={"flex items-center justify-center flex-col gap-7 p-10"}><TableLoader/></div>)
     return (
-        <div className={"flex flex-col gap-3 p-10"}>
+        <div className={"flex flex-col gap-3 p-10 max-md:p-5"}>
             <div>
-                <h1 className={"text-3xl font-bold"}>سفارشها</h1>
+                <h1 className={"text-3xl font-bold max-md:text-2xl"}>سفارشها</h1>
             </div>
             <div className={"flex flex-col gap-4"}>
-                <div className={" mr-auto flex items-center gap-15"}>
+                <div className={" xl:mr-auto max-xl:justify-between max-md:items-end  flex items-center gap-15 max-lg:gap-10 max-md:gap-4 max-md:flex-col"}>
                     <SelectBox id={"sort"}
                                value={sortBy}
                                onChange={(e: ChangeEvent<HTMLSelectElement>) => setSortBy(e.target.value)}

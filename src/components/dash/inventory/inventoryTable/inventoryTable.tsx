@@ -31,23 +31,23 @@ function InventoryTable({inventoryList}: { inventoryList: Product[] }) {
 
     return (
         <>
-            <div className={"overflow-x-auto w-full max-h-[500px] overflow-y-auto no-scrollbar"}>
+            <div className={"overflow-x-auto w-full max-h-[500px] max-xl:max-h-[400px] max-md:max-h-[330px] overflow-y-auto no-scrollbar"}>
                 <table className={"border border-black border-collapse w-full  bg-darkChocolate"}>
                     <thead className={"bg-darkChocolate text-white sticky top-0 left-0 right-0 w-full"}>
-                    <tr className={"text-xl  text-center w-full"}>
-                        <th className={"p-1 "}>نام محصول</th>
-                        <th className={"p-1 "}>قیمت</th>
-                        <th className={"p-1 "}>تعداد</th>
+                    <tr className={"text-xl  text-center w-full max-md:text-lg max-sm:text-[15px]"}>
+                        <th className={"p-1 text-nowrap"}>نام محصول</th>
+                        <th className={"p-1 text-nowrap"}>قیمت</th>
+                        <th className={"p-1 text-nowrap"}>تعداد</th>
                     </tr>
                     </thead>
                     <tbody>
                     {paginatedItems.map(item => {
                         return (
                             <tr key={item.id}
-                                className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200"}>
-                                <td className={"w-1/3 px-2 py-1"}> {item.title}</td>
-                                <TableCell value={item.price} className={"w-1/3 px-2"}/>
-                                <TableCell value={item.inventory} className={"w-1/3 px-2"}/>
+                                className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200 max-md:text-sm"}>
+                                <td className={"w-1/3 px-2 py-1  max-sm:border max-sm:border-black/50 text-nowrap"}> {item.title}</td>
+                                <TableCell value={item.price} className={"w-1/3 px-2  max-sm:border max-sm:border-black/50 text-nowrap"}/>
+                                <TableCell value={item.inventory} className={"w-1/3 px-2  max-sm:border max-sm:border-black/50 text-nowrap"}/>
                             </tr>
                         )
                     })}
@@ -55,7 +55,7 @@ function InventoryTable({inventoryList}: { inventoryList: Product[] }) {
                     </tbody>
                 </table>
             </div>
-            <div className={"flex items-center gap-6"}>
+            <div className={"flex items-center gap-6 max-md:justify-between"}>
                 <div className={"flex items-center gap-4 text-lg"}>
                     <MdOutlineKeyboardArrowRight onClick={prev}/>
                     <MdOutlineKeyboardArrowLeft onClick={next}/>

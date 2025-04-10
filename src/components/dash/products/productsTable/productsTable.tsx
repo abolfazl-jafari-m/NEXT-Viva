@@ -32,31 +32,31 @@ function ProductTable({products}: { products: Product[] }) {
 
     return (
         <>
-            <div className={"overflow-x-auto w-full max-h-[500px] overflow-y-auto no-scrollbar"}>
+            <div className={"overflow-x-auto w-full max-h-[500px]  max-xl:max-h-[400px] max-md:max-h-[330px]  overflow-y-auto no-scrollbar "}>
                 <table className={"border border-black border-collapse w-full  bg-darkChocolate"}>
                     <thead className={"bg-darkChocolate text-white sticky top-0 left-0 right-0 w-full"}>
-                    <tr className={"text-xl  text-center w-full"}>
-                        <th className={"p-1 "}>تصویر</th>
-                        <th className={"p-1 "}>نام محصول</th>
-                        <th className={"p-1 "}>قیمت</th>
-                        <th className={"p-1 "}>برند</th>
-                        <th className={"p-1 "}>فعالیت</th>
+                    <tr className={"text-xl  text-center w-full max-md:text-lg max-sm:text-[15px]"}>
+                        <th className={"p-1 text-nowrap"}>تصویر</th>
+                        <th className={"p-1 text-nowrap"}>نام محصول</th>
+                        <th className={"p-1 text-nowrap"}>قیمت</th>
+                        <th className={"p-1 text-nowrap"}>برند</th>
+                        <th className={"p-1 text-nowrap"}>فعالیت</th>
                     </tr>
                     </thead>
                     <tbody>
                     {paginatedItems.map(item => {
                         return (
                             <tr key={item.id}
-                                className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200"}>
-                                <td className={"p-2"}>
+                                className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200 max-md:text-sm"}>
+                                <td className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>
                                     <img src={`http://api.alikooshesh.ir:3000${item.images[0]}`} alt={item.title}
                                          className={"w-10 h-10 rounded-md mx-auto"}/>
                                 </td>
-                                <td>{item.title}</td>
-                                <td>{item.price}</td>
-                                <td>{item.brand}</td>
-                                <td className={"mx-auto"}>
-                                    <div className={"flex items-center justify-center gap-2"}>
+                                <td  className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.title}</td>
+                                <td  className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.price}</td>
+                                <td  className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.brand}</td>
+                                <td className={"mx-auto p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>
+                                    <div className={"flex items-center justify-center gap-2 max-md:gap-1 max-sm:p-1.5"}>
                                         <Link href={`/dashboard/products/edit/${item.id}`}>
                                             <Button
                                                 className={"bg-yellow-700 rounded-md p-2 text-white text-sm hover:bg-yellow-500 cursor-pointer"}
@@ -78,7 +78,7 @@ function ProductTable({products}: { products: Product[] }) {
                     </tbody>
                 </table>
             </div>
-            <div className={"flex items-center gap-6"}>
+            <div className={"flex items-center gap-6 max-md:justify-between"}>
                 <div className={"flex items-center gap-4 text-lg"}>
                     <MdOutlineKeyboardArrowRight onClick={prev}/>
                     <MdOutlineKeyboardArrowLeft onClick={next}/>

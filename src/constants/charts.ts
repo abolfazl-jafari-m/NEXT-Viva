@@ -146,7 +146,7 @@ export const YearlyChart = {
         responsive: true,
         plugins: {
             legend: {
-                position: "right" as const,
+                position: "top" as const,
                 labels: {
                     color: "#fff",
                     font: {
