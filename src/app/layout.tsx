@@ -3,6 +3,8 @@ import "./globals.css";
 import localFont from 'next/font/local'
 import {Toaster} from "react-hot-toast";
 import ReactQueryProvider from "@/lib/providers/reactQueryProvider";
+import {getLocale} from "next-intl/server";
+import {NextIntlClientProvider} from "next-intl";
 
 const vazir = localFont({
     src: [
@@ -43,20 +45,23 @@ export const metadata: Metadata = {
     description: "مرجع تخصصی عطر و ادکلن",
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
+export default async function RootLayout({
+                                             children,
+                                         }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const locale = await getLocale()
     return (
-        <html lang="fa" dir={"rtl"} className={"no-scrollbar"}>
+        <html lang={locale} dir={"rtl"} className={"no-scrollbar"}>
         <body
             className={`${vazir.className} no-scrollbar`}
             cz-shortcut-listen="true"
         >
-        <ReactQueryProvider>
-            {children}
-        </ReactQueryProvider>
+        <NextIntlClientProvider>
+            <ReactQueryProvider>
+                {children}
+            </ReactQueryProvider>
+        </NextIntlClientProvider>
         <Toaster/>
         </body>
         </html>

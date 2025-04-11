@@ -11,10 +11,12 @@ import {LuArrowDownWideNarrow} from "react-icons/lu";
 import {FaFileCircleCheck} from "react-icons/fa6";
 import Link from "next/link";
 import {Order} from "@/interfaces/interfaces";
+import {useTranslations} from "next-intl";
 
 function OrdersTable({orders}: { orders: Order[] }) {
     const [current, setCurrent] = useState<number>(0);
     const [itemPerPage, setItemPerPage] = useState<string>("5");
+    const t = useTranslations("dashOrders");
 
     const paginatedItems = useMemo(() => {
         if (orders.length > 0) {
@@ -41,11 +43,11 @@ function OrdersTable({orders}: { orders: Order[] }) {
                 <table className={"border border-black border-collapse w-full  bg-darkChocolate"}>
                     <thead className={"bg-darkChocolate text-white sticky top-0 left-0 right-0 w-full"}>
                     <tr className={"text-xl  text-center w-full max-md:text-lg max-sm:text-[15px]"}>
-                        <th className={"p-1  text-nowrap"}>نام کاربر</th>
-                        <th className={"p-1  text-nowrap"}>مبلغ سفارش</th>
-                        <th className={"p-1  text-nowrap"}>زمان ثبت</th>
-                        <th className={"p-1  text-nowrap"}>وضعیت تحویل</th>
-                        <th className={"p-1  text-nowrap"}>فعالیت</th>
+                        <th className={"p-1  text-nowrap"}>{t("name")}</th>
+                        <th className={"p-1  text-nowrap"}>{t("price")}</th>
+                        <th className={"p-1  text-nowrap"}>{t("order_time")}</th>
+                        <th className={"p-1  text-nowrap"}>{t("status")}</th>
+                        <th className={"p-1  text-nowrap"}>{t("actions")}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -71,7 +73,7 @@ function OrdersTable({orders}: { orders: Order[] }) {
                                         <Button
                                             className={"bg-sky-900 px-6 py-0.5 rounded-md text-white text-xs cursor-pointer text-nowrap"}
                                             type={"button"}>
-                                            بررسی سفارش
+                                            {t("check")}
                                         </Button>
                                     </Link>
                                 </td>
@@ -88,7 +90,7 @@ function OrdersTable({orders}: { orders: Order[] }) {
                     <MdOutlineKeyboardArrowLeft onClick={next}/>
                 </div>
                 <span className={"text-sm"}>
-                  صفحه {current + 1} از {Math.ceil(orders.length / +itemPerPage)}
+                  {t("sheet")} {current + 1} از {Math.ceil(orders.length / +itemPerPage)}
                 </span>
                 <div className={"w-32 border border-black rounded-md  relative"}>
                     <select className={" appearance-none w-full outline-none border-none px-1"}
@@ -99,7 +101,7 @@ function OrdersTable({orders}: { orders: Order[] }) {
                             value={itemPerPage}>
                         <option value={"5"}>5</option>
                         <option value={"7"}>7</option>
-                        <option value={orders.length}>همه</option>
+                        <option value={orders.length}>{t("all")}</option>
                     </select>
                     <div className={"absolute top-1/2 -translate-y-1/2 left-1"}>
                         <LuArrowDownWideNarrow/>

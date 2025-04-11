@@ -1,0 +1,58 @@
+{
+  "dashboardPage": {
+    "title": "داشبورد",
+    "vivaPanelAdmin": "پنل ادمین ویوا",
+    "dashboard": "داشبورد",
+    "products": "محصولات",
+    "orders": "سفارشها",
+    "inventory": "موجودی",
+    "logout": "خروج از حساب کاربری"
+  },
+  "dashProducts": {
+    "title": "محصولات",
+    "add": "افزودن محصول",
+    "image": "تصویر",
+    "name": "نام محصول",
+    "price": "قیمت",
+    "brand": "برند",
+    "actions": "فعالیت",
+    "search": "جستجو کنید...",
+    "sheet": "صفحه",
+    "all": "همه"
+  },
+  "dashOrders": {
+    "title": "سفارشها",
+    "name": "نام کاربر",
+    "price": "مبلغ سفارش",
+    "order_time": "زمان ثبت",
+    "status": "وضعیت تحویل",
+    "actions": "فعالیت",
+    "check": "بررسی سفارش",
+    "sortBy": "مرتب سازی",
+    "filter": "فیلتر سفارشها",
+    "all": "همه",
+    "pending": "در حال انتظار",
+    "delivered": "تحویل شده",
+    "byPrice": "براساس قیمت",
+    "byTime": "براساس تاریخ سفارش",
+    "sheet": "صفحه"
+  },
+  "dashInventory": {
+    "title": "لیست موجودی",
+    "name": "نام محصول",
+    "price": "قیمت",
+    "quantity": "تعداد",
+    "save": "ذخیره",
+    "sheet": "صفحه",
+    "all": "همه"
+  },
+  "login" : {
+    "title": "صفحه ورود",
+    "emailPlaceholder": "ایمیل کاربری خود را وارد کنید",
+    "passPlaceholder" : "رمز عبور خود را وارد کنید",
+    "login": "ورود",
+    "notMember" : "هنوز ثبت نام نکردید ؟",
+    "emailRequired": "لطفا ایمیل خود را وارد کنید",
+    "passRequired": "لطفا رمز عبور خود را وارد کنید"
+  }
+}

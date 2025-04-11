@@ -6,10 +6,12 @@ import {pagination} from "@/lib/utils/helpers";
 import Button from "@/components/dash/base/button/button";
 import Link from "next/link";
 import {Product} from "@/interfaces/interfaces";
+import {useTranslations} from "next-intl";
 
 function ProductTable({products}: { products: Product[] }) {
     const [current, setCurrent] = useState<number>(0);
     const [itemPerPage, setItemPerPage] = useState<string>("5");
+    const t = useTranslations("dashProducts")
 
     const paginatedItems = useMemo(() => {
         if (products.length > 0) {
@@ -32,15 +34,16 @@ function ProductTable({products}: { products: Product[] }) {
 
     return (
         <>
-            <div className={"overflow-x-auto w-full max-h-[500px]  max-xl:max-h-[400px] max-md:max-h-[330px]  overflow-y-auto no-scrollbar "}>
+            <div
+                className={"overflow-x-auto w-full max-h-[500px]  max-xl:max-h-[400px] max-md:max-h-[330px]  overflow-y-auto no-scrollbar "}>
                 <table className={"border border-black border-collapse w-full  bg-darkChocolate"}>
                     <thead className={"bg-darkChocolate text-white sticky top-0 left-0 right-0 w-full"}>
                     <tr className={"text-xl  text-center w-full max-md:text-lg max-sm:text-[15px]"}>
-                        <th className={"p-1 text-nowrap"}>تصویر</th>
-                        <th className={"p-1 text-nowrap"}>نام محصول</th>
-                        <th className={"p-1 text-nowrap"}>قیمت</th>
-                        <th className={"p-1 text-nowrap"}>برند</th>
-                        <th className={"p-1 text-nowrap"}>فعالیت</th>
+                        <th className={"p-1 text-nowrap"}>{t("image")}</th>
+                        <th className={"p-1 text-nowrap"}>{t("name")}</th>
+                        <th className={"p-1 text-nowrap"}>{t("price")}</th>
+                        <th className={"p-1 text-nowrap"}>{t("brand")}</th>
+                        <th className={"p-1 text-nowrap"}>{t("actions")}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -52,9 +55,9 @@ function ProductTable({products}: { products: Product[] }) {
                                     <img src={`http://api.alikooshesh.ir:3000${item.images[0]}`} alt={item.title}
                                          className={"w-10 h-10 rounded-md mx-auto"}/>
                                 </td>
-                                <td  className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.title}</td>
-                                <td  className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.price}</td>
-                                <td  className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.brand}</td>
+                                <td className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.title}</td>
+                                <td className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.price}</td>
+                                <td className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.brand}</td>
                                 <td className={"mx-auto p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>
                                     <div className={"flex items-center justify-center gap-2 max-md:gap-1 max-sm:p-1.5"}>
                                         <Link href={`/dashboard/products/edit/${item.id}`}>
@@ -84,7 +87,7 @@ function ProductTable({products}: { products: Product[] }) {
                     <MdOutlineKeyboardArrowLeft onClick={next}/>
                 </div>
                 <span className={"text-sm"}>
-                  صفحه {current + 1} از {Math.ceil(products.length / +itemPerPage)}
+                  {t("sheet")} {current + 1} از {Math.ceil(products.length / +itemPerPage)}
                 </span>
                 <div className={"w-32 border border-black rounded-md  relative"}>
                     <select className={" appearance-none w-full outline-none border-none px-1"}
@@ -95,7 +98,7 @@ function ProductTable({products}: { products: Product[] }) {
                             value={itemPerPage}>
                         <option value={"5"}>5</option>
                         <option value={"7"}>7</option>
-                        <option value={products.length}>همه</option>
+                        <option value={products.length}>{t("all")}</option>
                     </select>
                     <div className={"absolute top-1/2 -translate-y-1/2 left-1"}>
                         <LuArrowDownWideNarrow/>

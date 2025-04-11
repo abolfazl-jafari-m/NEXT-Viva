@@ -9,12 +9,14 @@ import {getProducts} from "@/services/products";
 import dynamic from "next/dynamic";
 import {Product} from "@/interfaces/interfaces";
 import {useQuery} from "@tanstack/react-query";
+import {useTranslations} from "next-intl";
 
 const TableLoader = dynamic(() => import("@/components/dash/base/tableLoader/tableLoader"), {ssr: false})
 
 
 
 function Products() {
+    const t = useTranslations("dashProducts")
     const [search, setSearch] = useState<string>("");
     const {isLoading, data: products} = useQuery<Product[]>({queryKey: ["products"], queryFn: getProducts});
     const filteredProducts = useMemo(() => {
@@ -31,11 +33,11 @@ function Products() {
         <div className={"flex flex-col gap-4 p-10 max-md:p-5"}>
             <div className={"flex items-center justify-between w-full max-sm:flex-col gap-5"}>
                 <div className={"flex items-center gap-4 max-sm:justify-between max-md:w-full max-md:gap-2.5"}>
-                    <h1 className={"font-bold text-4xl max-lg:text-2xl"}>محصولات</h1>
+                    <h1 className={"font-bold text-4xl max-lg:text-2xl"}>{t("title")}</h1>
                     <Link href={"/dashboard/products/add"}>
                         <Button className={"bg-darkChocolate px-4 py-1 rounded-md text-white text-sm cursor-pointer text-nowrap"}
                                 type={"button"}>
-                            افزودن محصول
+                            {t("add")}
                         </Button>
                     </Link>
                 </div>
@@ -44,7 +46,7 @@ function Products() {
                     <Input className={"flex-1 outline-none border-none bg-transparent "} name={"search"}
                            value={search}
                            onChange={(e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
-                           placeholder={"جستجو کنید"}/>
+                           placeholder={t("search")}/>
                     <FaSearch/>
                 </div>
             </div>

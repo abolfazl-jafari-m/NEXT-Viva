@@ -5,10 +5,12 @@ import {MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight} from "react-ico
 import {LuArrowDownWideNarrow} from "react-icons/lu";
 import TableCell from "@/components/dash/inventory/tableCell/tableCell";
 import {Product} from "@/interfaces/interfaces";
+import {useTranslations} from "next-intl";
 
 function InventoryTable({inventoryList}: { inventoryList: Product[] }) {
     const [current, setCurrent] = useState<number>(0);
     const [itemPerPage, setItemPerPage] = useState<string>("5");
+    const t = useTranslations("dashInventory");
 
     const paginatedItems = useMemo(() => {
         if (inventoryList.length > 0) {
@@ -31,13 +33,14 @@ function InventoryTable({inventoryList}: { inventoryList: Product[] }) {
 
     return (
         <>
-            <div className={"overflow-x-auto w-full max-h-[500px] max-xl:max-h-[400px] max-md:max-h-[330px] overflow-y-auto no-scrollbar"}>
+            <div
+                className={"overflow-x-auto w-full max-h-[500px] max-xl:max-h-[400px] max-md:max-h-[330px] overflow-y-auto no-scrollbar"}>
                 <table className={"border border-black border-collapse w-full  bg-darkChocolate"}>
                     <thead className={"bg-darkChocolate text-white sticky top-0 left-0 right-0 w-full"}>
                     <tr className={"text-xl  text-center w-full max-md:text-lg max-sm:text-[15px]"}>
-                        <th className={"p-1 text-nowrap"}>نام محصول</th>
-                        <th className={"p-1 text-nowrap"}>قیمت</th>
-                        <th className={"p-1 text-nowrap"}>تعداد</th>
+                        <th className={"p-1 text-nowrap"}>{t("name")}</th>
+                        <th className={"p-1 text-nowrap"}>{t("price")}</th>
+                        <th className={"p-1 text-nowrap"}>{t("quantity")}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -46,8 +49,10 @@ function InventoryTable({inventoryList}: { inventoryList: Product[] }) {
                             <tr key={item.id}
                                 className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200 max-md:text-sm"}>
                                 <td className={"w-1/3 px-2 py-1  max-sm:border max-sm:border-black/50 text-nowrap"}> {item.title}</td>
-                                <TableCell value={item.price} className={"w-1/3 px-2  max-sm:border max-sm:border-black/50 text-nowrap"}/>
-                                <TableCell value={item.inventory} className={"w-1/3 px-2  max-sm:border max-sm:border-black/50 text-nowrap"}/>
+                                <TableCell value={item.price}
+                                           className={"w-1/3 px-2  max-sm:border max-sm:border-black/50 text-nowrap"}/>
+                                <TableCell value={item.inventory}
+                                           className={"w-1/3 px-2  max-sm:border max-sm:border-black/50 text-nowrap"}/>
                             </tr>
                         )
                     })}
@@ -61,7 +66,7 @@ function InventoryTable({inventoryList}: { inventoryList: Product[] }) {
                     <MdOutlineKeyboardArrowLeft onClick={next}/>
                 </div>
                 <span className={"text-sm"}>
-                  صفحه {current + 1} از {Math.ceil(inventoryList.length / +itemPerPage)}
+                  {t("sheet")} {current + 1} از {Math.ceil(inventoryList.length / +itemPerPage)}
                 </span>
                 <div className={"w-32 border border-black rounded-md  relative"}>
                     <select className={" appearance-none w-full outline-none border-none px-1"}
@@ -72,7 +77,7 @@ function InventoryTable({inventoryList}: { inventoryList: Product[] }) {
                             value={itemPerPage}>
                         <option value={"5"}>5</option>
                         <option value={"7"}>7</option>
-                        <option value={inventoryList.length}>همه</option>
+                        <option value={inventoryList.length}>{t("all")}</option>
                     </select>
                     <div className={"absolute top-1/2 -translate-y-1/2 left-1"}>
                         <LuArrowDownWideNarrow/>

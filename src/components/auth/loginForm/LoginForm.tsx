@@ -1,5 +1,5 @@
 "use client"
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 import {FaRegEye} from "react-icons/fa";
 import {FaRegEyeSlash} from "react-icons/fa";
 import {SubmitHandler, useForm} from "react-hook-form";
@@ -7,7 +7,7 @@ import {getUser, login} from "@/services/users";
 import {useLocalStorage} from "@/hooks/useLocalStorage";
 import {redirect} from "next/navigation";
 import Link from "next/link";
-
+import {useTranslations} from "next-intl";
 
 
 type Inputs = {
@@ -20,6 +20,7 @@ function LoginForm() {
     const [showPass, setShowPass] = useState<boolean>(false);
     const {register, formState: {errors}, handleSubmit} = useForm<Inputs>()
     const [_, setToken] = useLocalStorage("token");
+    const t = useTranslations("login")
 
     const handleLogin: SubmitHandler<Inputs> = (data) => {
         login(data.email, data.password)
@@ -43,9 +44,9 @@ function LoginForm() {
                 <div className={" rounded-md border border-white"}>
                     <input type={"text"}
                            className={"w-full h-full px-6 py-3 text-white placeholder:text-white/60 outline-none font-light"}
-                           placeholder={"نام کاربری خود را وارد کنید"}
+                           placeholder={t("emailPlaceholder")}
                            {...register("email", {
-                               required: "لطفن ایمیل خود را وارد کنید",
+                               required: t("emailRequired")
                            })}
                     />
                 </div>
@@ -54,9 +55,9 @@ function LoginForm() {
             <div className={"flex flex-col gap-2"}>
                 <div className={" rounded-md border border-white flex gap-2 items-center "}>
                     <input type={showPass ? "text" : "password"}
-                           {...register("password", {required: "لطفن پسورد خود را وارد کنید"})}
+                           {...register("password", {required: t("passRequired")})}
                            className={"w-full h-full text-white placeholder:text-white/60 outline-none font-light  px-6 py-3"}
-                           placeholder={"رمز عبور خود را وارد کنید"}/>
+                           placeholder={t("passPlaceholder")}/>
                     <div onClick={() => setShowPass(!showPass)} className={"cursor-pointer pl-3"}>
                         {showPass ?
                             <FaRegEye color={"white"} size={16}/>
@@ -68,11 +69,11 @@ function LoginForm() {
                 {errors.password && <p className={"text-sm text-red-600"}>{errors.password.message}</p>}
             </div>
             <Link href={"/register"} className={"cursor-pointer"}>
-                <p className={"text-sm text-white/70 font-semibold text-center"}>هنوز ثبت نام نکرده اید ؟</p>
+                <p className={"text-sm text-white/70 font-semibold text-center"}>{t("notMember")}</p>
             </Link>
             <button
                 className={"font-light py-2 px-8 self-center cursor-pointer rounded-lg bg-darkerGold text-white/80"}
-            >ورود
+            >{t("login")}
             </button>
         </form>
     )

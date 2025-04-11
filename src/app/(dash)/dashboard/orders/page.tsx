@@ -9,6 +9,7 @@ import {getOrders} from "@/services/orders";
 import dynamic from "next/dynamic";
 import {useQuery} from "@tanstack/react-query";
 import {Order} from "@/interfaces/interfaces";
+import {useTranslations} from "next-intl";
 
 const TableLoader = dynamic(() => import("@/components/dash/base/tableLoader/tableLoader"), {ssr: false})
 
@@ -16,6 +17,7 @@ function Orders() {
     const {isLoading, data: orders} = useQuery<Order[]>({queryKey: ["orders"], queryFn: getOrders})
     const [filter, setFilter] = useState<string>("All");
     const [sortBy, setSortBy] = useState<string>("");
+    const t = useTranslations("dashOrders");
 
     const filteredOrders = useMemo(() => {
         if (orders) {
@@ -27,27 +29,27 @@ function Orders() {
     return (
         <div className={"flex flex-col gap-3 p-10 max-md:p-5"}>
             <div>
-                <h1 className={"text-3xl font-bold max-md:text-2xl"}>سفارشها</h1>
+                <h1 className={"text-3xl font-bold max-md:text-2xl"}>{t("title")}</h1>
             </div>
             <div className={"flex flex-col gap-4"}>
                 <div className={" xl:mr-auto max-xl:justify-between max-md:items-end  flex items-center gap-15 max-lg:gap-10 max-md:gap-4 max-md:flex-col"}>
                     <SelectBox id={"sort"}
                                value={sortBy}
                                onChange={(e: ChangeEvent<HTMLSelectElement>) => setSortBy(e.target.value)}
-                               label={"مرتب سازی"} icon={<FaSortNumericDown/>}
+                               label={t("sortBy")} icon={<FaSortNumericDown/>}
                                options={
                                    [{value: "", label: "--"},
-                                       {value: "price", label: "براساس قیمت"},
-                                       {value: "date", label: "براساس تاریخ سفارش"}
+                                       {value: "price", label:t("byPrice")},
+                                       {value: "date", label:t("byTime")}
                                    ]}/>
                     <SelectBox id={"filtering"}
                                value={filter}
                                onChange={(e: ChangeEvent<HTMLSelectElement>) => setFilter(e.target.value)}
-                               label={"فیلتر سفارشها"} icon={<RxDropdownMenu/>}
+                               label={t("filter")} icon={<RxDropdownMenu/>}
                                options={
-                                   [{value: "All", label: "همه"},
-                                       {value: "pending", label: "در حال انتظار"},
-                                       {value: "delivered", label: "تحویل شده"}
+                                   [{value: "All", label:t("all")},
+                                       {value: "pending", label: t("pending")},
+                                       {value: "delivered", label: t("delivered")}
                                    ]}/>
                 </div>
                 <OrdersTable orders={filteredOrders}/>
