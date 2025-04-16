@@ -45,3 +45,13 @@ export interface UserInterface {
     avatar: string;
     createdAt: string;
 }
+
+export interface SignInIterFace {
+    email: string;
+    name: string;
+    lastName: string;
+    phoneNumber: string;
+    role: string;
+    password: string,
+    address: string;
+}

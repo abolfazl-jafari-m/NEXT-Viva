@@ -4,10 +4,10 @@ import {FaRegEye} from "react-icons/fa";
 import {FaRegEyeSlash} from "react-icons/fa";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {getUser, login} from "@/services/users";
-import {useLocalStorage} from "@/hooks/useLocalStorage";
 import {redirect} from "next/navigation";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
+import {setCookie} from "cookies-next";
 
 
 type Inputs = {
@@ -19,13 +19,14 @@ type Inputs = {
 function LoginForm() {
     const [showPass, setShowPass] = useState<boolean>(false);
     const {register, formState: {errors}, handleSubmit} = useForm<Inputs>()
-    const [_, setToken] = useLocalStorage("token");
+    // const [_, setToken] = useLocalStorage("token");
     const t = useTranslations("login")
 
     const handleLogin: SubmitHandler<Inputs> = (data) => {
         login(data.email, data.password)
             .then((res) => {
-                setToken(res.accessToken);
+                // setToken(res.accessToken);
+                setCookie("accessToken", res.accessToken)
                 return res.accessToken;
             }).then(res => getUser(res))
             .then(res => {
