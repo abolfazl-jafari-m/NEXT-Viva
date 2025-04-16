@@ -6,6 +6,7 @@ import {setCookie} from "cookies-next";
 import {redirect} from "next/navigation";
 import {BeatLoader} from "react-spinners";
 import Link from "next/link";
+import {useTranslations} from "next-intl";
 
 
 type Inputs = {
@@ -24,6 +25,7 @@ const PasswordPattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,16}$/
 
 
 function RegisterForm() {
+    const t = useTranslations("register");
     const {register, formState: {errors}, handleSubmit, getValues} = useForm<Inputs>();
     const [isLoading, setIsLoading] = useState(false);
     const handleRegister: SubmitHandler<Inputs> = (data) => {
@@ -37,15 +39,16 @@ function RegisterForm() {
 
     }
     return (
-        <form className={`grid grid-cols-2 gap-y-3 gap-x-7 w-full max-md:grid-cols-1 `} onSubmit={handleSubmit(handleRegister)}>
+        <form className={`grid grid-cols-2 gap-y-3 gap-x-7 w-full max-md:grid-cols-1 `}
+              onSubmit={handleSubmit(handleRegister)}>
             <div className={"flex flex-col gap-2"}>
                 <div className={"rounded-md border border-secondary "}>
                     <input type={"text"}
                            {...register("name", {
-                               required: "لطفا نام خود را وارد کنید.."
+                               required: t("nameError")
                            })}
                            className={"w-full h-full px-5 py-2 text-white placeholder:text-white/60 outline-none font-light"}
-                           placeholder={"نام خود را وارد کنید"}
+                           placeholder={t("namePlaceholder")}
                     />
                 </div>
                 <div className={"min-h-5"}>
@@ -57,10 +60,10 @@ function RegisterForm() {
                 <div className={"rounded-md border border-secondary "}>
                     <input type={"text"}
                            {...register("lastName", {
-                               required: "لطفا نام خانوادگی خود را وارد کنید.."
+                               required: t("lastNameError")
                            })}
                            className={"w-full h-full px-5 py-2 text-white placeholder:text-white/60 outline-none font-light"}
-                           placeholder={"نام خانوادگی خود را وارد کنید"}
+                           placeholder={t("lastNamePlaceholder")}
                     />
                 </div>
                 <div className={"min-h-5"}>
@@ -72,14 +75,14 @@ function RegisterForm() {
                 <div className={"rounded-md border border-secondary "}>
                     <input type={"text"}
                            {...register("phoneNumber", {
-                               required: "لطفن تلفن خود را وارد کنید..",
+                               required: t("phoneError"),
                                pattern: {
                                    value: PhonePattern,
-                                   message: "فرمت صحیح شماره موبایل وارد کنید"
+                                   message: t("phoneErrorRegex")
                                }
                            })}
                            className={"w-full h-full px-5 py-2 text-white placeholder:text-white/60 outline-none font-light"}
-                           placeholder={"شماره تلفن خود ر ا وارد کنید"}
+                           placeholder={t("phonePlaceholder")}
                     />
                 </div>
                 <div className={"min-h-5"}>
@@ -92,14 +95,14 @@ function RegisterForm() {
                 <div className={"rounded-md border border-secondary "}>
                     <input type={"text"}
                            {...register("email", {
-                               required: "لطفا ایمیل خود را وارد کنید..",
+                               required: t("emailError"),
                                pattern: {
                                    value: EmailPattern,
-                                   message: "فرمت ایمیل وارد شده ناردست است"
+                                   message: t("emailErrorRegex")
                                }
                            })}
                            className={"w-full h-full px-5 py-2 text-white placeholder:text-white/60 outline-none font-light"}
-                           placeholder={"ایمیل خود را وارد کنید"}
+                           placeholder={t("emailPlaceholder")}
                     />
                 </div>
                 <div className={"min-h-5"}>
@@ -111,10 +114,10 @@ function RegisterForm() {
                 <div className={"rounded-md border border-secondary "}>
                     <textarea draggable={false} rows={5}
                               {...register("address", {
-                                  required: "لطفا آدرس  خود را وارد کنید..",
+                                  required: t("addressError")
                               })}
                               className={"w-full h-full px-5 py-2 text-white placeholder:text-white/60 outline-none font-light"}
-                              placeholder={"آدرس  خود را وارد کنید"}
+                              placeholder={t("addressPlaceholder")}
                     ></textarea>
                 </div>
                 <div className={"min-h-5"}>
@@ -126,20 +129,20 @@ function RegisterForm() {
                 <div className={"rounded-md border border-secondary "}>
                     <input type={"text"}
                            {...register("password", {
-                               required: "رمز عبور خود را وارد کنید..",
+                               required: t("passwordError"),
                                pattern: {
                                    value: PasswordPattern,
-                                   message: "رمز عبور حداقل 8 کاراکتر حداقل یک حرف کوچک یک حرف بزرگ و یک عدد باشد"
+                                   message: t("passwordErrorRegex")
                                },
                                validate: (data) => {
                                    if (getValues("rePassword") && data !== getValues("rePassword")) {
-                                       return "رمز عبور و تکرار ان یکی نیست"
+                                       return t("confirmPassError")
                                    }
                                },
                                // onChange: () => trigger("rePassword")
                            })}
                            className={"w-full h-full px-5 py-2 text-white placeholder:text-white/60 outline-none font-light"}
-                           placeholder={"رمز عبور خود را وارد کنید"}
+                           placeholder={t("passwordPlaceholder")}
                     />
                 </div>
                 <div className={"min-h-5"}>
@@ -151,22 +154,22 @@ function RegisterForm() {
                 <div className={"rounded-md border border-secondary "}>
                     <input type={"text"}
                            {...register("rePassword", {
-                               required: "تکرار رمز عبور الزامی است",
+                               required: t("rePasswordError"),
                                pattern: {
                                    value: PasswordPattern,
-                                   message: "رمز عبور حداقل 8 کاراکتر حداقل یک حرف کوچک یک حرف بزرگ و یک عدد باشد"
+                                   message: t("passwordErrorRegex")
                                },
 
                                validate: (data) => {
                                    console.log(getValues("password") && data !== getValues("password"));
                                    if (getValues("password") && data !== getValues("password")) {
-                                       return "رمز عبور و تکرار ان یکی نیست"
+                                       return t("confirmPassError")
                                    }
                                },
                                // onChange: () => trigger("password")
                            })}
                            className={"w-full h-full px-5 py-2 text-white placeholder:text-white/60 outline-none font-light"}
-                           placeholder={"رمز عبور خود را تکرار کنید"}
+                           placeholder={t("rePasswordPlaceholder")}
                     />
                 </div>
                 <div className={"min-h-5"}>
@@ -177,17 +180,18 @@ function RegisterForm() {
             </div>
             <div className={"flex items-center  gap-4 md:col-start-2 md:col-end-3 justify-self-end flex-col"}>
                 <p className={"font-semibold text-sm text-white/70 "}>
-                    <span>قبلا ثبت نام کردید ؟</span>
+                    <span>{t("alreadySignUp")}</span>
                     <Link href={"/login"} className={"mx-2 font-bold text-white"}>
-                        صفحه ورود
+                        {t("login")}
                     </Link>
                 </p>
                 <div className={"flex items-center gap-3"}>
-                    <button className={"px-7 py-2 rounded-md  bg-secondary shadow shadow-black cursor-pointer"}>بازگشت
+                    <button
+                        className={"px-7 py-2 rounded-md  bg-secondary shadow shadow-black cursor-pointer"}>{t("back")}
                     </button>
                     <button disabled={isLoading}
                             className={"px-7 py-2 rounded-md text-white bg-darkerGold shadow shadow-black cursor-pointer"}>{
-                        isLoading ? <BeatLoader size={12} color={"black"}/> : "ثبت نام"
+                        isLoading ? <BeatLoader size={12} color={"black"}/> : <>{t("singUp")}</>
                     }
                     </button>
                 </div>

@@ -46,13 +46,38 @@
     "sheet": "صفحه",
     "all": "همه"
   },
-  "login" : {
+  "login": {
     "title": "صفحه ورود",
     "emailPlaceholder": "ایمیل کاربری خود را وارد کنید",
-    "passPlaceholder" : "رمز عبور خود را وارد کنید",
+    "passPlaceholder": "رمز عبور خود را وارد کنید",
     "login": "ورود",
-    "notMember" : "هنوز ثبت نام نکردید ؟",
+    "notMember": "هنوز ثبت نام نکردید ؟",
     "emailRequired": "لطفا ایمیل خود را وارد کنید",
     "passRequired": "لطفا رمز عبور خود را وارد کنید"
+  },
+  "register": {
+    "title": "فرم ثبت نام",
+    "namePlaceholder": "نام خود را وارد کنید",
+    "nameError": "وارد کردن نام الزامیست",
+    "lastNamePlaceholder": "نام خانوداگی خود را وارد کنید",
+    "lastNameError": "وارد کردن نام خانوادگی الزامیست",
+    "phonePlaceholder": "تلفن همراه خود را وارد کنید",
+    "phoneError": "وارد کردن تلفن همراه الزامیست",
+    "phoneErrorRegex": "فرمت شماره تلفن صحیح نمیباشد",
+    "emailPlaceholder": "ایمیل خود را وارد کنید",
+    "emailError": "وارد کردن ایمیل الزامیست",
+    "emailErrorRegex": "فرمت ایمیل صحیح نمیباشد",
+    "addressPlaceholder": "ادرس خود را وارد کنید",
+    "addressError": "وارد کردن آدرس الزامیست",
+    "passwordPlaceholder": "رمز عبور خود را وارد کنید",
+    "passwordError": "وارد کردن رمز عبور الزامیست",
+    "passwordErrorRegex": "رمز عبور حداقل 8 کاراکتر حداقل یک حرف کوچک یک حرف بزرگ و یک عدد باشد",
+    "rePasswordPlaceholder": "رمز عبور خود را تکرار کنید",
+    "rePasswordError": "تکرار رمز عبور الزامیست",
+    "confirmPassError": "رمز عبور و تکرار آن یکی نیست",
+    "alreadySignUp": "قبلا ثبت نام کردید ؟",
+    "back": "بازگشت",
+    "login": "صفحه ورود",
+    "singUp": "ثبت نام"
   }
 }
