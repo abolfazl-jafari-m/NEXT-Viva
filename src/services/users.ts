@@ -24,8 +24,12 @@ export async function getUser(accessToken: string) {
             }
         });
         return response.data
-    } catch (e) {
-        console.log(e);
+    } catch (e: any) {
+        if (e.status === 403) {
+            toast.error("دسترسی ندارید");
+        } else {
+            toast.error("مشکلی پیش آمده لطفا بعدا تلاش کنید");
+        }
     }
 }
 
@@ -33,7 +37,11 @@ export async function register(data: SignInIterFace) {
     try {
         const response = await axios.post("/api/users/register", data);
         return response.data
-    } catch (e) {
-        console.log(e);
+    } catch (e: any) {
+        if (e.status === 400) {
+            toast.error("ایمیل قبلا استفاده شده")
+        } else {
+            toast.error("مشکلی پیش آمده لطفا بعدا تلاش کنید");
+        }
     }
 }

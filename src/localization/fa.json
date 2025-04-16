@@ -53,7 +53,9 @@
     "login": "ورود",
     "notMember": "هنوز ثبت نام نکردید ؟",
     "emailRequired": "لطفا ایمیل خود را وارد کنید",
-    "passRequired": "لطفا رمز عبور خود را وارد کنید"
+    "passRequired": "لطفا رمز عبور خود را وارد کنید",
+    "register": "صفحه ثبت نام",
+    "successLogin" : "ورود موفقیت آمیز"
   },
   "register": {
     "title": "فرم ثبت نام",
@@ -78,6 +80,7 @@
     "alreadySignUp": "قبلا ثبت نام کردید ؟",
     "back": "بازگشت",
     "login": "صفحه ورود",
-    "singUp": "ثبت نام"
+    "singUp": "ثبت نام",
+    "successRegister" : "ثبت نام موفقیت امیز"
   }
 }
