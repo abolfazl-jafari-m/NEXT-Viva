@@ -62,7 +62,19 @@ export default async function RootLayout({
                 {children}
             </ReactQueryProvider>
         </NextIntlClientProvider>
-        <Toaster/>
+        <Toaster position={"top-left"} toastOptions={{
+            error: {
+                style: {
+                    backgroundColor: "#1A1A1A",
+                    color: "#E0E0E0",
+                    direction: "ltr",
+                    padding: "10px 32px",
+                    border: "solid 2px red",
+                    borderRadius: 14,
+                }
+            }
+        }
+        }/>
         </body>
         </html>
     );

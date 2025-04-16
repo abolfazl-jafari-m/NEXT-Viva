@@ -1,10 +1,19 @@
 import {axiosInstance as axios} from "@/lib/instance/axios";
 import {SignInIterFace} from "@/interfaces/interfaces";
+import toast from "react-hot-toast";
 
 
 export async function login(email: string, password: string) {
-    const response = await axios.post("/api/users/login", {email, password});
-    return response.data;
+    try {
+        const response = await axios.post("/api/users/login", {email, password});
+        return response.data;
+    } catch (e: any) {
+        if (e.status === 401) {
+            toast.error("کاربر یافت نشد");
+        } else {
+            toast.error("مشکلی پیش امده لطفن بعدا تلاش کنید");
+        }
+    }
 }
 
 export async function getUser(accessToken: string) {
