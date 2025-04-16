@@ -5,7 +5,7 @@ import {getUser, login} from "@/services/users";
 import {redirect} from "next/navigation";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
-import {setCookie} from "cookies-next";
+import {setCookie} from "cookies-next/client";
 import {UserInterface} from "@/interfaces/interfaces";
 import {BeatLoader} from "react-spinners";
 import Input from "@/components/auth/base/input/input";

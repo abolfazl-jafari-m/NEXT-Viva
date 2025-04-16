@@ -25,11 +25,7 @@ export async function getUser(accessToken: string) {
         });
         return response.data
     } catch (e: any) {
-        if (e.status === 403) {
-            toast.error("دسترسی ندارید");
-        } else {
-            toast.error("مشکلی پیش آمده لطفا بعدا تلاش کنید");
-        }
+        console.log(e.message);
     }
 }
 
@@ -45,3 +41,4 @@ export async function register(data: SignInIterFace) {
         }
     }
 }
+

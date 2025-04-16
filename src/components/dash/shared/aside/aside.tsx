@@ -3,9 +3,9 @@ import Image from "next/image";
 import logo from "@/assets/images/logo.png";
 import {MdDashboard, MdOutlineInventory, MdOutlineShoppingCartCheckout} from "react-icons/md";
 import {TbPerfume} from "react-icons/tb";
-import {CiLogout} from "react-icons/ci";
 import NavLink from "@/components/dash/base/navLink/navLink";
 import {useTranslations} from "next-intl";
+import LogoutButton from "@/components/dash/shared/logoutButton/logoutButton";
 
 function Aside() {
     const t = useTranslations("dashboardPage")
@@ -28,13 +28,7 @@ function Aside() {
                     </nav>
                 </div>
                 <div className={"max-lg:px-5 max-xl:px-2"}>
-                    <button
-                        className={"bg-darkChocolate w-full rounded-lg text-white text-center px-6 py-2 cursor-pointer flex items-center gap-2 max-lg:gap-2 max-lg:px-3 max-lg:text-sm"}>
-                        <span>
-                        {t("logout")}
-                        </span>
-                        <CiLogout/>
-                    </button>
+                    <LogoutButton/>
                 </div>
             </div>
         </>

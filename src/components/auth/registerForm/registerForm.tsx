@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {register as signUp} from "@/services/users"
-import {setCookie} from "cookies-next";
+import {setCookie} from "cookies-next/client";
 import {redirect} from "next/navigation";
 import {BeatLoader} from "react-spinners";
 import Link from "next/link";

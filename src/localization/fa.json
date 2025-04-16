@@ -6,7 +6,8 @@
     "products": "محصولات",
     "orders": "سفارشها",
     "inventory": "موجودی",
-    "logout": "خروج از حساب کاربری"
+    "logout": "خروج از حساب کاربری",
+    "logoutMessage": "خروج با موفقیت انجام شد"
   },
   "dashProducts": {
     "title": "محصولات",
@@ -55,7 +56,7 @@
     "emailRequired": "لطفا ایمیل خود را وارد کنید",
     "passRequired": "لطفا رمز عبور خود را وارد کنید",
     "register": "صفحه ثبت نام",
-    "successLogin" : "ورود موفقیت آمیز"
+    "successLogin": "ورود موفقیت آمیز"
   },
   "register": {
     "title": "فرم ثبت نام",
@@ -81,6 +82,6 @@
     "back": "بازگشت",
     "login": "صفحه ورود",
     "singUp": "ثبت نام",
-    "successRegister" : "ثبت نام موفقیت امیز"
+    "successRegister": "ثبت نام موفقیت امیز"
   }
 }

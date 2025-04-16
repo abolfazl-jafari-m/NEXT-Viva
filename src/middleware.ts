@@ -16,8 +16,12 @@ export async function middleware(request: NextRequest) {
             return NextResponse.redirect(new URL('/login', request.url))
         } else {
             const user: UserInterface = await getUser(accessToken);
-            if (user.role !== "admin") {
-                return NextResponse.redirect(new URL('/', request.url))
+            if (user) {
+                if (user.role !== "admin") {
+                    return NextResponse.redirect(new URL('/', request.url))
+                }
+            } else {
+                throw new Error("SomeThings Goes Wrong!");
             }
             return NextResponse.next();
         }
