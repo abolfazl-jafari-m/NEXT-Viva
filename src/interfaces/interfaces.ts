@@ -55,3 +55,20 @@ export interface SignInIterFace {
     password: string,
     address: string;
 }
+
+export interface ProductsForm {
+    title: string;
+    shortDes: string;
+    price: string;
+    releaseYear: string;
+    brand: { label: string, value: number };
+    volume: { label: string, value: number }[];
+    concentration: { label: string, value: number };
+    gender: { label: string, value: number };
+    seasons: { label: string, value: number }[];
+    positions: { label: string, value: number }[];
+    fragrance: { label: string, value: number }[];
+    inventory: string;
+    description: string;
+    images: string[];
+}

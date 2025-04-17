@@ -11,6 +11,7 @@ import Input from "@/components/auth/base/input/input";
 import TextArea from "@/components/auth/base/textArea/textArea";
 import PasswordInput from "@/components/auth/base/passwordInput/passwordInput";
 import toast from "react-hot-toast";
+import {EmailPattern, PasswordPattern, PhonePattern} from "@/constants/regex";
 
 
 type Inputs = {
@@ -23,9 +24,6 @@ type Inputs = {
     address: string,
 }
 
-const PhonePattern = /(?:(?:(?:\\+?|00)(98))|(0))?((?:90|91|92|93|99)[0-9]{8})$/;
-const EmailPattern = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/g
-const PasswordPattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,16}$/
 
 
 function RegisterForm() {

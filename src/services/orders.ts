@@ -17,8 +17,7 @@ export async function getOrderById(id: string) {
         if (!response.ok) {
             throw new Error("Some things goes wrong")
         }
-        const result = response.json();
-        return result
+        return response.json()
     } catch (e: any) {
         console.log(e.message);
     }

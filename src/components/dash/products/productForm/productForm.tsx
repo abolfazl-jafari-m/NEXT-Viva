@@ -1,173 +1,119 @@
 "use client"
-import React from 'react';
-import Input from "@/components/dash/base/input/input";
-import Select, {CSSObjectWithLabel} from "react-select";
+import React, {useState} from 'react';
 
 import FileUpload from "@/components/dash/base/fileUpload/fileUpload";
 import Button from "@/components/dash/base/button/button";
 import {useRouter} from "next/navigation";
 import {brands, concentration, fragrances, genders, positions, seasons, volumes} from "@/constants/productsForm";
+import {SubmitHandler, useForm} from "react-hook-form";
+import {useTranslations} from "next-intl";
+import ControlledInput from "@/components/dash/base/controlledInput/controlledInput";
+import ControlledSelectBox from "@/components/dash/base/controlledSelecBox/controlledSelectBox";
+import {Product, ProductsForm} from "@/interfaces/interfaces";
+import {onlyNumbers, yearRegex} from "@/constants/regex";
 
-const style = {control: (base: CSSObjectWithLabel) => ({...base, border: 0, boxShadow: "none"})}
+
 
 function ProductForm() {
+    const t = useTranslations("productForm");
+    const [images, setImages] = useState<string[]>([]);
+    const {handleSubmit, formState: {errors}, control, register} = useForm<ProductsForm>({
+        defaultValues: {
+            title: "",
+            shortDes: "",
+            price: "",
+            releaseYear: "",
+            // brand: {},
+            volume: [],
+            // concentration: {},
+            // gender: {},
+            seasons: [],
+            positions: [],
+            fragrance: [],
+            inventory: "",
+            description: "",
+            images: []
+        }
+    })
+
+    const handleAddProduct: SubmitHandler<ProductsForm> = (data) => {
+        const {title , shortDes , price, seasons, concentration, fragrance, brand, releaseYear , inventory ,description, gender ,volume , positions} = data
+        const product :Omit<Product , "createdAt" | "id" | "slug" | "comments"> = {
+            title : title,
+            shortDes : shortDes,
+            price : price,
+            season : seasons.map((item)=>item.label),
+            volume : volume.map((item)=>item.label),
+            position : positions.map((item)=>item.label),
+            inventory : inventory,
+            description: description,
+            gender: gender.label,
+            concentration: concentration.label,
+            fragrance: fragrance.map(item=>item.label),
+            brand : brand.label,
+            releaseYear: releaseYear,
+            images : images,
+        };
+        console.log(product);
+    }
     const router = useRouter();
     return (
-        <form className={"grid grid-cols-2 gap-10 w-full  max-md:grid-cols-1"}>
+        <form className={"grid grid-cols-2 gap-10 w-full  max-md:grid-cols-1"}
+              onSubmit={handleSubmit(handleAddProduct)}>
             <div className={"flex flex-col gap-4"}>
-                <div className={"flex flex-col gap-2"}>
-                    <label htmlFor={"title"} className={"font-bold"}>
-                        عنوان
-                    </label>
-                    <Input className={"rounded-md border-2 border-darkChocolate px-2 py-1"} name={"title"}
-                           id={"title"}/>
-                </div>
-                <div className={"flex flex-col gap-2"}>
-                    <label htmlFor={"shortDes"} className={"font-bold"}>
-                        توضیح کوتاه
-                    </label>
-                    <Input className={"rounded-md border-2 border-darkChocolate px-2 py-1"} name={"shortDes"}
-                           id={"shortDes"}/>
-                </div>
+                <ControlledInput label={t("title")} control={control} name={"title"} error={errors.title} rules={{required : true}} placeholder={t("titlePlaceholder")}/>
+                <ControlledInput label={t("shortDes")} control={control} name={"shortDes"} error={errors.shortDes} rules={{required : true}} placeholder={t("shortPlaceholder")}/>
                 <div className={"grid grid-cols-2 max-xs:grid-cols-1 gap-5 w-full"}>
-                    <div className={"flex flex-col gap-2"}>
-                        <label htmlFor={"price"} className={"font-bold"}>
-                            قیمت
-                        </label>
-                        <Input className={"rounded-md border-2 border-darkChocolate px-2 py-1 appearance-none"}
-                               name={"price"}
-                               id={"price"}/>
-                    </div>
-                    <div className={"flex flex-col gap-2"}>
-                        <label htmlFor={"releaseYear"} className={"font-bold"}>
-                            سال تولید
-                        </label>
-                        <Input className={"rounded-md border-2 border-darkChocolate px-2 py-1 appearance-none"}
-                               name={"releaseYear"}
-                               id={"releaseYear"}/>
-                    </div>
-                    <div className={"flex flex-col gap-2"}>
-                        <label htmlFor={"brand"} className={"font-bold"}>
-                            برند
-                        </label>
-                        <Select
-                            styles={style}
-                            className={"rounded-md border-2 !border-darkChocolate !outline-none"} name={"brand"}
-                            placeholder={"انتخاب کنید"}
-                            options={brands} isRtl={true}/>
-                    </div>
-                    <div className={"flex flex-col gap-2"}>
-                        <label htmlFor={"volume"} className={"font-bold"}>
-                            حجم
-                        </label>
-                        <Select
-                            styles={style}
-                            className={"rounded-md border-2 !border-darkChocolate !outline-none"} name={"volume"}
-                            id={"volume"}
-                            isMulti={true}
-                            placeholder={"انتخاب کنید"}
-                            options={volumes}
-                            isRtl={true}/>
-                    </div>
-                    <div className={"flex flex-col gap-2"}>
-                        <label htmlFor={"concentration"} className={"font-bold"}>
-                            غلظت
-                        </label>
-                        <Select
-                            styles={style}
-                            className={"rounded-md border-2 !border-darkChocolate !outline-none"} name={"concentration"}
-                            id={"concentration"}
-                            placeholder={"انتخاب کنید"}
-                            options={concentration} isRtl={true}/>
-                    </div>
-                    <div className={"flex flex-col gap-2"}>
-                        <label htmlFor={"gender"} className={"font-bold"}>
-                            جنسیت
-                        </label>
-                        <Select
-                            styles={style}
-                            className={"rounded-md border-2 !border-darkChocolate !outline-none"} name={"gender"}
-                            id={"gender"}
-                            placeholder={"انتخاب کنید"}
-                            options={genders} isRtl={true}/>
-                    </div>
-                    <div className={"flex flex-col gap-2"}>
-                        <label htmlFor={"season"} className={"font-bold"}>
-                            فصل
-                        </label>
-                        <Select
-                            styles={style}
-                            className={"rounded-md border-2 !border-darkChocolate !outline-none"} name={"season"}
-                            id={"season"}
-                            isMulti={true}
-                            placeholder={"انتخاب کنید"}
-                            options={seasons} isRtl={true}/>
-                    </div>
-                    <div className={"flex flex-col gap-2"}>
-                        <label htmlFor={"position"} className={"font-bold"}>
-                            موقعیت
-                        </label>
-                        <Select
-                            styles={style}
-                            className={"rounded-md border-2 !border-darkChocolate !outline-none"} name={"position"}
-                            id={"position"}
-                            isMulti={true}
-                            placeholder={"انتخاب کنید"}
-                            options={positions}
-                            isRtl={true}/>
-                    </div>
-                    <div className={"flex flex-col gap-2"}>
-                        <label htmlFor={"fragrance"} className={"font-bold"}>
-                            رایحه
-                        </label>
-                        <Select
-                            styles={style}
-                            className={"rounded-md border-2 !border-darkChocolate !outline-none"} name={"fragrance"}
-                            id={"fragrance"}
-                            placeholder={"انتخاب کنید"}
-                            isMulti={true}
-                            options={fragrances} isRtl={true}/>
-                    </div>
-                    <div className={"flex flex-col gap-2"}>
-                        <label htmlFor={"inventory"} className={"font-bold"}>
-                            تعداد موجودی
-                        </label>
-                        <Input className={"rounded-md border-2 border-darkChocolate p-1.5 appearance-none"}
-                               name={"inventory"} id={"inventory"}/>
-                    </div>
+                    <ControlledInput label={t("price")} control={control} name={"price"} error={errors.price} rules={{required : true, pattern : onlyNumbers}} placeholder={t("pricePlaceholder")}/>
+                    <ControlledInput label={t("releaseYear")} control={control} name={"releaseYear"} error={errors.releaseYear} rules={{required : true, pattern :yearRegex}} placeholder={t("yearPlaceholder")}/>
+                    <ControlledSelectBox options={brands} control={control} placeholder={t("selectBoxPlaceholder")} name={"brand"}
+                                         label={t("brand")} isRtl={true}  error={errors.brand} rules={{required : true}}/>
+                    <ControlledSelectBox options={volumes} control={control} placeholder={t("selectBoxPlaceholder")} name={"volume"}
+                                         label={t("volume")} isRtl={true} isMulti={true}  error={errors.volume} rules={{required : true}} />
+                    <ControlledSelectBox options={concentration} control={control} placeholder={t("selectBoxPlaceholder")}
+                                         name={"concentration"} label={t("concentration")} isRtl={true}
+                                         isMulti={false}  error={errors.concentration} rules={{required : true}}/>
+                    <ControlledSelectBox options={genders} control={control} placeholder={t("selectBoxPlaceholder")} name={"gender"}
+                                         label={t("gender")} isRtl={true} isMulti={false}  error={errors.gender} rules={{required : true}}/>
+                    <ControlledSelectBox options={seasons} control={control} placeholder={t("selectBoxPlaceholder")}
+                                         name={"seasons"} label={t("seasons")} isRtl={true} isMulti={true}  error={errors.seasons} rules={{required : true}}/>
+                    <ControlledSelectBox options={positions} control={control} placeholder={t("selectBoxPlaceholder")}
+                                         name={"positions"} label={t("positions")} isRtl={true} isMulti={true}  error={errors.positions} rules={{required : true}}/>
+                    <ControlledSelectBox options={fragrances} control={control} placeholder={t("selectBoxPlaceholder")}
+                                         name={"fragrance"} label={t("fragrance")} isRtl={true} isMulti={true}  error={errors.fragrance} rules={{required : true}}/>
+                    <ControlledInput label={t("inventory")} control={control} name={"inventory"} placeholder={t("inventoryPlaceholder")}  error={errors.inventory} rules={{required : true , pattern : onlyNumbers}}/>
                 </div>
             </div>
             <div className={"flex gap-5 flex-col"}>
                 <div className={"flex flex-col gap-2"}>
                     <label htmlFor={"description"} className={"font-bold"}>
-                        توضیح
+                        {t("description")}
                     </label>
-                    <textarea className={"rounded-md border-2 border-darkChocolate px-2 py-1 appearance-none"}
-                              name={"description"}
+                    <textarea {...register("description", {required : true})} placeholder={t("desPlaceholder")}
+                              className={`rounded-md border-2  px-2 py-1 outline-none appearance-none ${errors.description ? "border-red-700" : "border-darkChocolate"}`}
                               id={"description"}>
-
                     </textarea>
                 </div>
                 <div className={"flex flex-col gap-2"}>
-                    <label htmlFor={"images"} className={"font-bold"}>آپلود عکس محصول</label>
+                    <label htmlFor={"images"} className={"font-bold"}>{t("imagesUpload")}</label>
                     <div className={"rounded-md border-2 border-darkChocolate"}>
-                        <FileUpload name={"images"} id={"images"}/>
+                        <FileUpload values={images} setValues={setImages}/>
                     </div>
                 </div>
                 <div className={"flex items-center gap-5 mt-auto self-end max-md:self-center"}>
-                    <Button className={"py-2 px-8 font-bold bg-secondary  rounded-md shadow shadow-black cursor-pointer max-md:px-6 max-md:text-sm"}
-                            onClick={() => router.back()}
-                            type={"button"}>
-                        بازگشت
+                    <Button
+                        className={"py-2 px-8 font-bold bg-secondary  rounded-md shadow shadow-black cursor-pointer max-md:px-6 max-md:text-sm"}
+                        onClick={() => router.back()}
+                        type={"button"}>
+                        {t("back")}
                     </Button>
-                    <Button className={"py-2 px-8 font-bold bg-darkChocolate text-white rounded-md shadow shadow-black max-md:px-6 max-md:text-sm"}
-                            type={"submit"}>
-                        افزودن محصول
+                    <Button
+                        className={"py-2 px-8 font-bold bg-darkChocolate text-white rounded-md shadow shadow-black max-md:px-6 max-md:text-sm"}
+                        type={"submit"}>
+                        {t("save")}
                     </Button>
                 </div>
             </div>
-
-
         </form>
     );
 }

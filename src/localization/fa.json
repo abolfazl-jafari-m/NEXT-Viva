@@ -83,5 +83,33 @@
     "login": "صفحه ورود",
     "singUp": "ثبت نام",
     "successRegister": "ثبت نام موفقیت امیز"
+  },
+  "productForm": {
+    "title": "عنوان",
+    "titlePlaceholder" : "عنوان محصول",
+    "shortDes": "توضیح کوتاه",
+    "shortPlaceholder" : "معرف محصول",
+    "price": "قیمت",
+    "pricePlaceholder" : "قیمت به تومان",
+    "releaseYear": "سال تولید",
+    "yearPlaceholder" : "سال تولید به میلادی",
+    "brand": "برند",
+    "volume": "حجم",
+    "concentration": "غلظت",
+    "gender": "جنسیت",
+    "seasons": "فصل",
+    "positions": "موقعیت",
+    "fragrance": "رایحه",
+    "inventory": "موجودی",
+    "inventoryPlaceholder" : "موجودی انبار",
+    "description": "توضیح",
+    "desPlaceholder" : "توضیح",
+    "imagesUpload": "اپلود عکس محصول",
+    "imagePreview": "پیش نمایش عکس محصول",
+    "upload": "آپلود",
+    "uploadText": "برای اپلود فایل روی دکمه زیر کلیک کنید",
+    "back": "بازگشت",
+    "save": "افزودن محصول",
+    "selectBoxPlaceholder" : "انتخاب کنید"
   }
 }

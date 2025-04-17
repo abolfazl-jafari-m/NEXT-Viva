@@ -3,6 +3,7 @@ import {SignInIterFace} from "@/interfaces/interfaces";
 import toast from "react-hot-toast";
 
 
+
 export async function login(email: string, password: string) {
     try {
         const response = await axios.post("/api/users/login", {email, password});
