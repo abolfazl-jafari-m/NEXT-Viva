@@ -17,9 +17,9 @@ function UpdateButton() {
         setIsLoading(true);
         const updateInventories = productsInventories.map((item) => updateProductInventory(item.id, item.price, item.inventory))
         Promise.all(updateInventories).then(() => {
-            toast.success("موجودی با موفقیت بروز رسانی شد");
+            toast.success(t("success-message"));
         }).catch(() => {
-            toast.error("مشکلی پیش آمده لطفن بعدا تلاش کنید");
+            toast.error(t("error-message"));
         })
             .finally(() => setIsLoading(false));
     }

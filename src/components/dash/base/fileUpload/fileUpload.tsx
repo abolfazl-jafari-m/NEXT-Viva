@@ -4,6 +4,7 @@ import {uploadImage} from "@/services/upload";
 import {CgClose} from "react-icons/cg";
 import {BarLoader} from "react-spinners";
 import {useTranslations} from "next-intl";
+import toast from "react-hot-toast";
 
 interface IProps {
     // id: string;
@@ -12,9 +13,9 @@ interface IProps {
     setValues: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-function FileUpload({ values, setValues}: IProps
+function FileUpload({values, setValues}: IProps
 ) {
-    const t= useTranslations("productForm")
+    const t = useTranslations("productForm")
     const [image, setImage] = useState<string | ArrayBuffer | null>(null);
     const [loading, setLoading] = useState<boolean>(false)
     // const [values, setValues] = useState<string[]>([]);
@@ -38,10 +39,17 @@ function FileUpload({ values, setValues}: IProps
             formData.append('image', file as File)
             uploadImage(formData).then((res) => {
                 setValues(prevState => [...prevState, res.downloadLink]);
-            }).finally(() => {
-                setImage(null);
-                setLoading(false);
+            }).catch((error) => {
+                if (error.status === 500) {
+                    toast.error(t("file-format-error"));
+                } else {
+                    toast.error(t("error-message"))
+                }
             })
+                .finally(() => {
+                    setImage(null);
+                    setLoading(false);
+                })
         }
     }
     return (

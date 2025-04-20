@@ -81,22 +81,22 @@ function ProductForm({product}: { product?: Product }) {
         if (product) {
             updateProduct(product.id, productData)
                 .then((res: Product) => {
-                    toast.success(`محصول ${res.title} با موفقیت بزور رسانی شد`);
+                    toast.success(`${res.title} ${t("updateProduct-success-message")}`);
                     queryClient.invalidateQueries({queryKey: ["products"]}).then(() => {
                         setIsLoading(false);
                         router.back();
                     });
                 })
-                .catch(() => toast.error("مشکلی پیش آمده لطفن بعد تلاش کنید"));
+                .catch(() => toast.error(t("error-message")));
         } else {
             addProduct(productData)
                 .then((response: Product) => {
-                    toast.success(`محصول ${response.title} به محصولات اضافه شد`);
+                    toast.success(` ${response.title} ${t("addProduct-success-message")}`);
                     queryClient.invalidateQueries({queryKey: ["products"]}).then(() => {
                         setIsLoading(false);
                         router.back();
                     });
-                }).catch(() => toast.error("مشکلی پیش آمده لطفن بعد تلاش کنید"));
+                }).catch(() => toast.error(t("error-message")));
         }
     }
     const router = useRouter();

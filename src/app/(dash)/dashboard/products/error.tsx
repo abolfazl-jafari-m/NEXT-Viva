@@ -1,5 +1,8 @@
 'use client'
-export default function Error({error, reset}: { error: Error & { digest?: string }, reset: () => void}) {
+import {useTranslations} from "next-intl";
+
+export default function Error({error, reset}: { error: Error & { digest?: string }, reset: () => void }) {
+    const t = useTranslations("dashProducts");
     return (
         <div className={"w-full h-full flex items-center justify-center gap-2 flex-col"}>
             <h2 className={"text-2xl"}>{error.message}</h2>
@@ -8,7 +11,7 @@ export default function Error({error, reset}: { error: Error & { digest?: string
                         () => reset()
                     }
             >
-                دوباره تلاش کنید
+                {t("tryAgain")}
             </button>
         </div>
     )

@@ -28,7 +28,7 @@ function Products() {
     }, [search, products]);
 
     if (isError) {
-        throw new Error("مشکلی پیش آمده لطفن بعدن تلاش کنید")
+        throw new Error(t("error-message"))
     }
     if (isLoading) return (<TableLoader/>)
     return (

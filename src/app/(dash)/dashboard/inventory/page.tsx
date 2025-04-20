@@ -8,16 +8,16 @@ import InventoryStoreProvider from "@/lib/providers/InventoryStoreProvider";
 
 
 async function Inventory() {
+    const t = await getTranslations("dashInventory");
     const data = await fetch(`${API_URL}/api/records/products`, {
         headers: {
             api_key: API_KEY
         },
     });
     if (!data.ok) {
-        throw new Error("مشکلی پیش آمده لطفن بعدا تلاش کنید");
+        throw new Error(t("fetch-error"));
     }
     const products = await data.json();
-    const t = await getTranslations("dashInventory");
     return (
         <InventoryStoreProvider>
             <div className={"flex flex-col gap-5 p-10 max-md:p-4"}>

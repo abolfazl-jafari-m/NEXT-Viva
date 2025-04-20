@@ -19,7 +19,10 @@
     "actions": "فعالیت",
     "search": "جستجو کنید...",
     "sheet": "صفحه",
-    "all": "همه"
+    "all": "همه",
+    "error-message": "مشکلی پیش آمده لطفن بعد تلاش کنید",
+    "tryAgain": "دوباره تلاش کنید",
+    "notFound": "صفحه مورد نظر یافت نشد"
   },
   "dashOrders": {
     "title": "سفارشها",
@@ -38,6 +41,24 @@
     "byTime": "براساس تاریخ سفارش",
     "sheet": "صفحه"
   },
+  "detailOrder": {
+    "title": "جزییات سفارش",
+    "error-message": "مشکلی پیش آمده لطفا بعدا تلاش کنید",
+    "success-message": "وضعیت سفارش با موفقیت تغییر یافت",
+    "name": "نام محصول",
+    "price": "قیمت محصول",
+    "count": "تعداد",
+    "customer_detail": "مشخصات مشتری",
+    "customer_name": "نام مشتری",
+    "address": "آدرس",
+    "phone": "تلفن",
+    "order_status": "وضعیت سفارش",
+    "pending": "در حال تحویل",
+    "delivered": "تحویل داده شده",
+    "time_order": "زمان سفارش",
+    "time_delivered": "زمان تحویل",
+    "change_status": "تغییر وضعیت به تحویل داده شده"
+  },
   "dashInventory": {
     "title": "لیست موجودی",
     "name": "نام محصول",
@@ -45,7 +66,10 @@
     "quantity": "تعداد",
     "save": "ذخیره",
     "sheet": "صفحه",
-    "all": "همه"
+    "all": "همه",
+    "fetch-error": "مشکلی پیش آمده لطفا بعدا تلاش کنید",
+    "success-message": "موجودی محصولات با موفقیت بروز رسانی شد",
+    "error-message": "مشکلی در بروز رسانی پیش آمده لطفا بعدا تلاش کنید"
   },
   "login": {
     "title": "صفحه ورود",
@@ -86,13 +110,13 @@
   },
   "productForm": {
     "title": "عنوان",
-    "titlePlaceholder" : "عنوان محصول",
+    "titlePlaceholder": "عنوان محصول",
     "shortDes": "توضیح کوتاه",
-    "shortPlaceholder" : "معرف محصول",
+    "shortPlaceholder": "معرف محصول",
     "price": "قیمت",
-    "pricePlaceholder" : "قیمت به تومان",
+    "pricePlaceholder": "قیمت به تومان",
     "releaseYear": "سال تولید",
-    "yearPlaceholder" : "سال تولید به میلادی",
+    "yearPlaceholder": "سال تولید به میلادی",
     "brand": "برند",
     "volume": "حجم",
     "concentration": "غلظت",
@@ -101,9 +125,9 @@
     "positions": "موقعیت",
     "fragrance": "رایحه",
     "inventory": "موجودی",
-    "inventoryPlaceholder" : "موجودی انبار",
+    "inventoryPlaceholder": "موجودی انبار",
     "description": "توضیح",
-    "desPlaceholder" : "توضیح",
+    "desPlaceholder": "توضیح",
     "imagesUpload": "اپلود عکس محصول",
     "imagePreview": "پیش نمایش عکس محصول",
     "upload": "آپلود",
@@ -111,6 +135,10 @@
     "back": "بازگشت",
     "save": "افزودن محصول",
     "edit": "بروزسانی محصول",
-    "selectBoxPlaceholder" : "انتخاب کنید"
+    "selectBoxPlaceholder": "انتخاب کنید",
+    "addProduct-success-message": "با موفقیت به محصولات اضافه شد",
+    "error-message": "مشکلی پیش آمده لطفن بعد تلاش کنید",
+    "updateProduct-success-message": "با موفقیت بروزرسانی شد",
+    "file-format-error": "فرمت فایل صحیح نمی باشد"
   }
 }
