@@ -22,3 +22,9 @@ export async function getOrderById(id: string) {
         console.log(e.message);
     }
 }
+
+
+export async function updateOrderStatus(id: string, status: string) {
+    const response = await axios.put(`/api/records/orders/${id}`, {status, deliver_time: new Date(Date.now())})
+    return response.data;
+}
