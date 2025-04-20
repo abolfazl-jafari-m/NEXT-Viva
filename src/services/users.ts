@@ -8,8 +8,8 @@ export async function login(email: string, password: string) {
     try {
         const response = await axios.post("/api/users/login", {email, password});
         return response.data;
-    } catch (e: any) {
-        if (e.status === 401) {
+    } catch (e :any) {
+        if ( e.status === 401) {
             toast.error("کاربر یافت نشد");
         } else {
             toast.error("مشکلی پیش امده لطفن بعدا تلاش کنید");

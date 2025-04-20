@@ -49,14 +49,13 @@ function InventoryTable({inventoryList}: { inventoryList: Product[] }) {
                             <tr key={item.id}
                                 className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200 max-md:text-sm"}>
                                 <td className={"w-1/3 px-2 py-1  max-sm:border max-sm:border-black/50 text-nowrap"}> {item.title}</td>
-                                <TableCell value={item.price}
+                                <TableCell id={item.id} flag={"price"} value={item.price}
                                            className={"w-1/3 px-2  max-sm:border max-sm:border-black/50 text-nowrap"}/>
-                                <TableCell value={item.inventory}
+                                <TableCell value={item.inventory} id={item.id} flag={"inventory"}
                                            className={"w-1/3 px-2  max-sm:border max-sm:border-black/50 text-nowrap"}/>
                             </tr>
                         )
                     })}
-
                     </tbody>
                 </table>
             </div>
