@@ -69,6 +69,8 @@ export default async function RootLayout({
                 direction: "ltr",
                 padding: "10px 32px",
                 borderRadius: 14,
+                textWrap: "nowrap",
+                textAlign: "center"
             },
             error: {
                 style: {

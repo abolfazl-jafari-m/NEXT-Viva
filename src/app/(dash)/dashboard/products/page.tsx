@@ -14,11 +14,10 @@ import {useTranslations} from "next-intl";
 const TableLoader = dynamic(() => import("@/components/dash/base/tableLoader/tableLoader"), {ssr: false})
 
 
-
 function Products() {
     const t = useTranslations("dashProducts")
     const [search, setSearch] = useState<string>("");
-    const {isLoading, data: products} = useQuery<Product[]>({queryKey: ["products"], queryFn: getProducts});
+    const {isLoading, data: products, isError} = useQuery<Product[]>({queryKey: ["products"], queryFn: getProducts});
     const filteredProducts = useMemo(() => {
         const items = products?.filter(item => item.title.startsWith(search))
         if (items && items.length > 0) {
@@ -26,8 +25,11 @@ function Products() {
         } else {
             return []
         }
-
     }, [search, products]);
+
+    if (isError) {
+        throw new Error("مشکلی پیش آمده لطفن بعدن تلاش کنید")
+    }
     if (isLoading) return (<TableLoader/>)
     return (
         <div className={"flex flex-col gap-4 p-10 max-md:p-5"}>
@@ -35,8 +37,9 @@ function Products() {
                 <div className={"flex items-center gap-4 max-sm:justify-between max-md:w-full max-md:gap-2.5"}>
                     <h1 className={"font-bold text-4xl max-lg:text-2xl"}>{t("title")}</h1>
                     <Link href={"/dashboard/products/add"}>
-                        <Button className={"bg-darkChocolate px-4 py-1 rounded-md text-white text-sm cursor-pointer text-nowrap"}
-                                type={"button"}>
+                        <Button
+                            className={"bg-darkChocolate px-4 py-1 rounded-md text-white text-sm cursor-pointer text-nowrap"}
+                            type={"button"}>
                             {t("add")}
                         </Button>
                     </Link>

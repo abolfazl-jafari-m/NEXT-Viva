@@ -7,9 +7,16 @@ import Button from "@/components/dash/base/button/button";
 import Link from "next/link";
 import {Product} from "@/interfaces/interfaces";
 import {useTranslations} from "next-intl";
+import {deleteProduct} from "@/services/products";
+import {useMutation, useQueryClient} from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import {BeatLoader} from "react-spinners";
 
 function ProductTable({products}: { products: Product[] }) {
+    const [productId, setProductId] = useState<string | null>(null);
     const [current, setCurrent] = useState<number>(0);
+    const queryClient = useQueryClient();
+    const {isPending, mutate} = useMutation({mutationKey: ["deleteProduct"], mutationFn: deleteProduct});
     const [itemPerPage, setItemPerPage] = useState<string>("5");
     const t = useTranslations("dashProducts")
 
@@ -32,10 +39,27 @@ function ProductTable({products}: { products: Product[] }) {
         }
     }
 
+    const handleDelete = () => {
+        mutate(productId as string, {
+            onSuccess: () => {
+                queryClient.invalidateQueries({queryKey: ["products"]}).then(() => {
+                    toast.success("محصول با موفقیت حذف شد")
+                })
+            },
+            onError: () => {
+                toast.error("مشکلی در حذف محصول پیش آمده");
+            },
+            onSettled: () => {
+                setProductId(null);
+            }
+        })
+    }
+
+
     return (
         <>
             <div
-                className={"overflow-x-auto w-full max-h-[500px]  max-xl:max-h-[400px] max-md:max-h-[330px]  overflow-y-auto no-scrollbar rounded-sm"}>
+                className={"overflow-x-auto w-full max-h-[500px]  max-xl:max-h-[400px] max-md:max-h-[330px]  overflow-y-auto no-scrollbar rounded-sm "}>
                 <table className={"border border-black border-collapse w-full  bg-darkChocolate"}>
                     <thead className={"bg-darkChocolate text-white sticky top-0 left-0 right-0 w-full"}>
                     <tr className={"text-xl  text-center w-full max-md:text-lg max-sm:text-[15px]"}>
@@ -67,9 +91,9 @@ function ProductTable({products}: { products: Product[] }) {
                                                 <MdEdit/>
                                             </Button>
                                         </Link>
-                                        <Button
-                                            className={"bg-rose-800 p-2 rounded-md text-white text-sm hover:bg-rose-600 cursor-pointer"}
-                                            type={"button"}>
+                                        <Button onClick={() => setProductId(item.id)}
+                                                className={"bg-rose-800 p-2 rounded-md text-white text-sm hover:bg-rose-600 cursor-pointer"}
+                                                type={"button"}>
                                             <MdDelete/>
                                         </Button>
                                     </div>
@@ -80,6 +104,7 @@ function ProductTable({products}: { products: Product[] }) {
 
                     </tbody>
                 </table>
+
             </div>
             <div className={"flex items-center gap-6 max-md:justify-between"}>
                 <div className={"flex items-center gap-4 text-lg"}>
@@ -105,6 +130,34 @@ function ProductTable({products}: { products: Product[] }) {
                     </div>
                 </div>
             </div>
+            {
+                productId && (
+                    <div
+                        className={"bg-primary/40 backdrop-blur-2xl fixed bottom-0  top-0 left-0  right-0  flex items-center justify-center"}>
+                        <div
+                            className={"bg-white rounded-md shadow-black shadow-lg p-3 flex flex-col gap-2 text-white font-semibold"}>
+                            <p className={"text-black"}>آیا از حذف این محصول اطمینان دارید ؟</p>
+                            <div className={"flex items-center justify-center gap-5"}>
+                                {isPending ?
+                                    <BeatLoader color={"purple"}/>
+                                    :
+                                    <>
+                                        <Button
+                                            className={"px-7 py-1 rounded-md bg-rose-800 shadow shadow-black cursor-pointer"}
+                                            type={"button"} onClick={() => setProductId(null)}>خیر
+                                        </Button>
+                                        <Button
+                                            className={"px-7 py-1 rounded-md bg-cyan-800 shadow shadow-black cursor-pointer"}
+                                            type={"button"}
+                                            onClick={handleDelete}>بله
+                                        </Button>
+                                    </>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
         </>
     );
 }

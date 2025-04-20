@@ -1,7 +1,6 @@
-"use client"
 import React from 'react';
-import dynamic from "next/dynamic";
-const ProductForm = dynamic(() => import('@/components/dash/products/productForm/productForm'), { ssr: false })
+import ProductForm from "@/components/dash/products/productForm/productForm";
+
 
 function AddProduct() {
     return (
