@@ -7,7 +7,7 @@ function ShopLayout({children}: { children: ReactNode }) {
     return (
         <>
             <div
-                className={"relative bg-linear-to-l from-5% from-zinc-800 via-50% via-black to-primary to-85% "}>
+                className={"relative bg-linear-140 from-5% from-zinc-700 via-40% via-black to-stone-900 to-90% "}>
                 <Header/>
                 <main>
                     {children}

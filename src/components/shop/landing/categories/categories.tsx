@@ -7,29 +7,29 @@ import Image from "next/image";
 
 function Categories() {
     return (
-        <section className={"w-full h-screen grid grid-cols-2"} id={"category"}>
+        <section className={"w-full h-screen grid grid-cols-2 gap-2 p-10"} id={"category"}>
             <div
-                className={"  flex items-center justify-between"}>
+                className={"  flex items-center justify-between bg-primary rounded-lg shadow-black shadow-2xl"}>
                 <Image src={bitter.src} alt={"bitter"} width={250} height={250}/>
                 <div className={"flex flex-col justify-between py-2 px-7 gap-5 "}>
                     <h3 className={"text-4xl text-darkerGold font-bold"}>ادکلن تلخ</h3>
                     <p className={"text-white"}>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
                         از طراحان گرافیک است
                         چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                    <button className={"text-white bg-gold px-9 py-2 rounded-md self-end mt-5"}>
+                    <button className={"text-white bg-darkerGold px-9 py-2 rounded-md self-end mt-5"}>
                         مشاهده همه
                     </button>
                 </div>
             </div>
             <div
                 className={"  flex items-center justify-between"}>
-                <Image src={sweet.src} alt={"sweet"} width={250} height={250}/>\
+                <Image src={sweet.src} alt={"sweet"} width={250} height={250}/>
                 <div className={"flex flex-col justify-between py-2 px-7 gap-5 "}>
                     <h3 className={"text-4xl text-darkerGold font-bold"}>ادکلن شیرین</h3>
                     <p className={"text-white"}>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
                         از طراحان گرافیک است
                         چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                    <button className={"text-white bg-gold px-9 py-2 rounded-md self-end mt-5"}>
+                    <button className={"text-white bg-darkerGold px-9 py-2 rounded-md self-end mt-5"}>
                         مشاهده همه
                     </button>
                 </div>
@@ -42,20 +42,20 @@ function Categories() {
                     <p className={"text-white"}>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
                         از طراحان گرافیک است
                         چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                    <button className={"text-white bg-gold px-9 py-2 rounded-md self-end mt-5"}>
+                    <button className={"text-white bg-darkerGold px-9 py-2 rounded-md self-end mt-5"}>
                         مشاهده همه
                     </button>
                 </div>
             </div>
             <div
-                className={"  flex items-center justify-between"}>
+                className={"  flex items-center justify-between bg-primary rounded-lg shadow-black shadow-2xl"}>
                 <Image src={warm.src} alt={"warm"} width={250} height={250}/>
                 <div className={"flex flex-col justify-between py-2 px-7 gap-5 "}>
                     <h3 className={"text-4xl text-darkerGold font-bold"}>ادکلن سرد</h3>
                     <p className={"text-white"}>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
                         از طراحان گرافیک است
                         چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                    <button className={"text-white bg-gold px-9 py-2 rounded-md self-end mt-5"}>
+                    <button className={"text-white bg-darkerGold px-9 py-2 rounded-md self-end mt-5"}>
                         مشاهده همه
                     </button>
                 </div>
