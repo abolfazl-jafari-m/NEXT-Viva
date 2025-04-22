@@ -1,5 +1,6 @@
 import {axiosInstance as axios} from "@/lib/instance/axios";
 import {Product} from "@/interfaces/interfaces";
+import {unstable_cache} from "next/cache";
 
 export async function getProducts() {
     const response = await axios.get("/api/records/products");
@@ -37,4 +38,19 @@ export async function deleteProduct(id: string) {
 export async function updateProductInventory(id: string, price ?: string, inventory ?: string) {
     const response = await axios.put(`/api/records/products/${id}`, {price, inventory});
     return response.data;
+}
+
+export const getLatestProducts = unstable_cache(async (limit) => {
+    const response = await axios.get(`/api/records/products?limit=${limit}&sortBy=createdAt&order=desc`);
+    return response.data;
+}, ["latest"], {revalidate: 3600});
+
+export const getSpecialProducts = async () => {
+    const response = await axios.get("/api/records/products?filterKey=discount&filterValue=10&filterValue=13");
+    return response.data.records;
+}
+
+export const getBestSellerProducts = async () => {
+    const response = await axios.get("/api/records/products?limit=4&sortBy=price&order=desc");
+    return response.data.records;
 }

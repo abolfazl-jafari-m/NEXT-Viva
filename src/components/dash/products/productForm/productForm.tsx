@@ -41,6 +41,7 @@ function ProductForm({product}: { product?: Product }) {
             fragrance: product ? fragrances.filter(item => product.fragrance.includes(item.label)) : undefined,
             inventory: product ? product.inventory : "",
             description: product ? product.description : "",
+            discount: product ? product.discount : "",
         }
     })
 
@@ -59,7 +60,8 @@ function ProductForm({product}: { product?: Product }) {
             description,
             gender,
             volume,
-            positions
+            positions,
+            discount
         } = data
         const productData: Omit<Product, "createdAt" | "id" | "comments"> = {
             title: title,
@@ -76,6 +78,7 @@ function ProductForm({product}: { product?: Product }) {
             brand: brand.label,
             releaseYear: releaseYear,
             images: images,
+            discount :discount,
             slug: slugify(title, {lower: true, replacement: "-"}),
         };
         if (product) {
@@ -117,6 +120,9 @@ function ProductForm({product}: { product?: Product }) {
                                      placeholder={t("yearPlaceholder")}/>
                     <ControlledInput label={t("inventory")} control={control} name={"inventory"}
                                      placeholder={t("inventoryPlaceholder")} error={errors.inventory}
+                                     rules={{required: true, pattern: onlyNumbers}}/>
+                    <ControlledInput label={t("discount")} control={control} name={"discount"}
+                                     placeholder={t("discountPlaceholder")} error={errors.discount}
                                      rules={{required: true, pattern: onlyNumbers}}/>
                     <ControlledSelectBox options={brands} control={control} placeholder={t("selectBoxPlaceholder")}
                                          name={"brand"}

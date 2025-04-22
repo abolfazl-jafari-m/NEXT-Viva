@@ -17,6 +17,7 @@ export interface Product {
     images: (string)[];
     comments: (string)[];
     id: string;
+    discount :string
 }
 
 export interface Order {
@@ -71,4 +72,5 @@ export interface ProductsForm {
     inventory: string;
     description: string;
     images: string[];
+    discount :string
 }

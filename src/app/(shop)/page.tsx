@@ -6,14 +6,14 @@ import BestSeller from "@/components/shop/landing/specials/bestSeller";
 import Footer from "@/components/shop/shared/footer/footer";
 
 
-export default function Home() {
+export default  function Home() {
     return (
         <>
-            <Slider/>
+            <Slider />
             <Categories/>
-            <Latest />
-            <BestSeller />
-            <Footer />
+            <Latest/>
+            <BestSeller/>
+            <Footer/>
         </>
 
 

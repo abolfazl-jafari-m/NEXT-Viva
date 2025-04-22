@@ -126,6 +126,8 @@
     "fragrance": "رایحه",
     "inventory": "موجودی",
     "inventoryPlaceholder": "موجودی انبار",
+    "discount": "تخفیف",
+    "discountPlaceholder": "درصد نخفیف",
     "description": "توضیح",
     "desPlaceholder": "توضیح",
     "imagesUpload": "اپلود عکس محصول",

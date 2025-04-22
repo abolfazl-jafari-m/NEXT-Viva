@@ -2,7 +2,8 @@
 import React from 'react';
 import {CgHeart, CgShoppingCart} from "react-icons/cg";
 import Search from "@/components/shop/shared/search/search";
-import UserInfo from "@/components/shop/shared/userInfo/userInfo";
+import dynamic from "next/dynamic";
+const UserInfo = dynamic(()=>import( "@/components/shop/shared/userInfo/userInfo"), {ssr: false});
 
 function HeaderAction() {
     return (

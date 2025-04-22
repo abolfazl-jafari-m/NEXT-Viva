@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import {getCookie} from "cookies-next";
+import {getCookie} from "cookies-next/client";
 import {FaUserCircle} from "react-icons/fa";
 import Button from "@/components/shop/base/button/button";
 import Link from "next/link";
