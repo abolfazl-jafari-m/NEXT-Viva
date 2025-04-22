@@ -26,7 +26,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
         notFound();
     }
     if (!response.ok) {
-        throw new Error(response.statusText);
+        throw new Error("مشکلی پیش آمده لطفا مجددن تلاش کنید");
     }
     const product: Product = await response.json();
     return (

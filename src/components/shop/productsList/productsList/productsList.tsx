@@ -17,7 +17,7 @@ async function ProductsList() {
     const products: Product[] = data.records;
     return (
         <div className={"flex flex-col gap-10 items-center col-span-9"}>
-            <div className={`grid grid-cols-4 gap-10  w-full`}>
+            <div className={`grid grid-cols-4 gap-7  w-full`}>
                 {products.slice(0, 10).map((product: Product) => (
                     <ProductsCard key={product.id} product={product}/>
                 ))
