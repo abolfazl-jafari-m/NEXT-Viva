@@ -1,10 +1,8 @@
 import React from 'react';
 import Image from "next/image";
-import image from "@/assets/images/category-original.png"
 import original from "@/assets/images/original.svg"
 import bestPrice from "@/assets/images/number-one.svg"
 import delivery from "@/assets/images/delivery.svg"
-import louisVuitton from "@/assets/images/louis-vuitton-imagination.webp"
 import DebounceArrow from "@/components/shop/landing/DebounceArrow/DebounceArrow";
 import Slider from "@/components/shop/singleProducts/slider/slider";
 import AddToCart from "@/components/shop/singleProducts/addToCart/addToCart";
@@ -14,6 +12,7 @@ import Comments from "@/components/shop/singleProducts/comments/comments";
 import {notFound} from "next/navigation";
 import {Product} from "@/interfaces/interfaces";
 import {API_KEY} from "@/constants/configs";
+import Link from "next/link";
 
 
 async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
@@ -33,18 +32,21 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
     return (
         <>
             <Navigation/>
-            <section className={"flex flex-col items-center justify-center w-full h-screen relative"}>
+            <section id={"intro"} className={"flex flex-col items-center justify-center w-full h-screen relative"}>
                 <div className={"grid grid-cols-2 w-4/5 items-center"}>
                     <div className={"flex flex-col gap-7 "}>
                         <h2 className={"font-semibold text-white text-2xl font-fuzzy "}>{product.title}</h2>
                         <h4 className={"text-gold text-4xl"}>{product.shortDes}</h4>
-                        <button
-                            className={"px-10 py-3 bg-darkerGold rounded-md shadow shadow-black text-white/80 w-fit cursor-pointer"}>اضافه
-                            کردن به سبد خرید
-                        </button>
+                        <Link href={"#addToCart"}>
+                            <button
+                                className={"px-10 py-3 bg-darkerGold rounded-md shadow shadow-black text-white/80 w-fit cursor-pointer"}>اضافه
+                                کردن به سبد خرید
+                            </button>
+                        </Link>
                     </div>
                     <div className={"flex items-center justify-center"}>
-                        <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"image"} width={400} height={400}/>
+                        <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"image"} width={400}
+                             height={400}/>
                     </div>
                 </div>
                 <div className={"flex items-center justify-center gap-16 w-3/5 mt-8"}>
@@ -71,11 +73,13 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                 <DebounceArrow/>
                 <SocialLink/>
             </section>
-            <section className={"grid grid-cols-2 items-center w-full h-screen"}>
+            <section id={"details"} className={"grid grid-cols-2 items-center w-full h-screen"}>
                 <div className={"flex items-center justify-center"}>
 
-                    <img src={`http://api.alikooshesh.ir:3000${product.images[1] ? product.images[1] : product.images[0]} `} alt={product.slug} width={400} height={400}
-                           className={"rounded-2xl drop-shadow-lg"}/>
+                    <img
+                        src={`http://api.alikooshesh.ir:3000${product.images[1] ? product.images[1] : product.images[0]} `}
+                        alt={product.slug} width={400} height={400}
+                        className={"rounded-2xl drop-shadow-lg"}/>
                 </div>
 
                 <div className={"grid grid-cols-3  gap-x-20 gap-y-10 w-fit"}>
@@ -119,7 +123,8 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                     </div>
                 </div>
             </section>
-            <section className={"h-screen grid grid-cols-2 w-full px-32 py-10 justify-items-center"}>
+            <section id={"addToCart"}
+                     className={"h-screen grid grid-cols-2 w-full px-32 py-10 justify-items-center items-center"}>
                 <div className={"flex flex-col gap-8"}>
                     <div className={"flex flex-col gap-3"}>
 
@@ -140,9 +145,9 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                     </p>
                     <AddToCart/>
                 </div>
-                <Slider images={product.images} slug={product.slug} />
+                <Slider images={product.images} slug={product.slug}/>
             </section>
-            <Comments/>
+            <Comments comments={product.comments}/>
         </>
     )
         ;
