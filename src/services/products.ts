@@ -8,12 +8,8 @@ export async function getProducts() {
 }
 
 export async function getProductById(id: string) {
-    try {
-        const response = await axios.get(`/api/records/products/${id}`);
-        return response.data;
-    } catch (e) {
-        console.error(e);
-    }
+    const response = await axios.get(`/api/records/products/${id}`);
+    return response.data;
 }
 
 export async function getProductByFragrance(Fragrance: string) {
@@ -54,3 +50,4 @@ export const getBestSellerProducts = async () => {
     const response = await axios.get("/api/records/products?limit=4&sortBy=price&order=desc");
     return response.data.records;
 }
+

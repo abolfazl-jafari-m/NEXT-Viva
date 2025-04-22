@@ -8,7 +8,7 @@ import Link from "next/link";
 
 function Categories() {
     return (
-        <section className={"w-full h-screen grid grid-cols-2 gap-10 p-15"} id={"category"}>
+        <section className={"w-full min-h-screen grid grid-cols-2 gap-10 p-15"} id={"category"}>
             <div
                 className={"  flex items-center gap-4 bg-primary rounded-lg shadow-black shadow-2xl  ring-2 ring-zinc-900"}>
                 <Image src={bitter.src} alt={"bitter"} width={250} height={250}/>

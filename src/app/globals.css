@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @plugin './hero.ts';
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 @custom-variant dark (&:is(.dark *));
@@ -47,4 +48,19 @@ html {
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+.thumbs-swiper .swiper-slide {
+    opacity: 0.5;
+    cursor: pointer;
+}
+.thumbs-swiper .swiper-slide-thumb-active {
+    opacity: 1;
+
+}
+.swiper-pagination-bullet{
+    background-color: white!important;
+}
+.swiper-pagination-bullet-active {
+    background-color: darkgoldenrod!important;
 }

@@ -40,7 +40,7 @@ function Slider() {
                         {
                             specialProducts?.map((product) => (
                                 <SwiperSlide key={product.id}>
-                                    <div className={"flex items-center gap-8 justify-center w-full h-full"}>
+                                    <div className={"flex items-center gap-15 justify-center  w-full h-full"}>
                                         <div className={"text-white flex-col flex gap-8  w-1/3"}>
                                             <h2 className={"font-semibold text-gold text-5xl font-fuzzy text-nowrap"}>{product.title}</h2>
                                             <p className={"text-white"}>{product.description}</p>

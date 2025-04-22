@@ -1,28 +1,64 @@
-import React from 'react';
-import Image from "next/image";
-import louisVuitton from "@/assets/images/louis-vuitton-imagination.webp";
-import louisVuitton2 from "@/assets/images/LV-IMAGINATION.webp";
-import image from "@/assets/images/category-original.png";
+"use client"
+import React, {useState} from 'react';
+import {Swiper, SwiperSlide} from "swiper/react";
+import {FreeMode, Pagination, Thumbs} from "swiper/modules";
+import "swiper/css";
+import "swiper/css/thumbs";
+import "swiper/css/pagination";
+import 'swiper/css/free-mode';
 
-function Slider() {
+
+function Slider({images, slug}: { images: string[], slug: string }) {
+    const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+
     return (
-        <div className={"flex gap-5 items-center"}>
-            <div className={"flex flex-col gap-10 "}>
-                <Image src={louisVuitton.src} alt={"louis vitton"} className={"rounded-xl"} width={400}
-                       height={400}/>
-                <div className={"flex items-center gap-5 justify-center"}>
-                    <span className={"p-1 rounded-full w-2 h-2 bg-white"}></span>
-                    <span className={"p-1 rounded-full w-2 h-2 bg-gold"}></span>
-                    <span className={"p-1 rounded-full w-2 h-2 bg-white"}></span>
-                </div>
+        <div className="flex mt-10 w-full justify-center">
+            <Swiper
+                slidesPerView={1}
+                modules={[Thumbs, Pagination, FreeMode]}
+                thumbs={{swiper: thumbsSwiper}}
+                pagination={{
+                    clickable: true
+                }}
+                className={"w-3/4 h-fit"}
+            >
+                {images.map((item) => (
+                    <SwiperSlide key={item} className={"w-full pagi"}>
+                        <img
+                            src={`http://api.alikooshesh.ir:3000${item}`}
+                            alt={slug}
+                            className="rounded-xl mx-auto"
+                            width={400}
+                            height={400}
+                        />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+            <div className=" w-1/4 h-[400px]">
+                <Swiper
+                    onSwiper={setThumbsSwiper}
+                    watchSlidesProgress={true}
+                    spaceBetween={2}
+                    freeMode={true}
+                    slidesPerView={2}
+                    direction="vertical"
+                    modules={[Thumbs, Pagination, FreeMode]}
+                    className="h-full thumbs-swiper"
+                >
+                    {images.map((item) => (
+                        <SwiperSlide key={`${item}-thumb`}>
+                            <img
+                                src={`http://api.alikooshesh.ir:3000${item}`}
+                                alt={slug}
+                                className="rounded-lg"
+                                width={150}
+                                height={150}
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </div>
-            <div className={"flex flex-col gap-3 "}>
-                <Image src={louisVuitton.src} alt={"louis vitton"} className={"rounded-xl"} width={150}
-                       height={150}/>
-                <Image src={louisVuitton2.src} alt={"louis vitton"} className={"rounded-xl"} width={150}
-                       height={150}/>
-                <Image src={image.src} alt={"louis vitton"} className={"rounded-xl"} width={150} height={150}/>
-            </div>
+
         </div>
     );
 }

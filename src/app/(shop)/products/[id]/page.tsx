@@ -11,28 +11,40 @@ import AddToCart from "@/components/shop/singleProducts/addToCart/addToCart";
 import Navigation from "@/components/shop/singleProducts/navigation/navigation";
 import SocialLink from "@/components/shop/landing/socialLink/socialLink";
 import Comments from "@/components/shop/singleProducts/comments/comments";
+import {notFound} from "next/navigation";
+import {Product} from "@/interfaces/interfaces";
+import {API_KEY} from "@/constants/configs";
 
- function SingleProducts() {
+
+async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
+    const {id} = await params;
+    const response = await fetch(`http://api.alikooshesh.ir:3000/api/records/products/${id}`, {
+        headers: {
+            api_key: API_KEY,
+        }
+    });
+    if (response.status === 404) {
+        notFound();
+    }
+    if (!response.ok) {
+        throw new Error(response.statusText);
+    }
+    const product: Product = await response.json();
     return (
         <>
-            <Navigation />
+            <Navigation/>
             <section className={"flex flex-col items-center justify-center w-full h-screen relative"}>
                 <div className={"grid grid-cols-2 w-4/5 items-center"}>
                     <div className={"flex flex-col gap-7 "}>
-                        <h2 className={"font-semibold text-gold text-xl"}>لویی ویتون امجینیشن</h2>
-                        <h4 className={"text-darkerGold text-5xl font-bold text-nowrap"}>حس خوب عطر لاکچری و دیگر
-                            هیچ</h4>
-                        <p className={"font-semibold text-white/80 "}>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                            صنعت
-                            چاپ و با استفاده از طراحان گرافیک است چاپگرها و
-                            متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
+                        <h2 className={"font-semibold text-white text-2xl font-fuzzy "}>{product.title}</h2>
+                        <h4 className={"text-gold text-4xl"}>{product.shortDes}</h4>
                         <button
-                            className={"px-10 py-3 bg-gold rounded-md shadow shadow-black text-white/80 w-fit "}>اضافه
+                            className={"px-10 py-3 bg-darkerGold rounded-md shadow shadow-black text-white/80 w-fit cursor-pointer"}>اضافه
                             کردن به سبد خرید
                         </button>
                     </div>
                     <div className={"flex items-center justify-center"}>
-                        <Image src={image.src} alt={"image"} width={400} height={400}/>
+                        <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"image"} width={400} height={400}/>
                     </div>
                 </div>
                 <div className={"flex items-center justify-center gap-16 w-3/5 mt-8"}>
@@ -57,11 +69,12 @@ import Comments from "@/components/shop/singleProducts/comments/comments";
 
                 </div>
                 <DebounceArrow/>
-                <SocialLink />
+                <SocialLink/>
             </section>
             <section className={"grid grid-cols-2 items-center w-full h-screen"}>
                 <div className={"flex items-center justify-center"}>
-                    <Image src={louisVuitton.src} alt={"louis Vuitton"} width={400} height={400}
+
+                    <img src={`http://api.alikooshesh.ir:3000${product.images[1] ? product.images[1] : product.images[0]} `} alt={product.slug} width={400} height={400}
                            className={"rounded-2xl drop-shadow-lg"}/>
                 </div>
 
@@ -69,63 +82,67 @@ import Comments from "@/components/shop/singleProducts/comments/comments";
                     <h2 className={"text-white font-bold text-3xl col-span-full"}>مشخصات</h2>
                     <div className={"flex flex-col gap-2"}>
                         <p className={"text-white"}>نام عطر</p>
-                        <p className={"text-darkerGold text-xl"}>دیور ساواج الیکسیر</p>
+                        <p className={"text-darkerGold text-xl"}>{product.title}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <p className={"text-white"}>برند</p>
-                        <p className={"text-darkerGold text-xl"}>دیور</p>
+                        <p className={"text-darkerGold text-xl"}>{product.brand}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <p className={"text-white"}>جنسیت</p>
-                        <p className={"text-darkerGold text-xl"}>مردانه</p>
+                        <p className={"text-darkerGold text-xl"}>{product.gender}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <p className={"text-white"}>غلطت</p>
-                        <p className={"text-darkerGold text-xl"}>پرفیوم</p>
+                        <p className={"text-darkerGold text-xl"}>{product.concentration}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <p className={"text-white"}>حجم</p>
-                        <p className={"text-darkerGold text-xl"}>100 میل</p>
+                        <p className={"text-darkerGold text-xl"}>{product.volume.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <p className={"text-white"}>رایحه</p>
-                        <p className={"text-darkerGold text-xl"}> تلخ, شیرین, گرم</p>
+                        <p className={"text-darkerGold text-xl"}>{product.fragrance.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <p className={"text-white"}>موقعیت</p>
-                        <p className={"text-darkerGold text-xl"}> آکادمیک, جلسات اداری, روزانه و کژوال, قرارهای دوستانه,
-                            قرارهای عاشقانه, مهمانی رسمی</p>
+                        <p className={"text-darkerGold text-xl"}>{product.position.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <p className={"text-white"}>فصل</p>
-                        <p className={"text-darkerGold text-xl"}>
-                            بهار, پاییز, زمستان</p>
+                        <p className={"text-darkerGold text-xl"}>{product.season.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
                         <p className={"text-white"}>سال عرضه</p>
                         <p className={"text-darkerGold text-xl"}>
-                            2021</p>
+                            {product.releaseYear}</p>
                     </div>
                 </div>
             </section>
             <section className={"h-screen grid grid-cols-2 w-full px-32 py-10 justify-items-center"}>
                 <div className={"flex flex-col gap-8"}>
                     <div className={"flex flex-col gap-3"}>
-                        <h1 className={"text-5xl text-darkerGold"}>لویی ویتون امجینیشن</h1>
-                        <p className={"text-darkerGold text-xl"}>لاکچری و خاص</p>
+
+                        <h1 className={"text-4xl text-darkerGold font-fuzzy text-nowrap"}>{product.title}</h1>
+                        <p className={"text-darkerGold text-xl"}>{product.shortDes}</p>
                     </div>
-                    <p className={"text-gold text-3xl"}>130000000 تومن</p>
+                    <div className={"text-gold text-3xl flex items-center gap-1"}>
+                        <span>{+product.price - (+product.price * (+product.discount / 100))} تومن</span>
+                        {
+                            product.discount !== "0" && (
+                                <span
+                                    className={" rounded-full bg-rose-900 text-white py-1 px-4 text-sm -rotate-35 mb-2"}>{product.discount} %</span>
+                            )
+                        }
+                    </div>
                     <p className={"text-white "}>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
-                        ساسا مورد استفاده قرار گیرد.
+                        {product.description}
                     </p>
-                    <AddToCart />
+                    <AddToCart/>
                 </div>
-                <Slider />
+                <Slider images={product.images} slug={product.slug} />
             </section>
-            <Comments />
+            <Comments/>
         </>
     )
         ;
