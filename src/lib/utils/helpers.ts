@@ -23,3 +23,16 @@ export function ordersFilter(orders: Order[], filter: string, sortBy: string) {
     }
     return items
 }
+
+export const createUrlParams = (key: string, value ?: string | string[]) => {
+    let valueParams = undefined;
+    if (value) {
+        if (Array.isArray(value)) {
+            valueParams = value.map(item => `&filterValue=${item}`)
+        } else {
+            valueParams = `&filterValue=${value}`
+        }
+        return `&filterKey=${key}&${valueParams}`;
+    }
+    return ""
+}

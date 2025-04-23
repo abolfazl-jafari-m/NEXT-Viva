@@ -19,7 +19,7 @@ function Categories() {
                     <p className={"text-white"}>عطرهای تلخ با رایحه‌هایی از چرم، قهوه، نت‌های دودی یا چوب‌های تیره، حس
                         اقتدار، وقار و جذابیت را به همراه دارند. این عطرها معمولاً انتخاب افرادی با اعتماد به نفس بالا و
                         سبک شخصی خاص هستند و برای موقعیت‌های رسمی و خاص بسیار مناسب‌اند.</p>
-                    <Link href={"/products?category=bitter"}>
+                    <Link href={"/products?fragrance=تلخ"}>
                         <button
                             className={"text-white bg-darkerGold px-9 py-2 rounded-md self-end mt-5 cursor-pointer"}>
                             مشاهده همه
@@ -38,7 +38,7 @@ function Categories() {
                         عطرهای شیرین با نت‌هایی مثل وانیل، کارامل، میوه‌های رسیده و گل‌های لطیف، حس زنانگی، لطافت و
                         انرژی مثبت را القا می‌کنند. این عطرها بسیار پرطرفدارند و انتخابی مناسب برای افرادی هستند که به
                         دنبال عطری رمانتیک و ماندگار هستند.</p>
-                    <Link href={"/products?category=sweet"}>
+                    <Link href={"/products?fragrance=شیرین"}>
                         <button
                             className={"text-white bg-darkerGold px-9 py-2 rounded-md self-end mt-5 cursor-pointer"}>
                             مشاهده همه
@@ -58,7 +58,7 @@ function Categories() {
                         عطرهای گرم با ترکیباتی از چوب، کهربا، ادویه و وانیل، حس صمیمیت و جذابیت را منتقل می‌کنند. این
                         عطرها گزینه‌ای فوق‌العاده برای پاییز و زمستان هستند و با ماندگاری بالا و رایحه‌ای عمیق، انتخابی
                         شیک و متفاوت برای شب‌ها و مهمانی‌ها به شمار می‌روند.</p>
-                    <Link href={"/products??category=warn"}>
+                    <Link href={"/products??fragrance=گرم"}>
                         <button
                             className={"text-white bg-darkerGold px-9 py-2 rounded-md self-end mt-5 cursor-pointer"}>
                             مشاهده همه
@@ -78,7 +78,7 @@ function Categories() {
                         با پخش بوی ملایم و دلنشین، بهترین گزینه برای فصل‌های بهار و تابستان هستند. اگر به دنبال عطری
                         سبک، پرانرژی و مناسب استفاده روزانه هستید، عطرهای خنک انتخابی هوشمندانه‌اند.
                     </p>
-                    <Link href={"/products?category=cool"}>
+                    <Link href={"/products?fragrance=خنک"}>
                         <button
                             className={"text-white bg-darkerGold px-9 py-2 rounded-md self-end mt-5 cursor-pointer"}>
                             مشاهده همه

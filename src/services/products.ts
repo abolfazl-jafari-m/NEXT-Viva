@@ -1,6 +1,7 @@
 import {axiosInstance as axios} from "@/lib/instance/axios";
 import {Product} from "@/interfaces/interfaces";
 import {unstable_cache} from "next/cache";
+import {createUrlParams} from "@/lib/utils/helpers";
 
 export async function getProducts() {
     const response = await axios.get("/api/records/products");
@@ -10,10 +11,6 @@ export async function getProducts() {
 export async function getProductById(id: string) {
     const response = await axios.get(`/api/records/products/${id}`);
     return response.data;
-}
-
-export async function getProductByFragrance(Fragrance: string) {
-
 }
 
 export async function addProduct(product: Omit<Product, "id" | "comments" | "createdAt">) {
@@ -49,5 +46,10 @@ export const getSpecialProducts = async () => {
 export const getBestSellerProducts = async () => {
     const response = await axios.get("/api/records/products?limit=4&sortBy=price&order=desc");
     return response.data.records;
+}
+
+export async function getProductsByFilters(limit: number, page ?: string, fragrance ?: string[] | string, volume ?: string[] | string, gender ?: string[] | string) {
+    const response = await axios.get(`/api/records/products?limit=${limit}&page=${page}${createUrlParams("fragrance", fragrance)}${createUrlParams("volume", volume)}${createUrlParams("gender", gender)}`);
+    return response.data;
 }
 

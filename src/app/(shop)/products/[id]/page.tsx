@@ -13,6 +13,26 @@ import {notFound} from "next/navigation";
 import {Product} from "@/interfaces/interfaces";
 import {API_KEY} from "@/constants/configs";
 import Link from "next/link";
+import {Metadata} from "next";
+
+export async function generateMetadata({params}: { params: Promise<{ id: string }> }): Promise<Metadata> {
+    const {id} = await params;
+    const response = await fetch(`http://api.alikooshesh.ir:3000/api/records/products/${id}`, {
+        headers: {
+            api_key: API_KEY,
+        }
+    });
+    if (response.status === 404) {
+        notFound();
+    }
+    if (!response.ok) {
+        throw new Error("مشکلی پیش آمده لطفا مجددن تلاش کنید");
+    }
+    const product: Product = await response.json();
+    return {
+        title: product.title
+    }
+}
 
 
 async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
