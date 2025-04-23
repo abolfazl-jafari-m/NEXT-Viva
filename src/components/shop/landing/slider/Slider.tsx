@@ -14,8 +14,10 @@ import {useQuery} from "@tanstack/react-query";
 import {getSpecialProducts} from "@/services/products";
 import {PuffLoader} from "react-spinners";
 import Link from "next/link";
+import {useTranslations} from "next-intl";
 
 function Slider() {
+    const t = useTranslations("slider-landing");
     const {isLoading, data: specialProducts} = useQuery<Product[]>({
         queryKey: ['specials'],
         queryFn: getSpecialProducts
@@ -47,14 +49,13 @@ function Slider() {
                                             <div className={"flex items-center gap-4 "}>
                                                 <div
                                                     className={`relative text-4xl text-gold font-bold `}>
-                                                    <span>{+product.price - (+product.price * (+product.discount / 100))} تومن </span>
+                                                    <span>{+product.price - (+product.price * (+product.discount / 100))} {t("currency")} </span>
                                                     <span
                                                         className={"absolute text-gold/50 decoration-2 decoration-red-500 right-3 top-7 text-2xl line-through"}>{product.price}</span>
                                                 </div>
                                                 <Link href={`/products/${product.id}`}>
                                                     <button
-                                                        className={"bg-darkerGold cursor-pointer text-white rounded-md shadow shadow-black drop-shadow-lg px-8 py-2"}>همین
-                                                        حالا خرید کنید
+                                                        className={"bg-darkerGold cursor-pointer text-white rounded-md shadow shadow-black drop-shadow-lg px-8 py-2"}>{t("buyNow")}
                                                     </button>
                                                 </Link>
                                             </div>

@@ -14,9 +14,11 @@ import {Product} from "@/interfaces/interfaces";
 import {API_KEY} from "@/constants/configs";
 import Link from "next/link";
 import {Metadata} from "next";
+import {getTranslations} from "next-intl/server";
 
 export async function generateMetadata({params}: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const {id} = await params;
+    const t =await  getTranslations("product-single")
     const response = await fetch(`http://api.alikooshesh.ir:3000/api/records/products/${id}`, {
         headers: {
             api_key: API_KEY,
@@ -26,7 +28,7 @@ export async function generateMetadata({params}: { params: Promise<{ id: string 
         notFound();
     }
     if (!response.ok) {
-        throw new Error("مشکلی پیش آمده لطفا مجددن تلاش کنید");
+        throw new Error(t("error-message"));
     }
     const product: Product = await response.json();
     return {
@@ -36,6 +38,7 @@ export async function generateMetadata({params}: { params: Promise<{ id: string 
 
 
 async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
+    const t =await  getTranslations("product-single");
     const {id} = await params;
     const response = await fetch(`http://api.alikooshesh.ir:3000/api/records/products/${id}`, {
         headers: {
@@ -46,7 +49,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
         notFound();
     }
     if (!response.ok) {
-        throw new Error("مشکلی پیش آمده لطفا مجددن تلاش کنید");
+        throw new Error(t("error-message"));
     }
     const product: Product = await response.json();
     return (
@@ -59,8 +62,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                         <h4 className={"text-gold text-4xl"}>{product.shortDes}</h4>
                         <Link href={"#addToCart"}>
                             <button
-                                className={"px-10 py-3 bg-darkerGold rounded-md shadow shadow-black text-white/80 w-fit cursor-pointer"}>اضافه
-                                کردن به سبد خرید
+                                className={"px-10 py-3 bg-darkerGold rounded-md shadow shadow-black text-white/80 w-fit cursor-pointer"}> {t("addToCart")}
                             </button>
                         </Link>
                     </div>
@@ -73,19 +75,19 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                     <div className={"flex flex-col items-center gap-4"}>
                         <Image src={original.src} alt={"original"} width={42} height={42}/>
                         <p className={"text-gold font-light text-xl"}>
-                            تضمین اصالت
+                            {t("originality")}
                         </p>
                     </div>
                     <div className={"flex flex-col items-center gap-4"}>
                         <Image src={bestPrice.src} alt={"bestPrice"} width={42} height={42}/>
                         <p className={"text-gold font-light text-xl"}>
-                            بهترین قیمت
+                            {t("bestPrice")}
                         </p>
                     </div>
                     <div className={"flex flex-col items-center gap-4"}>
                         <Image src={delivery.src} alt={"delivery"} width={42} height={42}/>
                         <p className={"text-gold font-light text-xl"}>
-                            ارسال رایگان
+                            {t("freeDeliver")}
                         </p>
                     </div>
 
@@ -103,41 +105,41 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                 </div>
 
                 <div className={"grid grid-cols-3  gap-x-20 gap-y-10 w-fit"}>
-                    <h2 className={"text-white font-bold text-3xl col-span-full"}>مشخصات</h2>
+                    <h2 className={"text-white font-bold text-3xl col-span-full"}>{t("details")}</h2>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>نام عطر</p>
+                        <p className={"text-white"}>{t("name")}</p>
                         <p className={"text-darkerGold text-xl"}>{product.title}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>برند</p>
+                        <p className={"text-white"}>{t("brand")}</p>
                         <p className={"text-darkerGold text-xl"}>{product.brand}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>جنسیت</p>
+                        <p className={"text-white"}>{t("gender")}</p>
                         <p className={"text-darkerGold text-xl"}>{product.gender}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>غلطت</p>
+                        <p className={"text-white"}>{t("concentration")}</p>
                         <p className={"text-darkerGold text-xl"}>{product.concentration}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>حجم</p>
+                        <p className={"text-white"}>{t("volume")}</p>
                         <p className={"text-darkerGold text-xl"}>{product.volume.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>رایحه</p>
+                        <p className={"text-white"}>{t("fragrance")}</p>
                         <p className={"text-darkerGold text-xl"}>{product.fragrance.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>موقعیت</p>
+                        <p className={"text-white"}>{t("position")}</p>
                         <p className={"text-darkerGold text-xl"}>{product.position.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>فصل</p>
+                        <p className={"text-white"}>{t("season")}</p>
                         <p className={"text-darkerGold text-xl"}>{product.season.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>سال عرضه</p>
+                        <p className={"text-white"}>{t("releaseYear")}</p>
                         <p className={"text-darkerGold text-xl"}>
                             {product.releaseYear}</p>
                     </div>
@@ -152,7 +154,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                         <p className={"text-darkerGold text-xl"}>{product.shortDes}</p>
                     </div>
                     <div className={"text-gold text-3xl flex items-center gap-1"}>
-                        <span>{+product.price - (+product.price * (+product.discount / 100))} تومن</span>
+                        <span>{+product.price - (+product.price * (+product.discount / 100))} {t("currency")}</span>
                         {
                             product.discount !== "0" && (
                                 <span

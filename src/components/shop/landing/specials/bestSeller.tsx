@@ -12,12 +12,14 @@ import {getBestSellerProducts} from "@/services/products";
 import {PuffLoader} from "react-spinners";
 import {Product} from "@/interfaces/interfaces";
 import Link from "next/link";
+import {useTranslations} from "next-intl";
 
 function BestSeller() {
+    const t = useTranslations("bestSeller");
     const {isLoading, data: products} = useQuery<Product[]>({queryKey: ["bestSeller"], queryFn: getBestSellerProducts});
     return (
         <section className={"w-full h-screen flex items-center justify-center relative p-10"}>
-            <h2 className={"text-center text-3xl font-bold text-darkerGold w-1/4"}>پر فروش ترین محصولات</h2>
+            <h2 className={"text-center text-3xl font-bold text-darkerGold w-1/4"}>{t("title")}</h2>
             {
                 isLoading ?
                     <div className={"flex items-center justify-center w-full h-full"}>
@@ -28,7 +30,6 @@ function BestSeller() {
                         modules={[Autoplay, Navigation]}
                         autoplay={{delay: 4000}}
                         navigation={true}
-                        parallax={{enabled: true}}
                         slidesPerView={1}
                         spaceBetween={50}
                     >
@@ -41,11 +42,10 @@ function BestSeller() {
                                         <div className={"flex flex-col gap-8 "}>
                                             <h3 className={"text-4xl text-darkerGold font-bold font-fuzzy"}>{product.title}</h3>
                                             <p className={"text-white line-clamp-3 p-2 "}>{product.description}</p>
-                                            <p className={"text-3xl font-bold text-darkerGold"}>{product.price} تومن</p>
+                                            <p className={"text-3xl font-bold text-darkerGold"}>{product.price} {t("currency")}</p>
                                             <Link href={`/products/${product.id}`}>
                                                 <button
-                                                    className={"py-3 px-8 rounded-md bg-gold text-white/80 shadow shadow-black self-start cursor-pointer"}>همین
-                                                    حالا خرید کنید
+                                                    className={"py-3 px-8 rounded-md bg-gold text-white/80 shadow shadow-black self-start cursor-pointer"}>{t("buyNow")}
                                                 </button>
                                             </Link>
                                         </div>

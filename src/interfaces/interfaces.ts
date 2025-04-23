@@ -76,7 +76,6 @@ export interface ProductsForm {
 }
 
 export type Comment = {
-    id: string;
     user_name: string;
     comment: string;
 }

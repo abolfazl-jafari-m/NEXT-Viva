@@ -142,5 +142,79 @@
     "error-message": "مشکلی پیش آمده لطفن بعد تلاش کنید",
     "updateProduct-success-message": "با موفقیت بروزرسانی شد",
     "file-format-error": "فرمت فایل صحیح نمی باشد"
+  },
+  "header-shop": {
+    "home": "خانه",
+    "products": "محصولات",
+    "about": "درباره ما",
+    "contact": "تماس با ما",
+    "login": "ورود",
+    "signIn": "ثبت نام"
+  },
+  "latest": {
+    "title": "اخرین محصولات",
+    "seeMore": "مشاهده جزئیات",
+    "currency": "تومان"
+  },
+  "bestSeller": {
+    "title": "پر فروش ترین محصولات",
+    "currency": "تومان",
+    "buyNow": "همین حالا خرید کنید"
+  },
+  "slider-landing": {
+    "currency": "تومان",
+    "buyNow": "همین حالا خرید کنید"
+  },
+  "footer": {
+    "home": "خانه",
+    "products": "محصولات",
+    "about": "درباره ما",
+    "contact": "تماس با ما",
+    "footerText": "ویوا عطر بزرگترین مرجع عطر و ادکلن در ایران",
+    "designedBy": "طراحی توسط تیم"
+  },
+  "products-page" : {
+      "title": "لیست محصولات",
+    "filterProducts": "فیلتر محصولات",
+    "volume": "حجم",
+    "gender" : "جنسیت",
+    "price" : "قیمت",
+    "price-range" : "رنج قیمت",
+    "fragrance": "رایحه",
+    "mens": "مردانه",
+    "women": "زنانه",
+    "unisex": "یونیسکس",
+    "cool": "خنک",
+    "warm": "گرم",
+    "bitter" : "تلخ",
+    "sweet" : "شیرین",
+    "currency": "تومان"
+  },
+  "product-single": {
+    "currency": "تومان",
+    "mil": "میل",
+    "addToCart": "اضافه کردن به سبد خرید",
+    "originality" : "تضمین اصالت",
+    "bestPrice" : "بهترین قیمت",
+    "freeDeliver" : "ارسال رایگان",
+    "details" : "مشخصات",
+    "name" : "نام عطر",
+    "brand" : "برند",
+    "gender" : "جنسیت",
+    "volume" : "حجم",
+    "concentration": "غلظت",
+    "fragrance": "رایحه",
+    "position": "موقعیت",
+    "season": "فصل",
+    "releaseYear" : "سال عرضه",
+    "quantity": "تعداد",
+    "addToFavorite": "افزودن به علاقه مندی ها",
+    "comments": "نظرات",
+    "addYourComment": "نظر خود را له اشتراک بزارید",
+    "writeHere" : "اینجا بنویسید",
+    "submitComment": "ثبت نظر",
+    "beTheFirstOne" : "اولین نفر باشین که تجربه خود را به اشتراک میزارید",
+    "error-message" :"مشکلی پیش آمده لطفا مجددن تلاش کنید",
+    "auth-message": "برای ثبت نظر باید وارد شوید"
   }
 }
