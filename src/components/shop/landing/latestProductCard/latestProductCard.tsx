@@ -1,6 +1,4 @@
 import React from 'react';
-import Image from "next/image";
-import tomford from "@/assets/images/category-women-sweet.png";
 import {FaCartPlus} from "react-icons/fa6";
 import Button from "@/components/shop/base/button/button";
 import {Product} from "@/interfaces/interfaces";
@@ -12,8 +10,8 @@ function LatestProductCard({product}: { product: Product }) {
     return (
         <div
             className={"flex gap-3 items-center bg-stone-950/80 backdrop-blur-2xl rounded-2xl shadow-2xl ring-2 ring-primary shadow-black p-3"}>
-            <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"tom ford"} width={140} height={140}/>
-            <div className={"flex flex-col h-full justify-between p-1 flex-1"}>
+            <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"tom ford"} width={140} height={140} className={"max-lg:w-[100px]"}/>
+            <div className={"flex flex-col h-full justify-between max-md:gap-4 p-1 flex-1 "}>
                 <div className={"flex flex-col gap-2 w-full"}>
                     <h2 className={"text-darkerGold font-semibold line-clamp-1 font-fuzzy"}>{product.title}</h2>
                     <p className={"text-white"}>{product.price} {t("currency")}</p>

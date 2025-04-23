@@ -7,7 +7,7 @@ const UserInfo = dynamic(()=>import( "@/components/shop/shared/userInfo/userInfo
 
 function HeaderAction() {
     return (
-        <div className={"flex items-center gap-6 text-gold/70"}>
+        <div className={"flex items-center gap-6 max-lg:gap-2  max-sm:hidden text-gold/70"}>
             <Search />
             <CgShoppingCart  size={24}/>
             <CgHeart size={24} />

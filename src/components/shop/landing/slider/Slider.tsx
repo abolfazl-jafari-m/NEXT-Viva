@@ -23,7 +23,7 @@ function Slider() {
         queryFn: getSpecialProducts
     })
     return (
-        <section className={"w-full h-screen  relative p-10 "}>
+        <section className={"w-full h-screen  relative p-10 max-lg:p-5"}>
             <SocialLink/>
             {
                 isLoading ?
@@ -42,27 +42,27 @@ function Slider() {
                         {
                             specialProducts?.map((product) => (
                                 <SwiperSlide key={product.id}>
-                                    <div className={"flex items-center gap-15 justify-center  w-full h-full"}>
-                                        <div className={"text-white flex-col flex gap-8  w-1/3"}>
-                                            <h2 className={"font-semibold text-gold text-5xl font-fuzzy text-nowrap"}>{product.title}</h2>
-                                            <p className={"text-white"}>{product.description}</p>
-                                            <div className={"flex items-center gap-4 "}>
+                                    <div className={"flex items-center gap-15 max-xl:gap-10 max-md:gap-5 justify-center max-sm:flex-col-reverse  w-full h-full"}>
+                                        <div className={"text-white flex-col flex gap-8  w-1/3 max-sm:w-3/4 max-sm:gap-5 max-sm:text-center"}>
+                                            <h2 dir={"ltr"} className={"font-semibold text-gold text-5xl font-fuzzy text-nowrap max-2xl:text-4xl max-lg:text-3xl max-xl:text-wrap "}>{product.title}</h2>
+                                            <p className={"text-white max-sm:hidden"}>{product.description}</p>
+                                            <div className={"flex items-center max-lg:flex-col gap-4 max-lg:gap-10 "}>
                                                 <div
-                                                    className={`relative text-4xl text-gold font-bold `}>
+                                                    className={`relative text-4xl text-gold font-bold max-xl:text-2xl max-xl:text-nowrap max-sm:text-xl`}>
                                                     <span>{+product.price - (+product.price * (+product.discount / 100))} {t("currency")} </span>
                                                     <span
                                                         className={"absolute text-gold/50 decoration-2 decoration-red-500 right-3 top-7 text-2xl line-through"}>{product.price}</span>
                                                 </div>
                                                 <Link href={`/products/${product.id}`}>
                                                     <button
-                                                        className={"bg-darkerGold cursor-pointer text-white rounded-md shadow shadow-black drop-shadow-lg px-8 py-2"}>{t("buyNow")}
+                                                        className={"bg-darkerGold cursor-pointer text-white rounded-md shadow shadow-black drop-shadow-lg px-8 py-2 text-nowrap max-sm:text-sm"}>{t("buyNow")}
                                                     </button>
                                                 </Link>
                                             </div>
                                         </div>
                                         <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`}
                                              alt={"men PerFume"}
-                                             width={450} height={450}/>
+                                             width={450} height={450} className={"max-lg:w-[350px] max-md:w-[280px] max-sm:w-[200px] "}/>
                                     </div>
                                 </SwiperSlide>
                             ))

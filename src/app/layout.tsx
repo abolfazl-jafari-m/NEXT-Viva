@@ -54,7 +54,7 @@ export default async function RootLayout({
     return (
         <html lang={locale} dir={"rtl"} className={"no-scrollbar"}>
         <body
-            className={`${vazir.className} no-scrollbar`}
+            className={`${vazir.className} no-scrollbar overflow-x-hidden`}
             cz-shortcut-listen="true"
         >
         <NextIntlClientProvider>

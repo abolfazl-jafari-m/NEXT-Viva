@@ -6,7 +6,7 @@ function Navbar() {
     const t = useTranslations("header-shop")
     return (
         <nav>
-            <ul className={"flex items-center  gap-12 text-white text-xl"}>
+            <ul className={"flex items-center  gap-12 max-lg:gap-7 text-white text-xl max-lg:text-lg max-md:hidden"}>
                 <NavLink href={"/"}>{t("home")}</NavLink>
                 <NavLink href={"/products"}>{t("products")}</NavLink>
                 <NavLink href={"/about"}>{t("about")}</NavLink>
