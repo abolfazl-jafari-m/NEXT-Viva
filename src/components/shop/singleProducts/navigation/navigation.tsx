@@ -6,26 +6,26 @@ import Link from "next/link";
 
 function Navigation() {
     return (
-        <ul className={"fixed right-8 top-1/2 -translate-y-1/2 flex flex-col items-center gap-5 z-20 text-white/60"}>
+        <ul className={"fixed right-8 max-md:right-2 top-1/2 -translate-y-1/2 flex flex-col items-center gap-5 max-sm:gap-3 z-20 text-white/60"}>
 
             <Link href={"#intro"}>
                 <li>
-                    <FaDesktop size={18}/>
+                    <FaDesktop  className={"max-sm:text-sm"}/>
                 </li>
             </Link>
             <Link href={"#details"}>
                 <li>
-                    <TbListDetails size={18}/>
+                    <TbListDetails  className={"max-sm:text-sm"}/>
                 </li>
             </Link>
             <Link href={"#addToCart"} className={"cursor-pointer"}>
                 <li>
-                    <FaCartArrowDown size={18}/>
+                    <FaCartArrowDown  className={"max-sm:text-sm"}/>
                 </li>
             </Link>
             <Link href={"#comments"} className={"cursor-pointer"}>
                 <li>
-                    <MdInsertComment size={18}/>
+                    <MdInsertComment  className={"max-sm:text-sm"}/>
                 </li>
             </Link>
         </ul>

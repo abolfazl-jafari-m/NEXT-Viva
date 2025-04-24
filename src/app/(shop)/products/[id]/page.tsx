@@ -55,38 +55,38 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
     return (
         <>
             <Navigation/>
-            <section id={"intro"} className={"flex flex-col items-center justify-center w-full h-screen relative"}>
-                <div className={"grid grid-cols-2 w-4/5 items-center"}>
-                    <div className={"flex flex-col gap-7 "}>
-                        <h2 className={"font-semibold text-white text-2xl font-fuzzy "}>{product.title}</h2>
-                        <h4 className={"text-gold text-4xl"}>{product.shortDes}</h4>
+            <section id={"intro"} className={"flex flex-col items-center justify-center gap-8  max-md:gap-12  w-full h-screen relative"}>
+                <div className={"grid grid-cols-2 w-4/5 items-center max-sm:grid-cols-1 max-sm:justify-items-center max-sm:gap-5"}>
+                    <div className={"flex flex-col gap-7 max-sm:items-center max-sm:gap-4 "}>
+                        <h2 className={"font-semibold text-white text-2xl font-fuzzy max-md:text-xl max-sm:text-lg"}>{product.title}</h2>
+                        <h4 className={"text-gold text-4xl max-md:text-2xl max-sm:text-xl max-sm:text-center"}>{product.shortDes}</h4>
                         <Link href={"#addToCart"}>
                             <button
-                                className={"px-10 py-3 bg-darkerGold rounded-md shadow shadow-black text-white/80 w-fit cursor-pointer"}> {t("addToCart")}
+                                className={"px-10 py-3 bg-darkerGold rounded-md shadow shadow-black text-white/80 w-fit cursor-pointer max-md:px-5 max-md:py-2 max-sm:text-sm"}> {t("addToCart")}
                             </button>
                         </Link>
                     </div>
-                    <div className={"flex items-center justify-center"}>
+                    <div className={"flex items-center justify-center max-sm:row-start-1"}>
                         <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"image"} width={400}
-                             height={400}/>
+                             height={400} className={"max-md:w-60"}/>
                     </div>
                 </div>
-                <div className={"flex items-center justify-center gap-16 w-3/5 mt-8"}>
+                <div className={"flex items-center justify-center gap-16 max-md:gap-8 w-3/5 mt-8"}>
                     <div className={"flex flex-col items-center gap-4"}>
-                        <Image src={original.src} alt={"original"} width={42} height={42}/>
-                        <p className={"text-gold font-light text-xl"}>
+                        <Image src={original.src} alt={"original"} width={42} height={42} className={"max-md:w-10 max-sm:w-8"}/>
+                        <p className={"text-gold font-light text-xl max-sm:text-[16px] text-nowrap"}>
                             {t("originality")}
                         </p>
                     </div>
                     <div className={"flex flex-col items-center gap-4"}>
-                        <Image src={bestPrice.src} alt={"bestPrice"} width={42} height={42}/>
-                        <p className={"text-gold font-light text-xl"}>
+                        <Image src={bestPrice.src} alt={"bestPrice"} width={42} height={42} className={"max-md:w-10 max-sm:w-8"}/>
+                        <p className={"text-gold font-light text-xl max-sm:text-[16px] text-nowrap"}>
                             {t("bestPrice")}
                         </p>
                     </div>
                     <div className={"flex flex-col items-center gap-4"}>
-                        <Image src={delivery.src} alt={"delivery"} width={42} height={42}/>
-                        <p className={"text-gold font-light text-xl"}>
+                        <Image src={delivery.src} alt={"delivery"} width={42} height={42} className={"max-md:w-10 max-sm:w-8"}/>
+                        <p className={"text-gold font-light text-xl max-sm:text-[16px]  text-nowrap"}>
                             {t("freeDeliver")}
                         </p>
                     </div>
@@ -95,65 +95,62 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                 <DebounceArrow/>
                 <SocialLink/>
             </section>
-            <section id={"details"} className={"grid grid-cols-2 items-center w-full h-screen"}>
+            <section id={"details"} className={"grid grid-cols-2 items-center w-full min-h-screen max-md:grid-cols-1 max-sm:justify-items-center"}>
                 <div className={"flex items-center justify-center"}>
-
                     <img
                         src={`http://api.alikooshesh.ir:3000${product.images[1] ? product.images[1] : product.images[0]} `}
                         alt={product.slug} width={400} height={400}
-                        className={"rounded-2xl drop-shadow-lg"}/>
+                        className={"rounded-2xl drop-shadow-lg max-lg:w-78 "}/>
                 </div>
-
-                <div className={"grid grid-cols-3  gap-x-20 gap-y-10 w-fit"}>
-                    <h2 className={"text-white font-bold text-3xl col-span-full"}>{t("details")}</h2>
+                <div className={"grid grid-cols-3  gap-x-20 gap-y-10 w-fit max-md:grid-cols-4  max-md:items-center max-md:w-full max-sm:w-4/6 max-sm:grid-cols-1 max-md:gap-x-10 max-sm:gap-2 max-sm:my-10"}>
+                    <h2 className={"text-white font-bold text-3xl col-span-full max-sm:text-xl"}>{t("details")}</h2>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>{t("name")}</p>
-                        <p className={"text-darkerGold text-xl"}>{product.title}</p>
+                        <p className={"text-white max-sm:text-sm"}>{t("name")}</p>
+                        <p className={"text-darkerGold text-xl max-sm:text-[16px]"}>{product.title}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>{t("brand")}</p>
-                        <p className={"text-darkerGold text-xl"}>{product.brand}</p>
+                        <p className={"text-white max-sm:text-sm"}>{t("brand")}</p>
+                        <p className={"text-darkerGold text-xl max-sm:text-[16px]"}>{product.brand}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>{t("gender")}</p>
-                        <p className={"text-darkerGold text-xl"}>{product.gender}</p>
+                        <p className={"text-white max-sm:text-sm"}>{t("gender")}</p>
+                        <p className={"text-darkerGold text-xl max-sm:text-[16px]"}>{product.gender}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>{t("concentration")}</p>
-                        <p className={"text-darkerGold text-xl"}>{product.concentration}</p>
+                        <p className={"text-white max-sm:text-sm"}>{t("concentration")}</p>
+                        <p className={"text-darkerGold text-xl max-sm:text-[16px]"}>{product.concentration}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>{t("volume")}</p>
-                        <p className={"text-darkerGold text-xl"}>{product.volume.join(" , ")}</p>
+                        <p className={"text-white max-sm:text-sm"}>{t("volume")}</p>
+                        <p className={"text-darkerGold text-xl max-sm:text-[16px]"}>{product.volume.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>{t("fragrance")}</p>
-                        <p className={"text-darkerGold text-xl"}>{product.fragrance.join(" , ")}</p>
+                        <p className={"text-white max-sm:text-sm"}>{t("fragrance")}</p>
+                        <p className={"text-darkerGold text-xl max-sm:text-[16px]"}>{product.fragrance.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>{t("position")}</p>
-                        <p className={"text-darkerGold text-xl"}>{product.position.join(" , ")}</p>
+                        <p className={"text-white max-sm:text-sm"}>{t("position")}</p>
+                        <p className={"text-darkerGold text-xl max-sm:text-[16px]"}>{product.position.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>{t("season")}</p>
-                        <p className={"text-darkerGold text-xl"}>{product.season.join(" , ")}</p>
+                        <p className={"text-white max-sm:text-sm"}>{t("season")}</p>
+                        <p className={"text-darkerGold text-xl max-sm:text-[16px]"}>{product.season.join(" , ")}</p>
                     </div>
                     <div className={"flex flex-col gap-2"}>
-                        <p className={"text-white"}>{t("releaseYear")}</p>
-                        <p className={"text-darkerGold text-xl"}>
+                        <p className={"text-white max-sm:text-sm"}>{t("releaseYear")}</p>
+                        <p className={"text-darkerGold text-xl max-sm:text-[16px]"}>
                             {product.releaseYear}</p>
                     </div>
                 </div>
             </section>
             <section id={"addToCart"}
-                     className={"h-screen grid grid-cols-2 w-full px-32 py-10 justify-items-center items-center"}>
-                <div className={"flex flex-col gap-8"}>
-                    <div className={"flex flex-col gap-3"}>
-
-                        <h1 className={"text-4xl text-darkerGold font-fuzzy text-nowrap"}>{product.title}</h1>
-                        <p className={"text-darkerGold text-xl"}>{product.shortDes}</p>
+                     className={"min-h-screen grid grid-cols-2 max-md:grid-cols-1 max-lg:gap-10 w-full px-32 max-lg:px-25 max-md:px-10 py-10 max-lg:py-7 max-md:py-10 justify-items-center items-center"}>
+                <div className={"flex flex-col gap-8 max-md:gap-5 max-sm:items-center"}>
+                    <div className={"flex flex-col gap-3 max-sm:text-center"}>
+                        <h1 className={"text-4xl text-darkerGold font-fuzzy text-nowrap max-sm:text-wrap max-md:text-3xl"}>{product.title}</h1>
+                        <p className={"text-darkerGold text-xl max-md:text-lg"}>{product.shortDes}</p>
                     </div>
-                    <div className={"text-gold text-3xl flex items-center gap-1"}>
+                    <div className={"text-gold text-3xl max-md:text-2xl  flex items-center gap-1"}>
                         <span>{+product.price - (+product.price * (+product.discount / 100))} {t("currency")}</span>
                         {
                             product.discount !== "0" && (

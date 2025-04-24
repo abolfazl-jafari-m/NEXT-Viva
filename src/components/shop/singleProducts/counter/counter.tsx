@@ -12,7 +12,7 @@ function Counter({initial}: {initial: number}) {
     }
     return (
         <div
-            className={"flex items-center gap-6 rounded-lg border border-darkChocolate px-3 py-2 bg-secondary w-fit"}>
+            className={"flex items-center gap-6 rounded-lg border border-darkChocolate px-3 py-2 bg-secondary w-fit max-sm:px-2 max-sm:py-1 max-md:gap-4"}>
             <button className={"text-xl cursor-pointer"} type={"button"} onClick={increment}>+
             </button>
             <span>{counter}</span>

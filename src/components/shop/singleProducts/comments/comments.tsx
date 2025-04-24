@@ -20,8 +20,8 @@ function Comments({comments}: { comments: Comment[] }) {
         }
     }
     return (
-        <section className={"w-full min-h-screen p-20"} id={"comments"}>
-            <h3 className={"text-white font-semibold text-5xl mb-10"}>{t("comments")}</h3>
+        <section className={"w-full min-h-screen p-20 max-lg:p-15 max-md:p-10 max-sm:p-5"} id={"comments"}>
+            <h3 className={"text-white font-semibold text-5xl max-lg:text-3xl max-md:text-xl mb-10"}>{t("comments")}</h3>
             <div className={"flex flex-col gap-10"}>
                 <form className={"flex flex-col gap-4"} onSubmit={handleSubmit}>
                     <p className={"text-darkerGold text-xl"}>{t("addYourComment")}</p>
@@ -29,14 +29,14 @@ function Comments({comments}: { comments: Comment[] }) {
                            className={"text-white font-extralight shadow shadow-black outline-none rounded-md py-2 px-8 border border-white w-full placeholder:text-white/40"}
                            placeholder={t("writeHere")}/>
                     <button
-                        className={"bg-secondary self-end px-8 py-2 rounded-md shadow shadow-black cursor-pointer"}>{t("submitComment")}
+                        className={"bg-secondary self-end px-8 py-2 max-md:px-5 max-md:py-1 max-sm:text-sm rounded-md shadow shadow-black cursor-pointer"}>{t("submitComment")}
                     </button>
                 </form>
-                <div className={"flex flex-col gap-10 px-10"}>
+                <div className={"flex flex-col gap-10 px-10 max-md:px-5 max-md:gap-4"}>
                     {
                         comments.length === 0 ?
                             <div className={"flex items-center justify-center mt-10"}>
-                                <p className={"font-semibold text-2xl text-white"}>{t("beTheFirstOne")}</p>
+                                <p className={"font-semibold text-2xl text-white max-md:text-xl max-sm:text-lg max-md:text-center"}>{t("beTheFirstOne")}</p>
                             </div>
                             :
                             <>

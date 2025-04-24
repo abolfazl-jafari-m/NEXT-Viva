@@ -25,10 +25,10 @@ function AddToCart() {
                            className={"text-darkerGold font-semibold text-xl"}>{t("quantity")}</label>
                     <Counter initial={0}/>
                 </div>
-                <div className={"flex items-center gap-5"}>
-                    <button className={"bg-darkChocolate text-white rounded-md px-10 py-3 cursor-pointer"} type={"submit"}>{t("addToCart")}
+                <div className={"flex items-center gap-5 max-md:gap-3 max-lg:flex-col max-md:flex-row max-sm:flex-col"}>
+                    <button className={"bg-darkChocolate text-white rounded-md px-10 py-3 cursor-pointer max-lg:text-nowrap max-md:px-4 max-md:py-2 max-sm:text-sm"} type={"submit"}>{t("addToCart")}
                     </button>
-                    <button className={"bg-darkChocolate  text-white rounded-md px-10 py-3 cursor-pointer"} type={"button"}>{t("addToFavorite")}
+                    <button className={"bg-darkChocolate  text-white rounded-md px-10 py-3 cursor-pointer max-lg:text-nowrap max-md:px-4 max-md:py-2 max-sm:text-sm"} type={"button"}>{t("addToFavorite")}
                     </button>
                 </div>
             </form>

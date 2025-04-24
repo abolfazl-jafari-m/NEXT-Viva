@@ -12,7 +12,7 @@ function Slider({images, slug}: { images: string[], slug: string }) {
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
     return (
-        <div className="flex mt-10 w-full justify-center">
+        <div className="flex mt-10 w-full justify-center max-md:h-fit">
             <Swiper
                 slidesPerView={1}
                 modules={[Thumbs, Pagination, FreeMode]}
@@ -34,7 +34,7 @@ function Slider({images, slug}: { images: string[], slug: string }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className=" w-1/4 h-[400px]">
+            <div className=" w-1/4 h-[400px] max-md:h-50 max-md:h-36">
                 <Swiper
                     onSwiper={setThumbsSwiper}
                     watchSlidesProgress={true}

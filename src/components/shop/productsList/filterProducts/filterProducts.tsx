@@ -1,11 +1,11 @@
 "use client"
 import React, {useEffect, useState} from 'react';
-import {Accordion, AccordionItem, Checkbox, CheckboxGroup, Slider} from "@heroui/react";
+import {Accordion, AccordionItem, Checkbox, CheckboxGroup} from "@heroui/react";
 import {BsGenderMale} from "react-icons/bs";
-import {IoPricetags} from "react-icons/io5";
+
 import {GiDelicatePerfume} from "react-icons/gi";
 import {FaFilter, FaWeightScale} from "react-icons/fa6";
-import {usePathname, useRouter, useSearchParams} from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
 import {useTranslations} from "next-intl";
 
 
