@@ -51,8 +51,6 @@ function Comments({comments}: { comments: Comment[] }) {
                                 ))}
                             </>
                     }
-
-
                 </div>
             </div>
         </section>
