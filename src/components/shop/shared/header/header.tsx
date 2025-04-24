@@ -3,6 +3,7 @@ import Image from "next/image";
 import Logo from "@/assets/images/logo.png"
 import Navbar from "@/components/shop/shared/navbar/navbar";
 import HeaderAction from "@/components/shop/shared/haederAction/headerAction";
+import MobileNav from "@/components/shop/shared/mobileNav/mobileNav";
 
 function Header() {
     return (
@@ -10,6 +11,7 @@ function Header() {
             <Image src={Logo.src} alt={"logo"} width={96}  height={96} className={"max-lg:w-[80px]"}/>
             <Navbar />
             <HeaderAction />
+            <MobileNav />
             
         </header>
     );
