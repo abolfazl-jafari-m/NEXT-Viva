@@ -26,7 +26,7 @@ function AddToCart() {
                     <Counter initial={0}/>
                 </div>
                 <div className={"flex items-center gap-5"}>
-                    <button className={"bg-darkChocolate text-white rounded-md px-10 py-3 cursor-pointer"} type={"submit"}>{t("addToCard")}
+                    <button className={"bg-darkChocolate text-white rounded-md px-10 py-3 cursor-pointer"} type={"submit"}>{t("addToCart")}
                     </button>
                     <button className={"bg-darkChocolate  text-white rounded-md px-10 py-3 cursor-pointer"} type={"button"}>{t("addToFavorite")}
                     </button>

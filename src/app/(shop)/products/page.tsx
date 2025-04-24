@@ -12,10 +12,10 @@ async function Products({searchParams,}: { searchParams: Promise<{ [key: string]
     const {volume, gender, fragrance, page} = await searchParams;
     const t = await getTranslations("products-page");
     return (
-        <HeroUIProvider>
-            <div className={"w-full min-h-dvh grid grid-cols-12 gap-14  p-35 "}>
+        <HeroUIProvider >
+            <div className={"w-full min-h-dvh grid grid-cols-12 max-sm:grid-cols-1 gap-14 max-xl:gap-10  max-xl:px-10 p-35 max-md:px-5 max-xl:py-30"}>
                 <div className={"col-span-full flex items-center justify-between px-5"}>
-                    <h2 className={"text-3xl font-semibold text-white"}>{t("title")}</h2>
+                    <h2 className={"text-3xl font-semibold text-white max-sm:text-xl max-sm:mt-7"}>{t("title")}</h2>
                 </div>
                 <ProductsList volume={volume} gender={gender} fragrance={fragrance} page={page}/>
                 <FilterProducts/>
