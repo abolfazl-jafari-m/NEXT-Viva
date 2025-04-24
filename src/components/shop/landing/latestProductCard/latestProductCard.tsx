@@ -14,7 +14,7 @@ function LatestProductCard({product}: { product: Product }) {
             <div className={"flex flex-col h-full justify-between max-md:gap-4 p-1 flex-1 "}>
                 <div className={"flex flex-col gap-2 w-full"}>
                     <h2 className={"text-darkerGold font-semibold line-clamp-1 font-fuzzy"}>{product.title}</h2>
-                    <p className={"text-white"}>{product.price} {t("currency")}</p>
+                    <p className={"text-white"}>{+product.price - (+product.price * (+product.discount / 100))}  {t("currency")}</p>
                 </div>
                 <div className={"flex items-center self-end gap-2 "}>
                     <Link href={`/products/${product.id}`}>

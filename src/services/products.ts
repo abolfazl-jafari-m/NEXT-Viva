@@ -4,7 +4,7 @@ import {unstable_cache} from "next/cache";
 import {createUrlParams} from "@/lib/utils/helpers";
 
 export async function getProducts() {
-    const response = await axios.get("/api/records/products");
+    const response = await axios.get("/api/records/products?sortBy=createdAt&order=desc");
     return response.data.records;
 }
 
@@ -49,7 +49,7 @@ export const getBestSellerProducts = async () => {
 }
 
 export async function getProductsByFilters(limit: number, page ?: string, fragrance ?: string[] | string, volume ?: string[] | string, gender ?: string[] | string) {
-    const response = await axios.get(`/api/records/products?limit=${limit}&page=${page}${createUrlParams("fragrance", fragrance)}${createUrlParams("volume", volume)}${createUrlParams("gender", gender)}`);
+    const response = await axios.get(`/api/records/products?sortBy=createdAt&order=desc&limit=${limit}&page=${page}${createUrlParams("fragrance", fragrance)}${createUrlParams("volume", volume)}${createUrlParams("gender", gender)}`);
     return response.data;
 }
 

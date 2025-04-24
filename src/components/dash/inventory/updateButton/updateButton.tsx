@@ -23,6 +23,10 @@ function UpdateButton() {
         })
             .finally(() => setIsLoading(false));
     }
+
+     if (productsInventories.length === 0) {
+         return null
+     }
     return (
         <>
             {

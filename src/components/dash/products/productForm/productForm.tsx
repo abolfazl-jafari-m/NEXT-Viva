@@ -8,10 +8,9 @@ import {brands, concentration, fragrances, genders, positions, seasons, volumes}
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useTranslations} from "next-intl";
 import ControlledInput from "@/components/dash/base/controlledInput/controlledInput";
-import dynamic from "next/dynamic";
-
-const ControlledSelectBox = dynamic(() => import("@/components/dash/base/controlledSelectBox/controlledSelectBox",),
-    {ssr: false})
+// import dynamic from "next/dynamic";
+// // const ControlledSelectBox = dynamic(() => import("@/components/dash/base/controlledSelectBox/controlledSelectBox",),
+// //     {ssr: false})
 import {Product, ProductsForm} from "@/interfaces/interfaces";
 import {onlyNumbers, yearRegex} from "@/constants/regex";
 import {addProduct, updateProduct} from "@/services/products";
@@ -19,6 +18,7 @@ import slugify from "slugify";
 import {useQueryClient} from "@tanstack/react-query";
 import {BeatLoader,} from "react-spinners";
 import toast from "react-hot-toast";
+import ControlledSelectBox from "@/components/dash/base/controlledSelectBox/controlledSelectBox";
 
 
 function ProductForm({product}: { product?: Product }) {
@@ -32,10 +32,10 @@ function ProductForm({product}: { product?: Product }) {
             shortDes: product ? product.shortDes : "",
             price: product ? product.price : "",
             releaseYear: product ? product.releaseYear : "",
-            brand: product ? brands.find(item => item.label = product.brand) : undefined,
+            brand: product ? brands.find(item => item.label === product.brand) : undefined,
             volume: product ? volumes.filter(item => product.volume.includes(item.label)) : undefined,
-            concentration: product ? concentration.find(item => item.label = product.concentration) : undefined,
-            gender: product ? genders.find(item => item.label = product.gender) : undefined,
+            concentration: product ? concentration.find(item => item.label === product.concentration) : undefined,
+            gender: product ? genders.find(item => item.label === product.gender) : undefined,
             seasons: product ? seasons.filter(item => product.season.includes(item.label)) : undefined,
             positions: product ? positions.filter(item => product.position.includes(item.label)) : undefined,
             fragrance: product ? fragrances.filter(item => product.fragrance.includes(item.label)) : undefined,
@@ -63,7 +63,7 @@ function ProductForm({product}: { product?: Product }) {
             positions,
             discount
         } = data
-        const productData: Omit<Product, "createdAt" | "id" | "comments"> = {
+        const productData: Omit<Product, "createdAt" | "id"> = {
             title: title,
             shortDes: shortDes,
             price: price,
@@ -78,8 +78,9 @@ function ProductForm({product}: { product?: Product }) {
             brand: brand.label,
             releaseYear: releaseYear,
             images: images,
-            discount :discount,
+            discount: discount,
             slug: slugify(title, {lower: true, replacement: "-"}),
+            comments: product ? product.comments : []
         };
         if (product) {
             updateProduct(product.id, productData)
@@ -186,7 +187,6 @@ function ProductForm({product}: { product?: Product }) {
                             </>
                         )
                     }
-
                 </div>
             </div>
         </form>

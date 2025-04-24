@@ -18,7 +18,7 @@ import {getTranslations} from "next-intl/server";
 
 export async function generateMetadata({params}: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const {id} = await params;
-    const t =await  getTranslations("product-single")
+    const t = await getTranslations("product-single")
     const response = await fetch(`http://api.alikooshesh.ir:3000/api/records/products/${id}`, {
         headers: {
             api_key: API_KEY,
@@ -38,7 +38,7 @@ export async function generateMetadata({params}: { params: Promise<{ id: string 
 
 
 async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
-    const t =await  getTranslations("product-single");
+    const t = await getTranslations("product-single");
     const {id} = await params;
     const response = await fetch(`http://api.alikooshesh.ir:3000/api/records/products/${id}`, {
         headers: {
@@ -55,8 +55,10 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
     return (
         <>
             <Navigation/>
-            <section id={"intro"} className={"flex flex-col items-center justify-center gap-8  max-md:gap-12  w-full h-screen relative"}>
-                <div className={"grid grid-cols-2 w-4/5 items-center max-sm:grid-cols-1 max-sm:justify-items-center max-sm:gap-5"}>
+            <section id={"intro"}
+                     className={"flex flex-col items-center justify-center gap-8  max-md:gap-12  w-full h-screen relative"}>
+                <div
+                    className={"grid grid-cols-2 w-4/5 items-center max-sm:grid-cols-1 xl:w-3/5 max-sm:justify-items-center max-sm:gap-5"}>
                     <div className={"flex flex-col gap-7 max-sm:items-center max-sm:gap-4 "}>
                         <h2 className={"font-semibold text-white text-2xl font-fuzzy max-md:text-xl max-sm:text-lg"}>{product.title}</h2>
                         <h4 className={"text-gold text-4xl max-md:text-2xl max-sm:text-xl max-sm:text-center"}>{product.shortDes}</h4>
@@ -68,24 +70,27 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                     </div>
                     <div className={"flex items-center justify-center max-sm:row-start-1"}>
                         <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"image"} width={400}
-                             height={400} className={"max-md:w-60"}/>
+                             height={400} className={"max-md:w-60 rounded-lg"}/>
                     </div>
                 </div>
                 <div className={"flex items-center justify-center gap-16 max-md:gap-8 w-3/5 mt-8"}>
                     <div className={"flex flex-col items-center gap-4"}>
-                        <Image src={original.src} alt={"original"} width={42} height={42} className={"max-md:w-10 max-sm:w-8"}/>
+                        <Image src={original.src} alt={"original"} width={42} height={42}
+                               className={"max-md:w-10 max-sm:w-8"}/>
                         <p className={"text-gold font-light text-xl max-sm:text-[16px] text-nowrap"}>
                             {t("originality")}
                         </p>
                     </div>
                     <div className={"flex flex-col items-center gap-4"}>
-                        <Image src={bestPrice.src} alt={"bestPrice"} width={42} height={42} className={"max-md:w-10 max-sm:w-8"}/>
+                        <Image src={bestPrice.src} alt={"bestPrice"} width={42} height={42}
+                               className={"max-md:w-10 max-sm:w-8"}/>
                         <p className={"text-gold font-light text-xl max-sm:text-[16px] text-nowrap"}>
                             {t("bestPrice")}
                         </p>
                     </div>
                     <div className={"flex flex-col items-center gap-4"}>
-                        <Image src={delivery.src} alt={"delivery"} width={42} height={42} className={"max-md:w-10 max-sm:w-8"}/>
+                        <Image src={delivery.src} alt={"delivery"} width={42} height={42}
+                               className={"max-md:w-10 max-sm:w-8"}/>
                         <p className={"text-gold font-light text-xl max-sm:text-[16px]  text-nowrap"}>
                             {t("freeDeliver")}
                         </p>
@@ -95,14 +100,16 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                 <DebounceArrow/>
                 <SocialLink/>
             </section>
-            <section id={"details"} className={"grid grid-cols-2 items-center w-full min-h-screen max-md:grid-cols-1 max-sm:justify-items-center"}>
+            <section id={"details"}
+                     className={"grid grid-cols-2 items-center w-full min-h-screen max-md:grid-cols-1 max-sm:justify-items-center"}>
                 <div className={"flex items-center justify-center"}>
                     <img
                         src={`http://api.alikooshesh.ir:3000${product.images[1] ? product.images[1] : product.images[0]} `}
                         alt={product.slug} width={400} height={400}
                         className={"rounded-2xl drop-shadow-lg max-lg:w-78 "}/>
                 </div>
-                <div className={"grid grid-cols-3  gap-x-20 gap-y-10 w-fit max-md:grid-cols-4  max-md:items-center max-md:w-full max-sm:w-4/6 max-sm:grid-cols-1 max-md:gap-x-10 max-sm:gap-2 max-sm:my-10"}>
+                <div
+                    className={"grid grid-cols-3  gap-x-20 gap-y-10 w-fit max-md:grid-cols-4  max-md:items-center max-md:w-full max-sm:w-4/6 max-sm:grid-cols-1 max-md:gap-x-10 max-sm:gap-2 max-sm:my-10"}>
                     <h2 className={"text-white font-bold text-3xl col-span-full max-sm:text-xl"}>{t("details")}</h2>
                     <div className={"flex flex-col gap-2"}>
                         <p className={"text-white max-sm:text-sm"}>{t("name")}</p>

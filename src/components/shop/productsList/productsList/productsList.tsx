@@ -16,7 +16,7 @@ async function ProductsList({volume, page, fragrance, gender}: {
     const products: Product[] = data.records;
     return (
         <div className={"flex flex-col gap-10 items-center col-span-9 max-xl:col-span-8 max-md:col-span-full"}>
-            <div className={`grid grid-cols-4 gap-7 max-lg:grid-cols-2 max-lg:gap-5 max-xl:grid-cols-3 max-sm:grid-cols-1 w-full`}>
+            <div className={`grid grid-cols-3 gap-7 max-lg:grid-cols-2 max-lg:gap-5  max-sm:grid-cols-1 w-full`}>
                 {products.map((product: Product) => (
                     <ProductsCard key={product.id} product={product}/>
                 ))
