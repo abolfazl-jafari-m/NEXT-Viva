@@ -1,8 +1,22 @@
+"use client";
 import React from 'react';
+import CartProductCard from "@/components/shop/cart/cartProductCard/cartProductCard";
+import {useCartStore} from "@/lib/providers/CartStoreProivder";
 
 function CartItems() {
+    const cartItems = useCartStore((state)=>state.cartItems);
     return (
-        <div></div>
+        <div className={"col-span-4 row-span-5 flex flex-col gap-5 bg-primary ring-2 ring-zinc-800 rounded-lg shadow shadow-black p-5"}>
+            {
+                cartItems.length > 0 ?
+                cartItems.map((cartItem) => (<CartProductCard key={cartItem.id} cartItem={cartItem} />))
+                    :
+                    <div className={"w-full h-full flex items-center justify-center"}>
+                        <p className={"text-xl text-white font-semibold text-center"}>هیچ محصولی در سبد خرید شما موجود نیست</p>
+                    </div>
+            }
+
+        </div>
     );
 }
 

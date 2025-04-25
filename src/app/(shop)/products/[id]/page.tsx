@@ -169,7 +169,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                     <p className={"text-white "}>
                         {product.description}
                     </p>
-                    <AddToCart/>
+                    <AddToCart product={product}/>
                 </div>
                 <Slider images={product.images} slug={product.slug}/>
             </section>

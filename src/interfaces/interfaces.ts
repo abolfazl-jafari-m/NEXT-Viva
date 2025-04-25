@@ -17,7 +17,7 @@ export interface Product {
     images: (string)[];
     comments: Comment[];
     id: string;
-    discount :string
+    discount: string
 }
 
 export interface Order {
@@ -72,10 +72,19 @@ export interface ProductsForm {
     inventory: string;
     description: string;
     images: string[];
-    discount :string
+    discount: string
 }
 
 export type Comment = {
     user_name: string;
     comment: string;
+}
+
+export type CartItem = {
+    id: string;
+    title: string;
+    image: string
+    price: string;
+    quantity: string;
+    volume: string;
 }

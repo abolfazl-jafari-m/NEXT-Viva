@@ -1,14 +1,23 @@
+"use client";
 import React, {useState} from 'react';
+import {useCartStore} from "@/lib/providers/CartStoreProivder";
 
-function Counter({initial}: {initial: number}) {
-    const [counter, setCounter] = useState(()=>initial);
+function Counter({productId}: {productId: string}   ) {
+    const dec = useCartStore((state)=>state.dec);
+    const inc = useCartStore((state)=>state.inc);
+    const cartItems = useCartStore((state)=>state.cartItems);
+    const item =cartItems.find(item=>item.id ===productId);
+    const [counter, setCounter] = useState(()=>item ? +item.quantity : 0);
     const decrement = () => {
         if (counter >= 1) {
             setCounter(counter - 1);
+            if (item) dec(productId);
         }
+
     }
     const increment = () => {
         setCounter(counter + 1);
+        if (item) inc(productId);
     }
     return (
         <div
