@@ -2,6 +2,7 @@
 import React from 'react';
 import Button from "@/components/shop/base/button/button";
 import {useCartStore} from "@/lib/providers/CartStoreProivder";
+import Link from "next/link";
 
 function CartSummery() {
     const cartItems = useCartStore((state) => state.cartItems);
@@ -30,15 +31,18 @@ function CartSummery() {
                         type={"button"}>ثبت کد تخفیف</Button>
                 </div>
             </div>
-            <div className={"mt-auto w-full flex flex-col gap-2"}>
+            {cartItems.length > 0 &&<div className={"mt-auto w-full flex flex-col gap-2"}>
                 <div className={"flex items-center justify-between text-lg px-3"}>
                     <h3>مبلغ نهایی سفارش</h3>
                     <p>{total}</p>
                 </div>
-                <Button type={"button"} className={" w-full py-2 rounded-lg bg-darkChocolate shadow shadow-black"}>
-                    نهایی کردن سفارش
-                </Button>
-            </div>
+                <Link href={"/checkout"}>
+                    <Button type={"button"}
+                            className={" w-full py-2 rounded-lg bg-darkChocolate shadow shadow-black cursor-pointer"}>
+                        نهایی کردن سفارش
+                    </Button>
+                </Link>
+            </div>}
         </div>
     );
 }

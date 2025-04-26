@@ -1,9 +1,8 @@
 "use client"
 import React from 'react';
-import {CgHeart, CgShoppingCart} from "react-icons/cg";
+import {CgHeart} from "react-icons/cg";
 import Search from "@/components/shop/shared/search/search";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import CartItems from "@/components/shop/shared/cartItems/cartItems";
 
 const UserInfo = dynamic(() => import( "@/components/shop/shared/userInfo/userInfo"), {ssr: false});

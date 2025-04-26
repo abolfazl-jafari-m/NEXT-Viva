@@ -25,14 +25,14 @@ export interface Order {
     customer_name: string;
     customer_address: string;
     customer_phone: string;
-    deliver_time: string;
+    deliver_time : string | null;
     status: string;
     totalPrice: string;
-    items: (OrderItems)[];
+    items: (OrderItem)[];
     id: string;
 }
 
-export interface OrderItems {
+export interface OrderItem {
     title: string;
     volume: string;
     price: string;

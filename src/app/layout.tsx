@@ -5,6 +5,7 @@ import {Toaster} from "react-hot-toast";
 import ReactQueryProvider from "@/lib/providers/reactQueryProvider";
 import {getLocale} from "next-intl/server";
 import {NextIntlClientProvider} from "next-intl";
+import {OrderStoreProvider} from "@/lib/providers/OrderStoreProvider";
 
 const vazir = localFont({
     src: [
@@ -59,7 +60,9 @@ export default async function RootLayout({
         >
         <NextIntlClientProvider>
             <ReactQueryProvider>
-                {children}
+                <OrderStoreProvider>
+                    {children}
+                </OrderStoreProvider>
             </ReactQueryProvider>
         </NextIntlClientProvider>
         <Toaster position={"top-left"} toastOptions={{

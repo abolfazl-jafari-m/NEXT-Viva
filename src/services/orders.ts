@@ -1,9 +1,15 @@
 import {axiosInstance as axios} from "@/lib/instance/axios";
 import {API_KEY, API_URL} from "@/constants/configs";
+import {Order} from "@/interfaces/interfaces";
 
 export async function getOrders() {
-    const response = await axios("/api/records/orders")
+    const response = await axios.get("/api/records/orders?sortBy=createdAt&order=desc")
     return response.data.records;
+}
+
+export async function addOrder (order :Omit<Order, "id"| "createdAt">){
+    const response = await axios.post("/api/records/orders", order);
+    return response.data;
 }
 
 

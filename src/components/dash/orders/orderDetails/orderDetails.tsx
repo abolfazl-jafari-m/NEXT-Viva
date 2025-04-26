@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Button from "@/components/dash/base/button/button";
-import {Order, OrderItems} from "@/interfaces/interfaces";
+import {Order, OrderItem} from "@/interfaces/interfaces";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {updateOrderStatus} from "@/services/orders";
 import {BeatLoader} from "react-spinners";
@@ -43,7 +43,7 @@ function OrderDetails({order}: { order: Order }) {
                     </thead>
                     <tbody>
                     {
-                        order.items.map((item: OrderItems) => (
+                        order.items.map((item: OrderItem) => (
                             <tr className={"odd:bg-secondary even:bg-white text-black text-center max-sm:text-sm"}
                                 key={item.title}>
                                 <td className={"p-2 min-w-fit"}>{item.title} - {item.volume} ml</td>
@@ -88,7 +88,7 @@ function OrderDetails({order}: { order: Order }) {
                 </div>
                 <div className={"flex items-center gap-5 justify-between"}>
                     <span className={"font-semibold"}>{t("time_delivered")}</span>
-                    {order.status !== "pending" && <p>{new Date(order.deliver_time).toLocaleDateString("fa", {
+                    {order.status !== "pending" && <p>{order.deliver_time && new Date(order.deliver_time).toLocaleDateString("fa", {
                         year: "2-digit",
                         month: "long",
                         day: "numeric"
