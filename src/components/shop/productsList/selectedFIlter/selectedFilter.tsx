@@ -6,7 +6,7 @@ import {CgClose} from "react-icons/cg";
 
 function SelectedFilter() {
     const searchParams = useSearchParams();
-    const filters = searchParams.entries().toArray();
+    const filters = searchParams.entries().toArray().filter(item=>item[0] !== "page");
     const params = new URLSearchParams(searchParams);
     const router = useRouter();
 

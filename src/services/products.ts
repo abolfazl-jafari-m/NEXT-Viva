@@ -53,3 +53,7 @@ export async function getProductsByFilters(limit: number, page ?: string, fragra
     return response.data;
 }
 
+export async function searchProducts(searchTerm: string) {
+    const response = await axios.get(`/api/records/products?searchKey=title&searchValue=${searchTerm}`);
+    return response.data.records;
+}
