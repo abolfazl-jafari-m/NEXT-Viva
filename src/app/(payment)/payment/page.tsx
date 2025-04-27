@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import {useOrderStore} from "@/lib/providers/OrderStoreProvider";
-import {forbidden, redirect} from "next/navigation";
+import {redirect} from "next/navigation";
 import {addOrder} from "@/services/orders";
 import {Order} from "@/interfaces/interfaces";
 import toast from "react-hot-toast";

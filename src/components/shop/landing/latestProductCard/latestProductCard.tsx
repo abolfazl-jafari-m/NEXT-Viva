@@ -4,11 +4,12 @@ import Button from "@/components/shop/base/button/button";
 import {Product} from "@/interfaces/interfaces";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
+import SlideIn from "@/components/animations/SlideIn/SlideIn";
 
 function LatestProductCard({product}: { product: Product }) {
     const t = useTranslations("latest");
     return (
-        <div
+        <SlideIn x={100}
             className={"flex gap-3 items-center bg-stone-950/80 backdrop-blur-2xl rounded-2xl shadow-2xl ring-2 ring-primary shadow-black p-3"}>
             <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"tom ford"} width={140} height={140} className={"max-lg:w-[100px]"}/>
             <div className={"flex flex-col h-full justify-between max-md:gap-4 p-1 flex-1 "}>
@@ -16,7 +17,7 @@ function LatestProductCard({product}: { product: Product }) {
                     <h2 className={"text-darkerGold font-semibold line-clamp-1 font-fuzzy"}>{product.title}</h2>
                     <p className={"text-white"}>{+product.price - (+product.price * (+product.discount / 100))}  {t("currency")}</p>
                 </div>
-                <div className={"flex items-center self-end gap-2 "}>
+                <div className={"self-end"}>
                     <Link href={`/products/${product.id}`}>
                         <Button
                             className={"p-2 px-4 text-sm rounded-md shadow shadow-black bg-primary text-white cursor-pointer"}
@@ -24,13 +25,9 @@ function LatestProductCard({product}: { product: Product }) {
                             {t("seeMore")}
                         </Button>
                     </Link>
-                    <Button className={"p-2 rounded-md shadow shadow-black bg-primary text-white "}
-                            type={"button"}>
-                        <FaCartPlus/>
-                    </Button>
                 </div>
             </div>
-        </div>
+        </SlideIn>
     );
 }
 

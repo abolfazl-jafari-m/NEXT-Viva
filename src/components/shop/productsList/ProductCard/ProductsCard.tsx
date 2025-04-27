@@ -21,10 +21,7 @@ function ProductsCard({product}: { product: Product }) {
                     </Link>
                     <p>{+product.price - (+product.price * (+product.discount / 100))} {t("currency")}</p>
                 </div>
-                <div className={"flex flex-col gap-2 max-lg:w-full max-lg:flex-row"}>
-                    <Button className={"bg-primary text-white p-2 rounded-lg shadow-lg shadow-black"} type={"button"}>
-                        <FaCartPlus/>
-                    </Button>
+                <div className={"max-lg:w-full"}>
                     <Button className={"bg-primary text-white p-2 rounded-lg shadow-lg shadow-black "} type={"button"}>
                         <FaHeart/>
                     </Button>

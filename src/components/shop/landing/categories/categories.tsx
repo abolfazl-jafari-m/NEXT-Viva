@@ -5,13 +5,14 @@ import cool from "@/assets/images/category-mens-cool.png"
 import warm from "@/assets/images/category-mens-warm.png"
 import Image from "next/image";
 import Link from "next/link";
+import SlideIn from "@/components/animations/SlideIn/SlideIn";
 
 function Categories() {
     return (
         <section
-            className={"w-full min-h-screen grid grid-cols-2 max-lg:grid-cols-1 max-lg:p-10 max-lg:gap-5 gap-10 p-15 max-md:p-5"}
+            className={"w-full min-h-screen grid grid-cols-2 max-lg:grid-cols-1 max-lg:p-10 max-lg:gap-5 gap-10 p-15 max-md:p-5 overflow-hidden"}
             id={"category"}>
-            <div
+            <SlideIn x={-300}
                 className={"  flex items-center gap-4 max-md:gap-2 bg-primary rounded-lg shadow-black shadow-2xl max-xl:flex-col max-lg:flex-row ring-2 ring-zinc-900"}>
                 <Image src={bitter.src} alt={"bitter"} width={250} height={250}
                        className={"max-xl:w-[200px] max-lg:w-[150px]"}/>
@@ -31,9 +32,9 @@ function Categories() {
                         </button>
                     </Link>
                 </div>
-            </div>
+            </SlideIn>
 
-            <div
+            <SlideIn x={-300}
                 className={"  flex items-center gap-4 max-md:gap-2  ring-2 ring-zinc-900 rounded-lg max-xl:flex-col max-lg:flex-row"}>
                 <Image src={sweet.src} alt={"sweet"} width={250} height={250}
                        className={"max-xl:w-[200px] max-lg:w-[150px]"}/>
@@ -52,9 +53,9 @@ function Categories() {
                         </button>
                     </Link>
                 </div>
-            </div>
+            </SlideIn>
 
-            <div
+            <SlideIn x={-300}
                 className={"  flex items-center gap-4 max-md:gap-2 ring-2 ring-zinc-900 rounded-lg max-xl:flex-col max-lg:flex-row"}>
                 <Image src={cool.src} alt={"cool"} width={250} height={250}
                        className={"max-xl:w-[200px] max-lg:w-[150px]"}/>
@@ -74,8 +75,8 @@ function Categories() {
                         </button>
                     </Link>
                 </div>
-            </div>
-            <div
+            </SlideIn>
+            <SlideIn x={-300}
                 className={" flex items-center gap-4 max-md:gap-2 bg-primary rounded-lg shadow-black shadow-2xl ring-2 ring-zinc-900 max-xl:flex-col max-lg:flex-row"}>
                 <Image src={warm.src} alt={"warm"} width={250} height={250}
                        className={"max-xl:w-[200px] max-lg:w-[150px]"}/>
@@ -97,7 +98,7 @@ function Categories() {
                         </button>
                     </Link>
                 </div>
-            </div>
+            </SlideIn>
         </section>
     )
         ;
