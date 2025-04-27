@@ -1,5 +1,4 @@
 import React from 'react';
-import {FaCartPlus} from "react-icons/fa6";
 import Button from "@/components/shop/base/button/button";
 import {Product} from "@/interfaces/interfaces";
 import Link from "next/link";

@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from "@/components/shop/base/button/button";
-import {FaCartPlus, FaHeart} from "react-icons/fa6";
+import {FaHeart} from "react-icons/fa6";
 import {Product} from "@/interfaces/interfaces";
 import Link from "next/link";
 import {useTranslations} from "next-intl";

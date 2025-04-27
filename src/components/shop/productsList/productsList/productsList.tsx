@@ -16,13 +16,23 @@ async function ProductsList({volume, page, fragrance, gender}: {
     const products: Product[] = data.records;
     return (
         <div className={"flex flex-col gap-10 items-center col-span-9 max-xl:col-span-8 max-md:col-span-full"}>
-            <div className={`grid grid-cols-3 gap-7 max-lg:grid-cols-2 max-lg:gap-5  max-sm:grid-cols-1 w-full`}>
-                {products.map((product: Product) => (
-                    <ProductsCard key={product.id} product={product}/>
-                ))
-                }
-            </div>
-            <Paginate page={data.currentPage} total={data.totalPages}/>
+            {products.length > 0 ?
+                <>
+                    <div
+                        className={`grid grid-cols-3 gap-7 max-lg:grid-cols-2 max-lg:gap-5  max-sm:grid-cols-1 w-full`}>
+                        {products.map((product: Product) => (
+                            <ProductsCard key={product.id} product={product}/>
+                        ))
+                        }
+                    </div>
+                    <Paginate page={data.currentPage} total={data.totalPages}/>
+                </>
+                :
+                <div className={"flex items-center justify-center w-full h-full"}>
+                    <p className={"text-white/60 text-xl"}>هیچ محصولی یافت نشد</p>
+                </div>
+            }
+
         </div>
     );
 }
