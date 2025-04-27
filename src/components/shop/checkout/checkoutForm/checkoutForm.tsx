@@ -16,7 +16,8 @@ interface inputs {
 
 function CheckoutForm() {
     const cartItems = useCartStore((state) => state.cartItems);
-    const resetCart = useCartStore((state) => state.reset);
+    const discount = useCartStore((state) => state.discount);
+    const totalPrice = cartItems.reduce((prev, item) => prev + (+item.price * +item.quantity), 0)
     const setOrder = useOrderStore((state) => state.setOrder);
     const {formState: {errors}, register, handleSubmit} = useForm<inputs>({
         defaultValues: {
@@ -29,17 +30,15 @@ function CheckoutForm() {
 
     const checkoutHandler: SubmitHandler<inputs> = (data) => {
         setOrder({
-            customer_name: data.name+" "+data.lastName,
+            customer_name: data.name + " " + data.lastName,
             customer_address: data.address,
             customer_phone: data.phoneNumber,
-            items: cartItems.map(({id , image , ...res})=>({...res})),
-            totalPrice:cartItems.reduce((prev , item)=>prev+(+item.price * +item.quantity) , 0).toString(),
+            items: cartItems.map(({title, quantity, volume, price}) => ({title, quantity, volume, price})),
+            totalPrice: (totalPrice - totalPrice * (discount / 100)).toString(),
             status: "pending",
             deliver_time: null
         });
-        resetCart();
         redirect("/payment");
-
 
     }
     return (
@@ -93,6 +92,10 @@ function CheckoutForm() {
                     </Button>
                 </div>
             </form>
+            <div className={"flex items-center justify-between text-white w-1/3"}>
+                <h4>مبلغ قابل پرداخت</h4>
+                <p>{totalPrice - totalPrice * (discount / 100)} تومان</p>
+            </div>
         </div>
     );
 }

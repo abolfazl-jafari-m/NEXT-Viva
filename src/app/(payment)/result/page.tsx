@@ -3,10 +3,16 @@ import React from 'react';
 import {useOrderStore} from "@/lib/providers/OrderStoreProvider";
 import {FaCheck} from "react-icons/fa6";
 import {IoMdClose} from "react-icons/io";
-import Link from "next/link";
+import { redirect} from "next/navigation";
 
 function Result() {
-    const paymentResult = useOrderStore((state) => state.paymentStatus)
+    const paymentResult = useOrderStore((state) => state.paymentStatus);
+    const setPaymentStatus = useOrderStore((state) => state.setPaymentStatus);
+
+    const handlePaymentStatus = ()=>{
+        setPaymentStatus(null);
+        redirect("/")
+    }
     return (
         <div className={"w-full h-screen bg-secondary flex items-center justify-center flex-col gap-5"}>
 
@@ -25,11 +31,11 @@ function Result() {
                             <IoMdClose/></div>
                     </>
             }
-            <Link href={"/"}>
-                <button className={"px-10 py-2 text-white bg-primary rounded-lg shadow shadow-black cursor-pointer"}>بازگشت به سایت
+                <button type={"button"} onClick={handlePaymentStatus}
+                    className={"px-10 py-2 text-white bg-primary rounded-lg shadow shadow-black cursor-pointer"}>بازگشت
+                    به سایت
                     پذیرنده
                 </button>
-            </Link>
         </div>
     );
 }

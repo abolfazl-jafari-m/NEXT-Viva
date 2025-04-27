@@ -42,6 +42,9 @@ export interface OrderItem {
 export interface UserInterface {
     email: string;
     name: string;
+    lastName ?: string;
+    address?: string;
+    phoneNumber?: string;
     role: string;
     avatar: string;
     createdAt: string;

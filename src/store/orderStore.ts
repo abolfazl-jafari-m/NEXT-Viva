@@ -10,6 +10,7 @@ export type OrderState = {
 export type OrderAction = {
     setOrder: (order: Omit<Order, "id" | "createdAt"> | null) => void;
     setPaymentStatus: (paymentStatus: boolean | null) => void;
+    reset: () => void;
 }
 
 export type OrderStore = OrderState & OrderAction;
@@ -24,5 +25,6 @@ export const createOrderStore = (initState: OrderState = defaultState) => {
         ...initState,
         setOrder: (order: Omit<Order, "id" | "createdAt"> | null) => set({order}),
         setPaymentStatus: (paymentStatus: boolean | null) => set({paymentStatus}),
+        reset: () => set({order: null}),
     }))
 }

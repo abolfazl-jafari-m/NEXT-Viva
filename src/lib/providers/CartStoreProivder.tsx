@@ -27,7 +27,7 @@ export const CartStoreProvider = ({children}: CartStoreProvider) => {
 export const useCartStore = <T , > (selector : (store : CartStore)=> T,)=>{
     const cartStoreContext = useContext(CartContext);
     if (!cartStoreContext) {
-        throw new Error(`useCounterStore must be used within CounterStoreProvider`)
+        throw new Error(`useCartStore must be used within CartStoreProvider`)
     }
     return useStore(cartStoreContext, selector);
 }

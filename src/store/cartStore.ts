@@ -5,6 +5,7 @@ import {persist} from "zustand/middleware";
 
 export type State = {
     cartItems: CartItem[];
+    discount: number;
 }
 
 export type Actions = {
@@ -13,12 +14,14 @@ export type Actions = {
     inc: (id: string) => void;
     dec: (id: string) => void;
     reset: () => void;
+    setDiscount: (discount: number) => void;
 }
 
 export type CartStore = State & Actions;
 
 const defaultState: State = {
     cartItems: [],
+    discount: 0,
 };
 
 export const createCartStore = (initStore: State = defaultState) => {
@@ -47,6 +50,7 @@ export const createCartStore = (initStore: State = defaultState) => {
                 quantity: (+item.quantity - 1).toString()
             })
         })),
-        reset :()=>set(()=>({cartItems: []})),
+        reset: () => set(() => ({cartItems: []})),
+        setDiscount: (discount) => set({discount})
     }), {name: "cart"}))
 }

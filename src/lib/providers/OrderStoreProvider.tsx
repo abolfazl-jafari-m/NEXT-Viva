@@ -23,7 +23,7 @@ export function OrderStoreProvider({ children }: { children: ReactNode }) {
 export const useOrderStore = <T,>(selector : (store : OrderStore) => T) => {
     const context = useContext(ContextOrder);
     if (!context) {
-        throw new Error("useCounterStore must be used within CounterStoreProvider");
+        throw new Error("useOrderStore must be used within OrderStoreProvider");
     }
     return useStore(context , selector);
 }

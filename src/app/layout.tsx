@@ -6,6 +6,7 @@ import ReactQueryProvider from "@/lib/providers/reactQueryProvider";
 import {getLocale} from "next-intl/server";
 import {NextIntlClientProvider} from "next-intl";
 import {OrderStoreProvider} from "@/lib/providers/OrderStoreProvider";
+import {CartStoreProvider} from "@/lib/providers/CartStoreProivder";
 
 const vazir = localFont({
     src: [
@@ -61,7 +62,9 @@ export default async function RootLayout({
         <NextIntlClientProvider>
             <ReactQueryProvider>
                 <OrderStoreProvider>
-                    {children}
+                    <CartStoreProvider>
+                        {children}
+                    </CartStoreProvider>
                 </OrderStoreProvider>
             </ReactQueryProvider>
         </NextIntlClientProvider>
