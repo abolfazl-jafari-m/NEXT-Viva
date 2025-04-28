@@ -8,8 +8,10 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 import card from "@/assets/images/credit-card.svg"
 import {useCartStore} from "@/lib/providers/CartStoreProivder";
+import {useTranslations} from "next-intl";
 
 function Payment() {
+    const t= useTranslations("payment");
     const order = useOrderStore((state) => state.order);
     const resetCart = useCartStore((state) => state.reset);
     const resetOrder = useOrderStore((state) => state.reset);
@@ -19,9 +21,9 @@ function Payment() {
         setPaymentStatus(status);
         if (status) {
             addOrder(order as Order).then(() => {
-                toast.success("پرداخت شما موفقیت آمیز بود");
+                toast.success(t("pay-success"));
                 resetCart();
-            }).catch(() => toast.error("مشکلی پیش آمده مجددن تلاش کنید"))
+            }).catch(() => toast.error(t("pay-error")))
                 .finally(() => {
                     resetOrder();
                     redirect("/result");
@@ -37,18 +39,18 @@ function Payment() {
                 <Image src={card.src} alt={"cart"} width={400} height={200}/>
                 <form className={"grid grid-cols-2 gap-8 h-fit"}>
                     <input className={"rounded-lg border border-primary px-4 py-2 col-span-full"}
-                           placeholder={"شماره کارت خود را وارد کنید"}/>
+                           placeholder={t("cartNumber")}/>
                     <input className={"rounded-lg border border-primary px-4 py-2 "} placeholder={"CVV"}/>
-                    <input className={"rounded-lg border border-primary px-4 py-2 "} placeholder={"تاریخ انتقضا"}/>
+                    <input className={"rounded-lg border border-primary px-4 py-2 "} placeholder={t("expire")}/>
                     <input className={"rounded-lg border border-primary px-4 py-2 col-span-full "}
-                           placeholder={"رمز یکبار مصرف خود را وارد کنید"}/>
+                           placeholder={t("pass")}/>
                     <button className={"py-2 rounded-lg bg-gray-600 text-white shadow shadow-black cursor-pointer"}
                             type={"button"}
-                            onClick={() => paymentHandler(false)}>انصراف
+                            onClick={() => paymentHandler(false)}>{t("cancel")}
                     </button>
                     <button className={"py-2 rounded-lg bg-cyan-800 text-white shadow shadow-black cursor-pointer"}
                             type={"button"}
-                            onClick={() => paymentHandler(true)}>پرداخت
+                            onClick={() => paymentHandler(true)}>{t("pay")}
                     </button>
                 </form>
             </div>
