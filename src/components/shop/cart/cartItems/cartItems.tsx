@@ -14,7 +14,7 @@ function CartItems() {
                 cartItems.map((cartItem) => (<CartProductCard key={cartItem.id} cartItem={cartItem} />))
                     :
                     <div className={"w-full h-full flex items-center justify-center"}>
-                        <p className={"text-xl text-white font-semibold text-center"}>{t("noCartItems")}</p>
+                        <p className={"text-xl text-white font-semibold text-center max-sm:text-lg"}>{t("noCartItems")}</p>
                     </div>
             }
 

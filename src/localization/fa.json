@@ -239,7 +239,8 @@
     "discountPlaceholder": "کد تخفیف خود را وارد کنید...",
     "discount-success": "کد تخفیف شما با موفقیت اعمال شد",
     "discount-error": "کد تخفیف معتبر نمباشد",
-    "discount-remove": "کد تخفیف با موفقیت حذف گردید"
+    "discount-remove": "کد تخفیف با موفقیت حذف گردید",
+    "remove-discount" : "حذف کد تخفیف"
   },
   "search": {
     "search" : "جستجو کنید....",

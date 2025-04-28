@@ -35,7 +35,7 @@ function Search() {
                                 onClick={() => setIsOpen(false)}>
                                 <CgClose/>
                             </span>
-                                <div className={"bg-secondary rounded-lg ring ring-gold px-3 py-2 w-1/3"}>
+                                <div className={"bg-secondary rounded-lg ring ring-gold px-3 py-2 w-1/3 max-lg:w-2/3"}>
                                     <input className={"w-full outline-none border-none bg-transparent text-black"}
                                            onChange={(e) => debounce(e.target.value)}
                                            placeholder={t("search")}/>

@@ -39,7 +39,7 @@ function DiscountCheck() {
                    className={"bg-transparent outline-none flex-1 ring ring-darkerGold disabled:ring-green-600 disabled:text-green-600 w-full px-4 py-2 text-darkerGold rounded-lg placeholder:text-darkerGold/60 "}
                    placeholder={t("discountPlaceholder")} disabled={checked}/>
             {!checked ? <Button onClick={handleDiscountCheck}
-                                className={"px-6 py-2 rounded-lg shadow shadow-black bg-darkerGold ring ring-gold cursor-pointer text-sm max-lg:w-full"}
+                                className={"px-6 py-2 rounded-lg shadow shadow-black bg-darkerGold ring ring-gold cursor-pointer text-sm max-lg:w-full max-md:w-fit max-sm:px-3"}
                                 type={"button"}>{t("discountBtn")}</Button>
                 :
                 <Button type={"button"} className={"p-3 rounded-md bg-rose-800 text-white cursor-pointer max-lg:w-full max-lg:flex max-lg:items-center max-lg:justify-center max-lg:gap-3 max-lg:text-sm max-lg:p-2 max-md:w-fit max-md:p-3"}
@@ -55,7 +55,7 @@ function DiscountCheck() {
                             })
                         }}>
                     <CgClose/>
-                    <span className={"hidden max-lg:block max-md:hidden"}>حذف کد تخفیف</span>
+                    <span className={"hidden max-lg:block max-md:hidden"}>{t("remove-discount")}</span>
                 </Button>
             }
         </div>
