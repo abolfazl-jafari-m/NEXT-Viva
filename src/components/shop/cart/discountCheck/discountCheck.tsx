@@ -34,15 +34,15 @@ function DiscountCheck() {
         }
     }
     return (
-        <div className={"flex items-center gap-2"}>
+        <div className={"flex items-center gap-2 max-lg:flex-col max-lg:gap-4 max-md:flex-row"}>
             <input value={value} onChange={(e) => setValue(e.target.value)}
                    className={"bg-transparent outline-none flex-1 ring ring-darkerGold disabled:ring-green-600 disabled:text-green-600 w-full px-4 py-2 text-darkerGold rounded-lg placeholder:text-darkerGold/60 "}
                    placeholder={t("discountPlaceholder")} disabled={checked}/>
             {!checked ? <Button onClick={handleDiscountCheck}
-                                className={"px-6 py-2 rounded-lg shadow shadow-black bg-darkerGold ring ring-gold cursor-pointer text-sm "}
+                                className={"px-6 py-2 rounded-lg shadow shadow-black bg-darkerGold ring ring-gold cursor-pointer text-sm max-lg:w-full"}
                                 type={"button"}>{t("discountBtn")}</Button>
                 :
-                <Button type={"button"} className={"p-3 rounded-md bg-rose-800 text-white cursor-pointer"}
+                <Button type={"button"} className={"p-3 rounded-md bg-rose-800 text-white cursor-pointer max-lg:w-full max-lg:flex max-lg:items-center max-lg:justify-center max-lg:gap-3 max-lg:text-sm max-lg:p-2 max-md:w-fit max-md:p-3"}
                         onClick={() => {
                             setDiscount(0);
                             setChecked(false);
@@ -55,6 +55,7 @@ function DiscountCheck() {
                             })
                         }}>
                     <CgClose/>
+                    <span className={"hidden max-lg:block max-md:hidden"}>حذف کد تخفیف</span>
                 </Button>
             }
         </div>

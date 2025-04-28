@@ -16,22 +16,22 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
     const inc = useCartStore((state) => state.inc);
     return (
         <div
-            className={"bg-black ring-2 ring-zinc-800 rounded-lg shadow-lg shadow-black py-4 px-6 flex items-center justify-between"}>
-            <div className={"flex items-center gap-4"}>
+            className={"bg-black ring-2 ring-zinc-800 rounded-lg shadow-lg shadow-black py-4 px-6 flex items-center justify-between max-lg:gap-5 max-sm:flex-col"}>
+            <div className={"flex items-center gap-4 max-sm:w-full"}>
                 <CgClose className={"text-2xl text-white cursor-pointer"} onClick={() => remove(cartItem.id)}/>
                 <Link href={`/products/${cartItem.id}`}>
                     <div className={"flex gap-2"}>
-                        <Image src={`http://api.alikooshesh.ir:3000${cartItem.image}`} alt={cartItem.title}
+                        <Image src={`http://api.alikooshesh.ir:3000${cartItem.image}`} alt={cartItem.title} width={50} height={50}
                              className={"rounded-lg  w-14"}/>
                         <div className={"flex flex-col gap-2 text-white"}>
-                            <h4 className={"text-xl"}>{cartItem.title}</h4>
+                            <h4 className={"text-xl max-sm:text-lg"}>{cartItem.title}</h4>
                             <p>{cartItem.volume} {t("mil")}</p>
                         </div>
                     </div>
                 </Link>
             </div>
-            <div className={"flex items-center gap-6"}>
-                <div className={"flex items-center gap-2 min-w-26"}>
+            <div className={"flex items-center gap-6 max-lg:flex-col-reverse max-lg:items-center max-sm:flex-row max-sm:justify-between max-sm:w-full"}>
+                <div className={"flex items-center gap-2 min-w-26 max-sm:min-w-fit max-lg:justify-center "}>
                     <Button onClick={() => inc(cartItem.id)}
                             className={"rounded-full bg-secondary p-1 ring ring-primary text-primary text-xs cursor-pointer"}
                             type={"button"}><FaPlus/></Button>
@@ -40,7 +40,7 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
                             className={"rounded-full bg-secondary p-1 ring ring-primary text-primary text-xs cursor-pointer"}
                             type={"button"}><FaMinus/></Button>
                 </div>
-                <p className={"text-white min-w-26"}>{+cartItem.price * +cartItem.quantity} {t("currency")}</p>
+                <p className={"text-white min-w-26 max-sm:min-w-fit"}>{+cartItem.price * +cartItem.quantity} {t("currency")}</p>
             </div>
 
         </div>
