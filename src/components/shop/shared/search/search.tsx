@@ -7,8 +7,10 @@ import {searchProducts} from "@/services/products";
 import {Product} from "@/interfaces/interfaces";
 import Link from "next/link";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 
 function Search() {
+    const t = useTranslations("search");
     const [isOpen, setIsOpen] = useState(false);
     const [products, setProducts] = useState<Product[]>([]);
     const [value, setValue] = useState<string>("");
@@ -36,7 +38,7 @@ function Search() {
                                 <div className={"bg-secondary rounded-lg ring ring-gold px-3 py-2 w-1/3"}>
                                     <input className={"w-full outline-none border-none bg-transparent text-black"}
                                            onChange={(e) => debounce(e.target.value)}
-                                           placeholder={"جستجو کنید...."}/>
+                                           placeholder={t("search")}/>
                                 </div>
                                 <div
                                     className={"h-75 w-1/3 overflow-y-auto no-scrollbar flex flex-col gap-4 px-4 py-2"}>
@@ -56,7 +58,7 @@ function Search() {
                                                 </div>))
                                             :
                                             value !== "" &&
-                                            <p className={"text-center"}>هیچ محصولی یافت نشد</p>
+                                            <p className={"text-center"}>{t("noFounded")}</p>
                                     }
                                 </div>
                             </motion.div>

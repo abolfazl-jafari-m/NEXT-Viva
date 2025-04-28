@@ -4,6 +4,10 @@ import { cookies } from 'next/headers';
 import ConfirmCheckout from "@/components/shop/checkout/confirmCheckout/confirmCheckout";
 import CheckoutForm from "@/components/shop/checkout/checkoutForm/checkoutForm";
 
+export const metadata = {
+    title : "نهایی کردن سفارش"
+}
+
  async function Checkout() {
     const accessToken =await getCookie("accessToken" ,{cookies});
     if (!accessToken) {

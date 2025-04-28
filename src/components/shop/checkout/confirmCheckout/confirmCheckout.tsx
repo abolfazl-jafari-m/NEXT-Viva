@@ -7,8 +7,10 @@ import {getUser} from "@/services/users";
 import {useOrderStore} from "@/lib/providers/OrderStoreProvider";
 import {UserInterface} from "@/interfaces/interfaces";
 import {redirect} from "next/navigation";
+import {useTranslations} from "next-intl";
 
 function ConfirmCheckout() {
+    const t= useTranslations("checkout");
     const cartItems = useCartStore((state) => state.cartItems);
     const discount = useCartStore((state) => state.discount);
     const setOrder = useOrderStore((state) => state.setOrder);
@@ -29,19 +31,19 @@ function ConfirmCheckout() {
     }
     return (
         <div className={"w-full min-h-screen flex items-center justify-center flex-col gap-5"}>
-            <p className={"text-2xl text-white"}>از خرید خود اطمینان دارید؟</p>
+            <p className={"text-2xl text-white"}>{t("areYouSure")}</p>
             <div className={"flex items-center gap-10 text-white/80"}>
-                <p>مبلغ قابل پرداخت</p>
-                <p>123430000 تومن</p>
+                <p>{t("payPrice")}</p>
+                <p>123430000 {t("currency")}</p>
             </div>
             <div className={"flex items-center gap-5"}>
                 <Button type={"button"}
                         className={"py-2 px-6 bg-secondary  rounded-lg shadow shadow-black cursor-pointer "}>
-                    بازگشت به سبد خرید
+                    {t("backToCart")}
                 </Button>
                 <Button type={"button"} onClick={handlePayment}
                         className={"py-2 px-6 bg-darkChocolate text-white rounded-lg shadow shadow-black  cursor-pointer"}>
-                    رفتن به صفحه پرداخت
+                    {t("gotoPayment")}
                 </Button>
             </div>
         </div>

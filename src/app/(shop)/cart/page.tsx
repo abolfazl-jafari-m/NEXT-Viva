@@ -3,6 +3,10 @@ import CartSummery from "@/components/shop/cart/cartSummery/cartSummery";
 import CartItems from "@/components/shop/cart/cartItems/cartItems";
 import {useTranslations} from "next-intl";
 
+export const metadata = {
+    title : "ویوا عطر | سبد خرید"
+}
+
 function Cart() {
     const t = useTranslations("cart");
     return (

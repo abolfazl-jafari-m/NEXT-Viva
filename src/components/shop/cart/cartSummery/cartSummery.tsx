@@ -1,5 +1,5 @@
 "use client";
-import React, {useState} from 'react';
+import React from 'react';
 import Button from "@/components/shop/base/button/button";
 import {useCartStore} from "@/lib/providers/CartStoreProivder";
 import Link from "next/link";
