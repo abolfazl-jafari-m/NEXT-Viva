@@ -35,7 +35,7 @@ function Payment() {
     return (
         <div
             className={"w-full h-screen bg-secondary flex items-center justify-center"}>
-            <div className={"w-2/4 grid grid-cols-2 place-content-center justify-items-center  justify-center gap-5"}>
+            <div className={"w-2/4 max-lg:w-3/4 max-md:w-4/5 max-md:grid-cols-1 grid grid-cols-2 place-content-center justify-items-center  justify-center gap-5"}>
                 <Image src={card.src} alt={"cart"} width={400} height={200}/>
                 <form className={"grid grid-cols-2 gap-8 h-fit"}>
                     <input className={"rounded-lg border border-primary px-4 py-2 col-span-full"}

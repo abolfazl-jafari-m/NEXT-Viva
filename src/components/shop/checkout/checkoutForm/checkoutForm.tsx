@@ -45,9 +45,9 @@ function CheckoutForm() {
 
     }
     return (
-        <div className={"w-full min-h-screen flex items-center justify-center flex-col gap-8 "}>
-            <h3 className={"text-2xl font-semibold text-white"}>{t("interInfo")}</h3>
-            <form className={"grid grid-cols-2 gap-5 w-1/3 "} onSubmit={handleSubmit(checkoutHandler)}>
+        <div className={"w-full min-h-screen flex items-center justify-center flex-col gap-8 py-25"}>
+            <h3 className={"text-2xl font-semibold text-white max-sm:text-xl"}>{t("interInfo")}</h3>
+            <form className={"grid grid-cols-2 max-sm:grid-cols-1 gap-5 w-1/3 max-lg:w-2/3 max-sm:w-4/5"} onSubmit={handleSubmit(checkoutHandler)}>
                 <div className={"flex flex-col gap-3 text-white/80"}>
                     <label htmlFor={"name"}>{t("name")} :</label>
                     <input
@@ -84,20 +84,20 @@ function CheckoutForm() {
                     {errors.address &&
                         <span className="text-red-500 text-xs font-light">{errors.address.message}</span>}
                 </div>
-                <div className={"col-span-full flex items-center gap-3"}>
+                <div className={"col-span-full flex items-center gap-3 max-sm:flex-col-reverse max-sm:gap-5"}>
                     <Link href={"/cart"}>
                         <Button type={"button"}
-                                className={"px-7 py-2 rounded-lg bg-secondary text-black cursor-pointer shadow shadow-black"}>
+                                className={"px-7 py-2 rounded-lg bg-secondary text-black cursor-pointer shadow shadow-black max-sm:text-sm max-sm:w-full"}>
                             {t("backToCart")}
                         </Button>
                     </Link>
                     <Button type={"submit"}
-                            className={"px-7 py-2 rounded-lg bg-darkChocolate text-white cursor-pointer shadow shadow-black"}>
+                            className={"px-7 py-2 rounded-lg bg-darkChocolate text-white cursor-pointer shadow shadow-black max-sm:text-sm max-sm:w-full"}>
                         {t("gotoPayment")}
                     </Button>
                 </div>
             </form>
-            <div className={"flex items-center justify-between text-white w-1/3"}>
+            <div className={"flex items-center justify-between text-white w-1/3  max-lg:w-2/3 max-sm:w-4/5"}>
                 <h4>{t("payPrice")}</h4>
                 <p>{totalPrice - totalPrice * (discount / 100)} {t("currency")}</p>
             </div>
