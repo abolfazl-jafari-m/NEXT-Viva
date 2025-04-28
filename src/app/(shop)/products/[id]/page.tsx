@@ -69,7 +69,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                         </Link>
                     </div>
                     <div className={"flex items-center justify-center max-sm:row-start-1"}>
-                        <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"image"} width={400}
+                        <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"image"} width={400}
                              height={400} className={"max-md:w-60 rounded-lg"}/>
                     </div>
                 </div>

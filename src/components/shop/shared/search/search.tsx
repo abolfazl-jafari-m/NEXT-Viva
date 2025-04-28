@@ -6,6 +6,7 @@ import {useDebouncedCallback} from "use-debounce";
 import {searchProducts} from "@/services/products";
 import {Product} from "@/interfaces/interfaces";
 import Link from "next/link";
+import Image from "next/image";
 
 function Search() {
     const [isOpen, setIsOpen] = useState(false);
@@ -44,10 +45,10 @@ function Search() {
                                             products.map((product: Product) => (
                                                 <div key={product.id}
                                                      className={"flex items-center gap-3 rounded-md bg-black  ring ring-zinc-700 p-2"}>
-                                                    <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`}
+                                                    <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`} width={55} height={55} alt={product.slug}
                                                          className={"h-14 w-14 rounded-lg shadow shadow"}/>
                                                     <div className={"flex flex-col gap-2 text-white"}>
-                                                        <Link href={`/products/${product.id}`}>
+                                                        <Link href={`/products/${product.id}`} onClick={() => {setIsOpen(false)}}>
                                                             <h3 className={"text-lg"}>{product.title}</h3>
                                                         </Link>
                                                         <p>{product.price}</p>

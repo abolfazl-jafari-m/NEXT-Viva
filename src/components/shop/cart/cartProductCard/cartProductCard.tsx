@@ -6,6 +6,7 @@ import {FaMinus, FaPlus} from "react-icons/fa6";
 import {CartItem} from "@/interfaces/interfaces";
 import {useCartStore} from "@/lib/providers/CartStoreProivder";
 import Link from "next/link";
+import Image from "next/image";
 
 function CartProductCard({cartItem}: { cartItem: CartItem }) {
     const remove = useCartStore((state) => state.remove);
@@ -18,7 +19,7 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
                 <CgClose className={"text-2xl text-white cursor-pointer"} onClick={() => remove(cartItem.id)}/>
                 <Link href={`/products/${cartItem.id}`}>
                     <div className={"flex gap-2"}>
-                        <img src={`http://api.alikooshesh.ir:3000${cartItem.image}`} alt={"image"}
+                        <Image src={`http://api.alikooshesh.ir:3000${cartItem.image}`} alt={"image"}
                              className={"rounded-lg  w-14"}/>
                         <div className={"flex flex-col gap-2 text-white"}>
                             <h4 className={"text-xl"}>{cartItem.title}</h4>

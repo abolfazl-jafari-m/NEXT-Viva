@@ -6,6 +6,7 @@ import {PhonePattern} from "@/constants/regex";
 import {useCartStore} from "@/lib/providers/CartStoreProivder";
 import {useOrderStore} from "@/lib/providers/OrderStoreProvider";
 import {redirect} from "next/navigation";
+import Link from "next/link";
 
 interface inputs {
     name: string;
@@ -82,10 +83,12 @@ function CheckoutForm() {
                         <span className="text-red-500 text-xs font-light">{errors.address.message}</span>}
                 </div>
                 <div className={"col-span-full flex items-center gap-3"}>
-                    <Button type={"button"}
-                            className={"px-7 py-2 rounded-lg bg-secondary text-black cursor-pointer shadow shadow-black"}>
-                        بازگشت به سبد خرید
-                    </Button>
+                    <Link href={"/cart"}>
+                        <Button type={"button"}
+                                className={"px-7 py-2 rounded-lg bg-secondary text-black cursor-pointer shadow shadow-black"}>
+                            بازگشت به سبد خرید
+                        </Button>
+                    </Link>
                     <Button type={"submit"}
                             className={"px-7 py-2 rounded-lg bg-darkChocolate text-white cursor-pointer shadow shadow-black"}>
                         تایید و رفتن به صفحه پرداخت

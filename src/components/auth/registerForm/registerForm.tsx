@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
 import {register as signUp} from "@/services/users"
 import {setCookie} from "cookies-next/client";
-import {redirect} from "next/navigation";
+import {redirect, useRouter} from "next/navigation";
 import {BeatLoader} from "react-spinners";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
@@ -27,6 +27,7 @@ type Inputs = {
 
 
 function RegisterForm() {
+    const  router = useRouter()
     const t = useTranslations("register");
     const {control, formState: {errors}, handleSubmit, getValues} = useForm<Inputs>({
         defaultValues: {
@@ -159,7 +160,7 @@ function RegisterForm() {
                                 </div>)
                             :
                             (<>
-                                <button
+                                <button type={"button"} onClick={()=>router.back()}
                                     className={"px-7 py-2 rounded-md  bg-secondary shadow shadow-black cursor-pointer"}>{t("back")}
                                 </button>
                                 <button disabled={isLoading}

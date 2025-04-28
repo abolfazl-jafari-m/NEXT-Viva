@@ -1,5 +1,4 @@
 import React, {ReactNode, SelectHTMLAttributes} from 'react';
-import {RxDropdownMenu} from "react-icons/rx";
 
 interface IProps extends SelectHTMLAttributes<HTMLSelectElement> {
     label: string,

@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/thumbs";
 import "swiper/css/pagination";
 import 'swiper/css/free-mode';
+import Image from "next/image";
 
 
 function Slider({images, slug}: { images: string[], slug: string }) {
@@ -24,7 +25,7 @@ function Slider({images, slug}: { images: string[], slug: string }) {
             >
                 {images.map((item) => (
                     <SwiperSlide key={item} className={"w-full pagi"}>
-                        <img
+                        <Image
                             src={`http://api.alikooshesh.ir:3000${item}`}
                             alt={slug}
                             className="rounded-xl mx-auto"
@@ -47,7 +48,7 @@ function Slider({images, slug}: { images: string[], slug: string }) {
                 >
                     {images.map((item) => (
                         <SwiperSlide key={`${item}-thumb`}>
-                            <img
+                            <Image
                                 src={`http://api.alikooshesh.ir:3000${item}`}
                                 alt={slug}
                                 className="rounded-lg"

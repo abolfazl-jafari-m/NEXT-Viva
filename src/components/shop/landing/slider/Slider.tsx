@@ -15,6 +15,7 @@ import {getSpecialProducts} from "@/services/products";
 import {PuffLoader} from "react-spinners";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
+import Image from "next/image";
 
 function Slider() {
     const t = useTranslations("slider-landing");
@@ -60,7 +61,7 @@ function Slider() {
                                                 </Link>
                                             </div>
                                         </div>
-                                        <img src={`http://api.alikooshesh.ir:3000${product.images[0]}`}
+                                        <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`}
                                              alt={"men PerFume"}
                                              width={450} height={450} className={"max-lg:w-[350px] max-md:w-[280px] max-sm:w-[200px] "}/>
                                     </div>
