@@ -7,8 +7,10 @@ import {CartItem} from "@/interfaces/interfaces";
 import {useCartStore} from "@/lib/providers/CartStoreProivder";
 import Link from "next/link";
 import Image from "next/image";
+import {useTranslations} from "next-intl";
 
 function CartProductCard({cartItem}: { cartItem: CartItem }) {
+    const t = useTranslations("cart");
     const remove = useCartStore((state) => state.remove);
     const dec = useCartStore((state) => state.dec);
     const inc = useCartStore((state) => state.inc);
@@ -19,11 +21,11 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
                 <CgClose className={"text-2xl text-white cursor-pointer"} onClick={() => remove(cartItem.id)}/>
                 <Link href={`/products/${cartItem.id}`}>
                     <div className={"flex gap-2"}>
-                        <Image src={`http://api.alikooshesh.ir:3000${cartItem.image}`} alt={"image"}
+                        <Image src={`http://api.alikooshesh.ir:3000${cartItem.image}`} alt={cartItem.title}
                              className={"rounded-lg  w-14"}/>
                         <div className={"flex flex-col gap-2 text-white"}>
                             <h4 className={"text-xl"}>{cartItem.title}</h4>
-                            <p>{cartItem.volume} میل</p>
+                            <p>{cartItem.volume} {t("mil")}</p>
                         </div>
                     </div>
                 </Link>
@@ -38,7 +40,7 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
                             className={"rounded-full bg-secondary p-1 ring ring-primary text-primary text-xs cursor-pointer"}
                             type={"button"}><FaMinus/></Button>
                 </div>
-                <p className={"text-white min-w-26"}>{+cartItem.price * +cartItem.quantity} تومان</p>
+                <p className={"text-white min-w-26"}>{+cartItem.price * +cartItem.quantity} {t("currency")}</p>
             </div>
 
         </div>

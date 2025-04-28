@@ -2,8 +2,10 @@
 import React from 'react';
 import CartProductCard from "@/components/shop/cart/cartProductCard/cartProductCard";
 import {useCartStore} from "@/lib/providers/CartStoreProivder";
+import {useTranslations} from "next-intl";
 
 function CartItems() {
+    const t = useTranslations("cart");
     const cartItems = useCartStore((state)=>state.cartItems);
     return (
         <div className={"col-span-4 row-span-5 flex flex-col gap-5 bg-primary ring-2 ring-zinc-800 rounded-lg shadow shadow-black p-5"}>
@@ -12,7 +14,7 @@ function CartItems() {
                 cartItems.map((cartItem) => (<CartProductCard key={cartItem.id} cartItem={cartItem} />))
                     :
                     <div className={"w-full h-full flex items-center justify-center"}>
-                        <p className={"text-xl text-white font-semibold text-center"}>هیچ محصولی در سبد خرید شما موجود نیست</p>
+                        <p className={"text-xl text-white font-semibold text-center"}>{t("noCartItems")}</p>
                     </div>
             }
 

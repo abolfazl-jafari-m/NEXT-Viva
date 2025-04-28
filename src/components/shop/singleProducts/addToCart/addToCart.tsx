@@ -16,14 +16,14 @@ function AddToCart({product}: { product: Product }) {
         e.preventDefault();
         const {volume, quantity} = e.target as HTMLFormElement;
         if (!volume.value || quantity.value === "0") {
-            toast("لطفن تعداد و حجم محصول خود را انتخاب کنید", {
+            toast(t("addToCart-message"), {
                 "position": "top-right",
                 style: {backgroundColor: "#fff", color: "#000", minWidth: "fit-content"}
             })
             return;
         }
         addToCart(product.id, product.title, volume.value, (+product.price - (+product.price * (+product.discount / 100))).toString(), quantity.value, product.images[0]);
-        toast.success("محصول مورد نظر با موفقیت به سبد خرید شما اضافه شد", {
+        toast.success(t("addToCart-success"), {
             "position": "top-right",
             style: {backgroundColor: "#fff", color: "#000", minWidth: "fit-content"},
             icon :"✔"
@@ -50,7 +50,7 @@ function AddToCart({product}: { product: Product }) {
                         cartItems.find(item => item.id === product.id) ? <Link href={"/cart"}>
                                 <button
                                     className={"bg-darkChocolate text-white rounded-md px-10 py-3 cursor-pointer max-lg:text-nowrap max-md:px-4 max-md:py-2 max-sm:text-sm"}
-                                    type={"submit"}>مشاهده سبد خرید
+                                    type={"submit"}>{t("seeCart")}
                                 </button>
                             </Link>
                             :

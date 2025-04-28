@@ -218,6 +218,30 @@
     "submitComment": "ثبت نظر",
     "beTheFirstOne" : "اولین نفر باشین که تجربه خود را به اشتراک میزارید",
     "error-message" :"مشکلی پیش آمده لطفا مجددن تلاش کنید",
-    "auth-message": "برای ثبت نظر باید وارد شوید"
+    "auth-message": "برای ثبت نظر باید وارد شوید",
+    "addToCart-message": "لطفن تعداد و حجم محصول خود را انتخاب کنید",
+    "addToCart-success" : "محصول مورد نظر با موفقیت به سبد خرید شما اضافه شد",
+    "seeCart" : "مشاهده سبد خرید"
+  },
+  "cart" : {
+    "title" : "سبد خرید",
+    "mil" : "میل",
+    "yourCart": "سبد خرید شما",
+    "totalPrice" : "مجموع سبد خرید",
+    "currency" : "تومان",
+    "productsCount" : "تعداد کالا",
+    "discount" : "تخفیف",
+    "discountCode" : "کد تخفیف",
+    "finalPrice" : "مبلغ نهایی سفارش",
+    "checkout" : "نهایی کردن سفارش",
+    "noCartItems" : "هیچ محصولی در سبد خرید شما موجود نیست",
+    "discountBtn" : "ثبت کد تخفیف",
+    "discountPlaceholder" : "کد تخفیف خود را وارد کنید...",
+    "discount-success" : "کد تخفیف شما با موفقیت اعمال شد",
+    "discount-error" : "کد تخفیف معتبر نمباشد",
+    "discount-remove" : "کد تخفیف با موفقیت حذف گردید"
+  },
+  "search" : {
+
   }
 }
