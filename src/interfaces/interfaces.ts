@@ -15,7 +15,6 @@ export interface Product {
     fragrance: (string)[];
     inventory: string;
     images: (string)[];
-    comments: Comment[];
     id: string;
     discount: string
 }
@@ -79,7 +78,10 @@ export interface ProductsForm {
 }
 
 export type Comment = {
-    user_name: string;
+    id :string;
+    createdAt: string;
+    productId: string;
+    username: string;
     comment: string;
 }
 

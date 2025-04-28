@@ -173,7 +173,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                 </div>
                 <Slider images={product.images} slug={product.slug}/>
             </section>
-            <Comments comments={product.comments}/>
+            <Comments productId={product.id}/>
         </>
     )
         ;

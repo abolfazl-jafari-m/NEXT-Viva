@@ -8,9 +8,6 @@ import {brands, concentration, fragrances, genders, positions, seasons, volumes}
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useTranslations} from "next-intl";
 import ControlledInput from "@/components/dash/base/controlledInput/controlledInput";
-// import dynamic from "next/dynamic";
-// // const ControlledSelectBox = dynamic(() => import("@/components/dash/base/controlledSelectBox/controlledSelectBox",),
-// //     {ssr: false})
 import {Product, ProductsForm} from "@/interfaces/interfaces";
 import {onlyNumbers, yearRegex} from "@/constants/regex";
 import {addProduct, updateProduct} from "@/services/products";
@@ -80,7 +77,6 @@ function ProductForm({product}: { product?: Product }) {
             images: images,
             discount: discount,
             slug: slugify(title, {lower: true, replacement: "-"}),
-            comments: product ? product.comments : []
         };
         if (product) {
             updateProduct(product.id, productData)

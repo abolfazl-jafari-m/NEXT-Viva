@@ -27,9 +27,9 @@ export const concentration = [
 ]
 
 export const genders = [
-    {value: 1, label: "مردانه"}
-    , {value: 2, label: "زنانه"},
-    {value: 3, label: "مردانه و زنانه"}
+    {value: 1, label: "آقایان"}
+    , {value: 2, label: "خانم‌ها"},
+    {value: 3, label: "یونسکس"}
 ]
 
 export const seasons = [

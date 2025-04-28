@@ -1,5 +1,5 @@
 import {axiosInstance as axios} from "@/lib/instance/axios";
-import {Product} from "@/interfaces/interfaces";
+import {Comment, Product} from "@/interfaces/interfaces";
 import {unstable_cache} from "next/cache";
 import {createUrlParams} from "@/lib/utils/helpers";
 
@@ -13,12 +13,12 @@ export async function getProductById(id: string) {
     return response.data;
 }
 
-export async function addProduct(product: Omit<Product, "id" | "comments" | "createdAt">) {
+export async function addProduct(product: Omit<Product, "id" | "createdAt">) {
     const response = await axios.post("/api/records/products", product);
     return response.data;
 }
 
-export async function updateProduct(id: string, product: Omit<Product, "id" | "comments" | "createdAt">) {
+export async function updateProduct(id: string, product: Omit<Product, "id" | "createdAt">) {
     const response = await axios.put(`/api/records/products/${id}`, product);
     return response.data;
 }
