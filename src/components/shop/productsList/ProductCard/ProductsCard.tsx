@@ -1,11 +1,10 @@
 import React from 'react';
-import Button from "@/components/shop/base/button/button";
-import {FaHeart} from "react-icons/fa6";
 import {Product} from "@/interfaces/interfaces";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
 import Image from "next/image";
 import {priceFormatter} from "@/lib/utils/helpers";
+import WishButton from "@/components/shop/productsList/ProductCard/wishButton/wishButton";
 
 function ProductsCard({product}: { product: Product }) {
     const t= useTranslations("products-page")
@@ -24,9 +23,7 @@ function ProductsCard({product}: { product: Product }) {
                     <p>{priceFormatter(+product.price - (+product.price * (+product.discount / 100)))} {t("currency")}</p>
                 </div>
                 <div className={"max-lg:w-full"}>
-                    <Button className={"bg-primary text-white p-2 rounded-lg shadow-lg shadow-black "} type={"button"}>
-                        <FaHeart/>
-                    </Button>
+                   <WishButton productId={product.id}/>
                 </div>
             </div>
         </div>
