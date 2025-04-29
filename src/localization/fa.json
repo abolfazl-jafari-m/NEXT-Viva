@@ -212,6 +212,7 @@
     "releaseYear": "سال عرضه",
     "quantity": "تعداد",
     "addToFavorite": "افزودن به علاقه مندی ها",
+    "removeFromFavorite": "حذف از علاقه مندی ها",
     "comments": "نظرات",
     "addYourComment": "نظر خود را به اشتراک بزارید",
     "writeHere": "اینجا بنویسید",
@@ -222,9 +223,9 @@
     "addToCart-message": "لطفن تعداد و حجم محصول خود را انتخاب کنید",
     "addToCart-success": "محصول مورد نظر با موفقیت به سبد خرید شما اضافه شد",
     "seeCart": "مشاهده سبد خرید",
-    "comment-required-message" : "نظر خشک و خالی؟؟؟",
-    "comment-success" : "مرسی از نظر شما",
-    "comment-error" : "مشکلی پیش امده لطفن بعدن تلاش کنید"
+    "comment-required-message": "نظر خشک و خالی؟؟؟",
+    "comment-success": "مرسی از نظر شما",
+    "comment-error": "مشکلی پیش امده لطفن بعدن تلاش کنید"
   },
   "cart": {
     "title": "سبد خرید",
@@ -243,11 +244,11 @@
     "discount-success": "کد تخفیف شما با موفقیت اعمال شد",
     "discount-error": "کد تخفیف معتبر نمباشد",
     "discount-remove": "کد تخفیف با موفقیت حذف گردید",
-    "remove-discount" : "حذف کد تخفیف"
+    "remove-discount": "حذف کد تخفیف"
   },
   "search": {
-    "search" : "جستجو کنید....",
-    "noFounded" : "هیچ محصولی یافت نشد "
+    "search": "جستجو کنید....",
+    "noFounded": "هیچ محصولی یافت نشد "
   },
   "checkout": {
     "areYouSure": "از خرید خود اطمینان دارید؟",
@@ -266,20 +267,26 @@
     "phonePlaceholder": "تلفن همراه خود را وارد کنید",
     "phoneError": "وارد کردن تلفن همراه الزامیست",
     "phoneErrorRegex": "فرمت شماره تلفن صحیح نمیباشد",
-    "Address" : "آدرس",
+    "Address": "آدرس",
     "addressPlaceholder": "ادرس خود را وارد کنید",
     "addressError": "وارد کردن آدرس الزامیست"
   },
-  "payment" : {
-    "cartNumber" : "شماره کارت خود را وارد کنید",
-    "expire" : "تاریخ انتقضا",
-    "pass" : "رمز یکبار مصرف خود را وارد کنید",
-    "cancel" : "انصراف",
+  "payment": {
+    "cartNumber": "شماره کارت خود را وارد کنید",
+    "expire": "تاریخ انتقضا",
+    "pass": "رمز یکبار مصرف خود را وارد کنید",
+    "cancel": "انصراف",
     "pay": "پرداخت",
-    "pay-success" : "پرداخت شما موفقیت آمیز بود",
-    "pay-error" : "مشکلی پیش آمده مجددن تلاش کنید",
+    "pay-success": "پرداخت شما موفقیت آمیز بود",
+    "pay-error": "مشکلی پیش آمده مجددن تلاش کنید",
     "successful-pay": "پرداخت موفق",
     "unsuccessful-pay": "پرداخت ناموفق",
     "backToHome": "بازگشت به سایت  پذیرنده"
+  },
+  "wishlist": {
+    "title": "لیست علاقه مندی ها",
+    "currency": "تومان",
+    "seeDetails": "مشاهده جزییات",
+    "noFav": "هیچ محصولی در لیست علاقه مندی های شما نیست"
   }
 }

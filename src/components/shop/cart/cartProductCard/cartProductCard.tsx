@@ -23,9 +23,9 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
                 <Link href={`/products/${cartItem.id}`}>
                     <div className={"flex gap-2"}>
                         <Image src={`http://api.alikooshesh.ir:3000${cartItem.image}`} alt={cartItem.title} width={50} height={50}
-                             className={"rounded-lg  w-14"}/>
+                             className={"rounded-lg  w-14 max-sm:w-17"}/>
                         <div className={"flex flex-col gap-2 text-white"}>
-                            <h4 className={"text-xl max-sm:text-lg"}>{cartItem.title}</h4>
+                            <h4 className={"text-xl max-sm:text-[16px]"}>{cartItem.title}</h4>
                             <p>{cartItem.volume} {t("mil")}</p>
                         </div>
                     </div>

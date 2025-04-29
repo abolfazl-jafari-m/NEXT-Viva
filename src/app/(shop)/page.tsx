@@ -3,7 +3,6 @@ import Slider from "@/components/shop/landing/slider/Slider";
 import Categories from "@/components/shop/landing/categories/categories";
 import Latest from "@/components/shop/landing/latest/latest";
 import BestSeller from "@/components/shop/landing/specials/bestSeller";
-import Footer from "@/components/shop/shared/footer/footer";
 import Genders from "@/components/shop/landing/genders/genders";
 
 

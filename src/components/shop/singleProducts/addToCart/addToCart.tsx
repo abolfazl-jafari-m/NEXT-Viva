@@ -7,11 +7,14 @@ import toast from "react-hot-toast";
 import {Product} from "@/interfaces/interfaces";
 import {useCartStore} from "@/lib/providers/CartStoreProivder";
 import Link from "next/link";
+import {useWishlistStore} from "@/lib/providers/WishListStoreProvider";
 
 function AddToCart({product}: { product: Product }) {
     const t = useTranslations("product-single");
     const addToCart = useCartStore((state) => state.add);
     const cartItems = useCartStore((state) => state.cartItems);
+    const {add :addToFavorite ,remove : removeFromFavorite , products : favorites} = useWishlistStore(state =>state);
+
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const {volume, quantity} = e.target as HTMLFormElement;
@@ -26,7 +29,7 @@ function AddToCart({product}: { product: Product }) {
         toast.success(t("addToCart-success"), {
             "position": "top-right",
             style: {backgroundColor: "#fff", color: "#000", minWidth: "fit-content"},
-            icon :"✔"
+            icon: "✔"
         })
 
     }
@@ -59,11 +62,19 @@ function AddToCart({product}: { product: Product }) {
                                 type={"submit"}>{t("addToCart")}
                             </button>
                     }
+                    {
+                        favorites.find(item => item === product.id) ?
+                            <button onClick={() => removeFromFavorite(product.id)}
+                                    className={"bg-darkChocolate  text-white rounded-md px-10 py-3 cursor-pointer max-lg:text-nowrap max-md:px-4 max-md:py-2 max-sm:text-sm"}
+                                    type={"button"}>{t("removeFromFavorite")}
+                            </button> :
+                            <button onClick={() => addToFavorite(product.id)}
+                                    className={"bg-darkChocolate  text-white rounded-md px-10 py-3 cursor-pointer max-lg:text-nowrap max-md:px-4 max-md:py-2 max-sm:text-sm"}
+                                    type={"button"}>{t("addToFavorite")}
+                            </button>
+                    }
 
-                    <button
-                        className={"bg-darkChocolate  text-white rounded-md px-10 py-3 cursor-pointer max-lg:text-nowrap max-md:px-4 max-md:py-2 max-sm:text-sm"}
-                        type={"button"}>{t("addToFavorite")}
-                    </button>
+
                 </div>
             </form>
         </>

@@ -39,7 +39,7 @@ function MobileNav() {
                             <Link onClick={() => {setIsOpen(false)}} href="/cart">
                                 <li className={"text-white font-light text-nowrap"}>{t("cart")}</li>
                             </Link>
-                            <Link onClick={() => {setIsOpen(false)}} href="/favorite">
+                            <Link onClick={() => {setIsOpen(false)}} href="/wishlist">
                                 <li className={"text-white font-light text-nowrap"}>{t("favorite")}</li>
                             </Link>
                         </ul>
