@@ -5,6 +5,7 @@ import Latest from "@/components/shop/landing/latest/latest";
 import BestSeller from "@/components/shop/landing/specials/bestSeller";
 import Genders from "@/components/shop/landing/genders/genders";
 
+export const dynamic ="force-dynamic";
 
 export default  function Home() {
     return (

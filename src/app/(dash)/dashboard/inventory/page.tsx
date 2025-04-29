@@ -6,6 +6,7 @@ import {getTranslations} from "next-intl/server";
 import UpdateButton from "@/components/dash/inventory/updateButton/updateButton";
 import InventoryStoreProvider from "@/lib/providers/InventoryStoreProvider";
 
+export const dynamic = 'force-dynamic';
 
 async function Inventory() {
     const t = await getTranslations("dashInventory");

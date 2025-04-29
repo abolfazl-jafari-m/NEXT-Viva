@@ -1,5 +1,5 @@
 import {axiosInstance as axios} from "@/lib/instance/axios";
-import {Comment, Product} from "@/interfaces/interfaces";
+import {Product} from "@/interfaces/interfaces";
 import {unstable_cache} from "next/cache";
 import {createUrlParams} from "@/lib/utils/helpers";
 
