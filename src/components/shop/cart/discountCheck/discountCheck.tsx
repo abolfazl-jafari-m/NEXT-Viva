@@ -1,5 +1,5 @@
 "use client";
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from "@/components/shop/base/button/button";
 import {discounts} from "@/constants/Discounts";
 import {useCartStore} from "@/lib/providers/CartStoreProivder";
@@ -8,11 +8,18 @@ import {CgClose} from "react-icons/cg";
 import {useTranslations} from "next-intl";
 
 function DiscountCheck() {
-    const t= useTranslations("cart");
+    const t = useTranslations("cart");
     const discount = useCartStore(state => state.discount);
-    const [value, setValue] = useState(() => discounts.find(item => item.discount === discount)?.value ?? "");
-    const [checked, setChecked] = useState<boolean>(() => discount > 0);
+    const [value, setValue] = useState("");
+    const [checked, setChecked] = useState<boolean>(false);
     const setDiscount = useCartStore((state) => state.setDiscount);
+
+    useEffect(() => {
+        setValue(discounts.find(item => item.discount === discount)?.value ?? "")
+        setChecked(discount > 0)
+    }, [discount]);
+
+
     const handleDiscountCheck = () => {
         const item = discounts.find(item => item.value === value);
         if (item) {
@@ -42,7 +49,8 @@ function DiscountCheck() {
                                 className={"px-6 py-2 rounded-lg shadow shadow-black bg-darkerGold ring ring-gold cursor-pointer text-sm max-lg:w-full max-md:w-fit max-sm:px-3"}
                                 type={"button"}>{t("discountBtn")}</Button>
                 :
-                <Button type={"button"} className={"p-3 rounded-md bg-rose-800 text-white cursor-pointer max-lg:w-full max-lg:flex max-lg:items-center max-lg:justify-center max-lg:gap-3 max-lg:text-sm max-lg:p-2 max-md:w-fit max-md:p-3"}
+                <Button type={"button"}
+                        className={"p-3 rounded-md bg-rose-800 text-white cursor-pointer max-lg:w-full max-lg:flex max-lg:items-center max-lg:justify-center max-lg:gap-3 max-lg:text-sm max-lg:p-2 max-md:w-fit max-md:p-3"}
                         onClick={() => {
                             setDiscount(0);
                             setChecked(false);

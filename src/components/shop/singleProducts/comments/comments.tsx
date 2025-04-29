@@ -1,5 +1,5 @@
 "use client"
-import React, {FormEvent} from 'react';
+import React, {FormEvent, useState} from 'react';
 import {FaCircleUser} from "react-icons/fa6";
 import {Comment, UserInterface} from "@/interfaces/interfaces";
 import {getCookie} from "cookies-next/client";
@@ -11,6 +11,7 @@ import {BeatLoader, PuffLoader} from "react-spinners";
 import {getUser} from "@/services/users";
 
 function Comments({productId}: { productId: string }) {
+    const [comment, setComment] = useState<string>("")
     const queryClient = useQueryClient();
 
     const {isLoading, data: comments} = useQuery({
@@ -34,7 +35,6 @@ function Comments({productId}: { productId: string }) {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const {comment} = e.target as HTMLFormElement
         if (!token) {
             toast(t("auth-message"), {
                 position: "top-right",
@@ -43,20 +43,21 @@ function Comments({productId}: { productId: string }) {
             })
             return null;
         }
-        if (comment.value === "") {
+        if (comment === "") {
             toast.error(t("comment-required-message"), {
                 style: {backgroundColor: "white", color: "#000"}, position: "top-right", icon: "🤦‍♂️"
             });
             return null;
         }
         const user: UserInterface = await getUser(token);
-        createComment({productId, comment: comment.value, username: user.name}, {
+        createComment({productId, comment: comment, username: user.name}, {
             onSuccess: () => {
                 {
+                    setComment("");
+                    queryClient.invalidateQueries({queryKey: ["comments"]});
                     toast.success(t("comment-success"), {
                         style: {backgroundColor: "white", color: "#000"}, position: "top-right", icon: "✔"
                     })
-                    queryClient.invalidateQueries({queryKey: ["comments"]});
                 }
             },
             onError: () => {
@@ -72,7 +73,7 @@ function Comments({productId}: { productId: string }) {
             <div className={"flex flex-col gap-10"}>
                 <form className={"flex flex-col gap-4"} onSubmit={handleSubmit}>
                     <p className={"text-darkerGold text-xl"}>{t("addYourComment")}</p>
-                    <input type={"text"} name={"comment"}
+                    <input type={"text"} name={"comment"} value={comment} onChange={(e) => setComment(e.target.value)}
                            className={"text-white font-extralight shadow shadow-black outline-none rounded-md py-2 px-8 border border-white w-full placeholder:text-white/40"}
                            placeholder={t("writeHere")}/>
                     {isPending ?
