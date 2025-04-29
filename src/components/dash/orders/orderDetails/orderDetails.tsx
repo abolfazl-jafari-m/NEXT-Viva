@@ -8,6 +8,7 @@ import {BeatLoader} from "react-spinners";
 import {useRouter} from "next/navigation";
 import toast from "react-hot-toast";
 import {useTranslations} from "next-intl";
+import {priceFormatter} from "@/lib/utils/helpers";
 
 function OrderDetails({order}: { order: Order }) {
     const t = useTranslations("detailOrder")
@@ -47,7 +48,7 @@ function OrderDetails({order}: { order: Order }) {
                             <tr className={"odd:bg-secondary even:bg-white text-black text-center max-sm:text-sm"}
                                 key={item.title}>
                                 <td className={"p-2 min-w-fit"}>{item.title} - {item.volume} ml</td>
-                                <td>{item.price}</td>
+                                <td>{priceFormatter(+item.price)}</td>
                                 <td className={"w-1/3"}>{item.quantity}</td>
                             </tr>
                         ))

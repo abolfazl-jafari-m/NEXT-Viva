@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect} from 'react';
+import React from 'react';
 import Button from "@/components/shop/base/button/button";
 import {useCartStore} from "@/lib/providers/CartStoreProivder";
 import {getCookie} from "cookies-next/client";
@@ -9,6 +9,7 @@ import {UserInterface} from "@/interfaces/interfaces";
 import {redirect} from "next/navigation";
 import {useTranslations} from "next-intl";
 import Link from "next/link";
+import {priceFormatter} from "@/lib/utils/helpers";
 
 function ConfirmCheckout() {
     const t = useTranslations("checkout");
@@ -37,7 +38,7 @@ function ConfirmCheckout() {
             <p className={"text-2xl text-white"}>{t("areYouSure")}</p>
             <div className={"flex items-center gap-10 text-white/80"}>
                 <p>{t("payPrice")}</p>
-                <p>{totalPrice - (totalPrice * discount / 100)} {t("currency")}</p>
+                <p>{priceFormatter(totalPrice - (totalPrice * discount / 100))} {t("currency")}</p>
             </div>
             <div className={"flex items-center gap-5"}>
                 <Link href={"/cart"}>

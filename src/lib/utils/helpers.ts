@@ -36,3 +36,11 @@ export const createUrlParams = (key: string, value ?: string | string[]) => {
     }
     return ""
 }
+
+export const priceFormatter = (value: number) => {
+    const formatter = new Intl.NumberFormat('fa-IR', {
+        minimumFractionDigits: 0,
+        minimumIntegerDigits : 3
+    })
+    return formatter.format(value);
+}

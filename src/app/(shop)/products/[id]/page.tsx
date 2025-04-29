@@ -15,6 +15,7 @@ import {API_KEY} from "@/constants/configs";
 import Link from "next/link";
 import {Metadata} from "next";
 import {getTranslations} from "next-intl/server";
+import {priceFormatter} from "@/lib/utils/helpers";
 
 export async function generateMetadata({params}: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const {id} = await params;
@@ -158,7 +159,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                         <p className={"text-darkerGold text-xl max-md:text-lg"}>{product.shortDes}</p>
                     </div>
                     <div className={"text-gold text-3xl max-md:text-2xl  flex items-center gap-1"}>
-                        <span>{+product.price - (+product.price * (+product.discount / 100))} {t("currency")}</span>
+                        <span>{priceFormatter(+product.price - (+product.price * (+product.discount / 100)))} {t("currency")}</span>
                         {
                             product.discount !== "0" && (
                                 <span

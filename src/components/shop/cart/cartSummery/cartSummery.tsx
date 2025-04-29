@@ -5,6 +5,7 @@ import {useCartStore} from "@/lib/providers/CartStoreProivder";
 import Link from "next/link";
 import DiscountCheck from "@/components/shop/cart/discountCheck/discountCheck";
 import {useTranslations} from "next-intl";
+import {priceFormatter} from "@/lib/utils/helpers";
 
 function CartSummery() {
     const t = useTranslations("cart");
@@ -19,7 +20,7 @@ function CartSummery() {
             <hr className={" w-full"}/>
             <div className={"flex items-center justify-between max-lg:flex-col max-lg:gap-2 max-md:flex-row"}>
                 <h4>{t("totalPrice")}</h4>
-                <p>{total} {t("currency")}</p>
+                <p>{priceFormatter(total)} {t("currency")}</p>
             </div>
             <div className={"flex items-center justify-between"}>
                 <h4>{t("productsCount")}</h4>
@@ -36,7 +37,7 @@ function CartSummery() {
             {cartItems.length > 0 &&<div className={"mt-auto w-full flex flex-col gap-2 max-sm:gap-4"}>
                 <div className={"flex items-center justify-between text-lg px-3 max-lg:flex-col max-lg:gap-4 max-md:flex-row"}>
                     <h3>{t("finalPrice")}</h3>
-                    <p>{finalPrice}</p>
+                    <p>{priceFormatter(finalPrice)}</p>
                 </div>
                 <Link href={"/checkout"}>
                     <Button type={"button"}

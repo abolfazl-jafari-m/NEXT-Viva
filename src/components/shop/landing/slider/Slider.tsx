@@ -16,6 +16,7 @@ import {PuffLoader} from "react-spinners";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
 import Image from "next/image";
+import {priceFormatter} from "@/lib/utils/helpers";
 
 function Slider() {
     const t = useTranslations("slider-landing");
@@ -43,16 +44,19 @@ function Slider() {
                         {
                             specialProducts?.map((product) => (
                                 <SwiperSlide key={product.id}>
-                                    <div className={"flex items-center gap-15 max-xl:gap-10 max-md:gap-5 justify-center max-sm:flex-col-reverse  w-full h-full"}>
-                                        <div className={"text-white flex-col flex gap-8  w-1/3 max-sm:w-3/4 max-sm:gap-5 max-sm:text-center"}>
-                                            <h2 dir={"ltr"} className={"font-semibold text-gold text-5xl font-fuzzy text-nowrap max-2xl:text-4xl max-lg:text-3xl max-xl:text-wrap "}>{product.title}</h2>
+                                    <div
+                                        className={"flex items-center gap-15 max-xl:gap-10 max-md:gap-5 justify-center max-sm:flex-col-reverse  w-full h-full"}>
+                                        <div
+                                            className={"text-white flex-col flex gap-8  w-1/3 max-sm:w-3/4 max-sm:gap-5 max-sm:text-center"}>
+                                            <h2 dir={"ltr"}
+                                                className={"font-semibold text-gold text-5xl font-fuzzy text-nowrap max-2xl:text-4xl max-lg:text-3xl max-xl:text-wrap "}>{product.title}</h2>
                                             <p className={"text-white max-sm:hidden"}>{product.description}</p>
                                             <div className={"flex items-center max-lg:flex-col gap-4 max-lg:gap-10 "}>
                                                 <div
                                                     className={`relative text-4xl text-gold font-bold max-xl:text-2xl max-xl:text-nowrap max-sm:text-xl`}>
-                                                    <span>{+product.price - (+product.price * (+product.discount / 100))} {t("currency")} </span>
+                                                    <span>{priceFormatter(+product.price - (+product.price * (+product.discount / 100)))} {t("currency")} </span>
                                                     <span
-                                                        className={"absolute text-gold/50 decoration-2 decoration-red-500 right-3 top-7 text-2xl line-through"}>{product.price}</span>
+                                                        className={"absolute text-gold/50 decoration-2 decoration-red-500 right-3 top-7 text-2xl line-through"}>{priceFormatter(+product.price)}</span>
                                                 </div>
                                                 <Link href={`/products/${product.id}`}>
                                                     <button
@@ -62,8 +66,9 @@ function Slider() {
                                             </div>
                                         </div>
                                         <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`}
-                                             alt={"men PerFume"}
-                                             width={450} height={450} className={"max-lg:w-[350px] max-md:w-[280px] max-sm:w-[200px] "}/>
+                                               alt={"men PerFume"}
+                                               width={450} height={450}
+                                               className={"max-lg:w-[350px] max-md:w-[280px] max-sm:w-[200px] "}/>
                                     </div>
                                 </SwiperSlide>
                             ))

@@ -14,6 +14,7 @@ import {Product} from "@/interfaces/interfaces";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
 import Image from "next/image";
+import {priceFormatter} from "@/lib/utils/helpers";
 
 function BestSeller() {
     const t = useTranslations("bestSeller");
@@ -44,7 +45,7 @@ function BestSeller() {
                                         <div className={"flex flex-col gap-8 max-lg:gap-5 max-md:gap-3 "}>
                                             <h3 className={"text-4xl text-darkerGold  max-md:text-2xl font-bold font-fuzzy"}>{product.title}</h3>
                                             <p className={"text-white line-clamp-3 max-lg:line-clamp-2 p-2 max-lg:p-0 "}>{product.description}</p>
-                                            <p className={"text-3xl font-bold text-darkerGold"}>{product.price} {t("currency")}</p>
+                                            <p className={"text-3xl font-bold text-darkerGold"}>{priceFormatter(+product.price)} {t("currency")}</p>
                                             <Link href={`/products/${product.id}`}>
                                                 <button
                                                     className={"py-3 px-8 rounded-md bg-gold text-white/80 shadow shadow-black self-start cursor-pointer max-lg:px-4 max-lg:py-2 max-sm:text-sm"}>{t("buyNow")}

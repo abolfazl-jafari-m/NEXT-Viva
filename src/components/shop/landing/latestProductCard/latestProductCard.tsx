@@ -5,6 +5,7 @@ import Link from "next/link";
 import {useTranslations} from "next-intl";
 import SlideIn from "@/components/animations/SlideIn/SlideIn";
 import Image from "next/image";
+import {priceFormatter} from "@/lib/utils/helpers";
 
 function LatestProductCard({product}: { product: Product }) {
     const t = useTranslations("latest");
@@ -15,7 +16,7 @@ function LatestProductCard({product}: { product: Product }) {
             <div className={"flex flex-col h-full justify-between max-md:gap-4 p-1 flex-1 "}>
                 <div className={"flex flex-col gap-2 w-full"}>
                     <h2 className={"text-darkerGold font-semibold line-clamp-1 font-fuzzy"}>{product.title}</h2>
-                    <p className={"text-white"}>{+product.price - (+product.price * (+product.discount / 100))}  {t("currency")}</p>
+                    <p className={"text-white"}>{priceFormatter(+product.price - (+product.price * (+product.discount / 100)))}  {t("currency")}</p>
                 </div>
                 <div className={"self-end"}>
                     <Link href={`/products/${product.id}`}>

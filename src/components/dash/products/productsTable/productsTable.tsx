@@ -2,7 +2,7 @@
 import React, {ChangeEvent, useMemo, useState} from 'react';
 import {MdDelete, MdEdit, MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight} from "react-icons/md";
 import {LuArrowDownWideNarrow} from "react-icons/lu";
-import {pagination} from "@/lib/utils/helpers";
+import {pagination, priceFormatter} from "@/lib/utils/helpers";
 import Button from "@/components/dash/base/button/button";
 import Link from "next/link";
 import {Product} from "@/interfaces/interfaces";
@@ -80,7 +80,7 @@ function ProductTable({products}: { products: Product[] }) {
                                          className={"w-10 h-10 rounded-md mx-auto"}/>
                                 </td>
                                 <td className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.title}</td>
-                                <td className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.price}</td>
+                                <td className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{priceFormatter(+item.price)}</td>
                                 <td className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.brand}</td>
                                 <td className={"mx-auto p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>
                                     <div className={"flex items-center justify-center gap-2 max-md:gap-1 max-sm:p-1.5"}>

@@ -1,6 +1,6 @@
 "use client"
 import React, {ChangeEvent, useMemo, useState} from 'react';
-import {pagination} from "@/lib/utils/helpers";
+import {pagination, priceFormatter} from "@/lib/utils/helpers";
 import Button from "@/components/dash/base/button/button";
 import {
     MdOutlineKeyboardArrowLeft,
@@ -56,7 +56,7 @@ function OrdersTable({orders}: { orders: Order[] }) {
                             <tr key={item.id}
                                 className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200 max-md:text-sm"}>
                                 <td className={"w-1/5 p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.customer_name}</td>
-                                <td className={"w-1/5 p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.totalPrice}</td>
+                                <td className={"w-1/5 p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{priceFormatter(+item.totalPrice)}</td>
                                 <td className={"w-1/5 p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{new Date(item.createdAt).toLocaleDateString("fa", {
                                     year: "2-digit",
                                     month: "long",

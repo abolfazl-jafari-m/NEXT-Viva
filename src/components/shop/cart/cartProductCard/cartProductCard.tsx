@@ -8,6 +8,7 @@ import {useCartStore} from "@/lib/providers/CartStoreProivder";
 import Link from "next/link";
 import Image from "next/image";
 import {useTranslations} from "next-intl";
+import {priceFormatter} from "@/lib/utils/helpers";
 
 function CartProductCard({cartItem}: { cartItem: CartItem }) {
     const t = useTranslations("cart");
@@ -40,7 +41,7 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
                             className={"rounded-full bg-secondary p-1 ring ring-primary text-primary text-xs cursor-pointer"}
                             type={"button"}><FaMinus/></Button>
                 </div>
-                <p className={"text-white min-w-26 max-sm:min-w-fit"}>{+cartItem.price * +cartItem.quantity} {t("currency")}</p>
+                <p className={"text-white min-w-26 max-sm:min-w-fit"}>{priceFormatter(+cartItem.price * +cartItem.quantity)} {t("currency")}</p>
             </div>
 
         </div>

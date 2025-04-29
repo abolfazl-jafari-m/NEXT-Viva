@@ -5,6 +5,7 @@ import {Product} from "@/interfaces/interfaces";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
 import Image from "next/image";
+import {priceFormatter} from "@/lib/utils/helpers";
 
 function ProductsCard({product}: { product: Product }) {
     const t= useTranslations("products-page")
@@ -20,7 +21,7 @@ function ProductsCard({product}: { product: Product }) {
                     <Link href={`/products/${product.id}`}>
                         <h3 dir={"ltr"} className={"font-semibold text-darkerGold text-xl  max-lg:text-lg font-fuzzy"}>{product.title}</h3>
                     </Link>
-                    <p>{+product.price - (+product.price * (+product.discount / 100))} {t("currency")}</p>
+                    <p>{priceFormatter(+product.price - (+product.price * (+product.discount / 100)))} {t("currency")}</p>
                 </div>
                 <div className={"max-lg:w-full"}>
                     <Button className={"bg-primary text-white p-2 rounded-lg shadow-lg shadow-black "} type={"button"}>

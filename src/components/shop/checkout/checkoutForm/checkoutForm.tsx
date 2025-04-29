@@ -8,6 +8,7 @@ import {useOrderStore} from "@/lib/providers/OrderStoreProvider";
 import {redirect} from "next/navigation";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
+import {priceFormatter} from "@/lib/utils/helpers";
 
 interface inputs {
     name: string;
@@ -99,7 +100,7 @@ function CheckoutForm() {
             </form>
             <div className={"flex items-center justify-between text-white w-1/3  max-lg:w-2/3 max-sm:w-4/5"}>
                 <h4>{t("payPrice")}</h4>
-                <p>{totalPrice - totalPrice * (discount / 100)} {t("currency")}</p>
+                <p>{priceFormatter(totalPrice - totalPrice * (discount / 100))} {t("currency")}</p>
             </div>
         </div>
     );

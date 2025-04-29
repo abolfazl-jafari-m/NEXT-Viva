@@ -2,6 +2,7 @@
 import React, {ChangeEvent, useState} from 'react';
 import Input from "@/components/dash/base/input/input";
 import {useInventoryStore} from "@/lib/providers/InventoryStoreProvider";
+import {priceFormatter} from "@/lib/utils/helpers";
 
 
 
@@ -27,7 +28,7 @@ function TableCell({id, flag, value, className}: { id: string, flag: string, val
         >
             {
                 !editMode ?
-                    <p className={"p-1"}>{item}</p>
+                    <p className={"p-1"}>{flag === "price" ?priceFormatter(+item) : item}</p>
                     :
                     (<Input
                         dir={"ltr"}
