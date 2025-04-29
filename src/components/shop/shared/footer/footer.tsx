@@ -8,7 +8,7 @@ import {useTranslations} from "next-intl";
 function Footer() {
     const t = useTranslations("footer");
     return (
-        <footer className={"w-full py-3  flex items-center flex-col gap-2 px-10 max-sm:px-3 text-white bg-linear-120 from-10% from-zinc-950 via-50% via-primary to-90% to-black"}>
+        <footer className={"w-full py-3  flex items-center flex-col gap-2 px-10 max-sm:px-3 text-white"}>
             <div className={"flex justify-between items-center w-full px-4 max-md:flex-col"}>
                 <div className={"flex flex-col gap-2 max-md:items-center"}>
                     <Image src={logo.src} alt={"logo"} width={72} height={72}/>
