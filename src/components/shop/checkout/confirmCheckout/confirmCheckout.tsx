@@ -47,7 +47,7 @@ function ConfirmCheckout() {
             <div className={"flex items-center gap-5"}>
                 <Link href={"/cart"}>
                     <Button type={"button"}
-                            className={"py-2 px-6 bg-secondary  rounded-lg shadow shadow-black cursor-pointer "}>
+                            className={"py-2 px-6 bg-secondary  rounded-lg shadow shadow-black cursor-pointer text-black"}>
                         {t("backToCart")}
                     </Button>
                 </Link>

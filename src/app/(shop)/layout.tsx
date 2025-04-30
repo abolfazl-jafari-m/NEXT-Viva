@@ -9,7 +9,7 @@ import {ThemeProvider} from "next-themes";
 function ShopLayout({children}: { children: ReactNode }) {
     return (
         <>
-            <ThemeProvider attribute="class" defaultTheme={"light"}>
+            <ThemeProvider attribute="class" defaultTheme={"dark"}>
                 <WishlistStoreProvider>
                     <div
                         className={"relative bg-linear-140 from-5% from-zinc-700 via-40% via-black to-stone-900 to-90% light:from-light-secondary light:via-secondary light:to-light-secondary"}>
