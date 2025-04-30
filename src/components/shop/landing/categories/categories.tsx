@@ -35,14 +35,14 @@ function Categories() {
             </SlideIn>
 
             <SlideIn x={-300}
-                className={"  flex items-center gap-4 max-md:gap-2  ring-2 ring-zinc-900 rounded-lg max-xl:flex-col max-lg:flex-row"}>
+                className={"  flex items-center gap-4 max-md:gap-2  ring-2 ring-zinc-900 rounded-lg max-xl:flex-col max-lg:flex-row "}>
                 <Image src={sweet.src} alt={"sweet"} width={250} height={250}
                        className={"max-xl:w-[200px] max-lg:w-[150px]"}/>
                 <div className={"flex flex-col justify-between py-2 px-5 gap-5 max-md:gap-3 max-md:px-2"}>
                     <h3 className={"text-4xl text-darkerGold font-bold max-sm:text-xl max-md:text-2xl"}>ادکلن شیرین</h3>
-                    <h4 className={"text-2xl font-semibold text-white max-md:text-lg max-sm:text-sm"}> عطرهای شیرین؛
+                    <h4 className={"text-2xl font-semibold text-white max-md:text-lg max-sm:text-sm light:text-black"}> عطرهای شیرین؛
                         رایحه‌ای دل‌فریب و پر احساس</h4>
-                    <p className={"text-white max-sm:text-sm max-sm:line-clamp-2 max-md:line-clamp-4 max-sm:hidden"}>
+                    <p className={"text-white max-sm:text-sm max-sm:line-clamp-2 max-md:line-clamp-4 max-sm:hidden light:text-black"}>
                         عطرهای شیرین با نت‌هایی مثل وانیل، کارامل، میوه‌های رسیده و گل‌های لطیف، حس زنانگی، لطافت و
                         انرژی مثبت را القا می‌کنند. این عطرها بسیار پرطرفدارند و انتخابی مناسب برای افرادی هستند که به
                         دنبال عطری رمانتیک و ماندگار هستند.</p>
@@ -61,10 +61,10 @@ function Categories() {
                        className={"max-xl:w-[200px] max-lg:w-[150px]"}/>
                 <div className={"flex flex-col justify-between py-2 px-5 gap-5  max-md:gap-3 max-md:px-2 "}>
                     <h3 className={"text-4xl text-darkerGold font-bold max-sm:text-xl max-md:text-2xl"}>ادکلن گرم</h3>
-                    <h4 className={"text-2xl font-semibold text-white max-md:text-lg max-sm:text-sm"}> عطرهای خنک؛
+                    <h4 className={"text-2xl font-semibold text-white light:text-black max-md:text-lg max-sm:text-sm"}> عطرهای خنک؛
                         انتخابی تازه و باطراوت برای
                         روزهایعطرهای گرم؛ همراهی دلنشین برای روزهای سرد</h4>
-                    <p className={"text-white max-sm:text-sm max-sm:line-clamp-2 max-md:line-clamp-4 max-sm:hidden"}>
+                    <p className={"text-white max-sm:text-sm max-sm:line-clamp-2 max-md:line-clamp-4 max-sm:hidden light:text-black"}>
                         عطرهای گرم با ترکیباتی از چوب، کهربا، ادویه و وانیل، حس صمیمیت و جذابیت را منتقل می‌کنند. این
                         عطرها گزینه‌ای فوق‌العاده برای پاییز و زمستان هستند و با ماندگاری بالا و رایحه‌ای عمیق، انتخابی
                         شیک و متفاوت برای شب‌ها و مهمانی‌ها به شمار می‌روند.</p>

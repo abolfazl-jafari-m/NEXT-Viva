@@ -6,7 +6,7 @@ import Link from "next/link";
 
 function Navigation() {
     return (
-        <ul className={"fixed right-8 max-md:right-2 top-1/2 -translate-y-1/2 flex flex-col items-center gap-5 max-sm:gap-3 z-20 text-white/60"}>
+        <ul className={"fixed right-8 max-md:right-2 top-1/2 -translate-y-1/2 flex flex-col items-center gap-5 max-sm:gap-3 z-20 text-white/60 light:text-black"}>
 
             <Link href={"#intro"}>
                 <li>

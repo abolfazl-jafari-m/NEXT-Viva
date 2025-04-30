@@ -3,6 +3,7 @@
 @plugin './hero.ts';
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 @custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 @font-face {
     font-family: "yekan";
     src: url("../assets/fonts/bYekan/BYekan.ttf");
@@ -33,8 +34,12 @@
     --color-darkChocolate: #400128;
     --color-primary: #1A1A1A;
     --color-secondary: #E0E0E0;
+    --color-light-secondary: #FEF3E2;
+
+
     --font-fuzzy: "fuzzy";
     --font-yekan: "yekan";
+
     --breakpoint-xs: 30rem;
 }
 html {

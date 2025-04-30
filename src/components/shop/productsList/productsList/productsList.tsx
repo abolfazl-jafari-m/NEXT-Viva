@@ -29,7 +29,7 @@ async function ProductsList({volume, page, fragrance, gender}: {
                 </>
                 :
                 <div className={"flex items-center justify-center w-full h-full"}>
-                    <p className={"text-white/60 text-xl"}>هیچ محصولی یافت نشد</p>
+                    <p className={"text-white/60 text-xl light:text-black"}>هیچ محصولی یافت نشد</p>
                 </div>
             }
 

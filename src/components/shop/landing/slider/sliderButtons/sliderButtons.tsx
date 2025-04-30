@@ -6,10 +6,10 @@ function SliderButtons() {
     const swiper = useSwiper();
     return (
         <div className={"absolute top-1/2 -translate-y-1/2 z-20 right-4 max-lg:right-0 flex items-center gap-7 flex-col"}>
-            <button className={"text-white/60 text-5xl max-lg:text-3xl cursor-pointer"} onClick={() => swiper.slideNext()}>
+            <button className={"text-white/60 text-5xl max-lg:text-3xl cursor-pointer light:text-black"} onClick={() => swiper.slideNext()}>
                 <IoIosArrowForward/>
             </button>
-            <button className={"text-white/60 text-5xl rotate-180 max-lg:text-3xl  cursor-pointer"}
+            <button className={"text-white/60 text-5xl rotate-180 max-lg:text-3xl light:text-black  cursor-pointer"}
                     onClick={() => swiper.slidePrev()}>
                 <IoIosArrowForward/>
             </button>

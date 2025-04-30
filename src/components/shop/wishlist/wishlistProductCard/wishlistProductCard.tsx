@@ -14,7 +14,7 @@ function WishlistProductCard({product}: { product: Product }) {
     const removeFromFavorite = useWishlistStore((state => state.remove))
     return (
         <div
-            className={"rounded-lg shadow shadow-black ring-2 ring-zinc-600 bg-zinc-950 flex  items-center justify-between gap-3 relative text-white py-2 px-4 max-sm:justify-center max-sm:items-start max-sm:w-full max-sm:py-3 max-sm:relative"}>
+            className={"rounded-lg shadow shadow-black ring-2 ring-zinc-600 bg-zinc-950 light:bg-secondary  flex  items-center justify-between gap-3 relative text-white light:text-black py-2 px-4 max-sm:justify-center max-sm:items-start max-sm:w-full max-sm:py-3 max-sm:relative"}>
             <div className={"flex items-center gap-5 max-sm:flex-col "}>
                 <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={product.slug} width={120}
                        height={120} className={"rounded-lg max-sm:w-20"}/>

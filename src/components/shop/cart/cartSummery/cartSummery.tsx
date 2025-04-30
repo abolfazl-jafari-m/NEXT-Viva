@@ -15,7 +15,7 @@ function CartSummery() {
     const finalPrice = total - (total*(discount/100));
     return (
         <div
-            className={"col-span-2 max-md:col-span-full rounded-lg bg-primary p-4 row-span-5 ring-2 ring-zinc-800 shadow-lg shadow-black flex flex-col gap-6 text-white"}>
+            className={"col-span-2 max-md:col-span-full rounded-lg bg-primary light:bg-secondary p-4 row-span-5 ring-2 ring-zinc-800 shadow-lg shadow-black flex flex-col gap-6 text-white light:text-black"}>
             <h3 className={" font-semibold text-2xl max-sm:text-xl"}>{t("yourCart")}</h3>
             <hr className={" w-full"}/>
             <div className={"flex items-center justify-between max-lg:flex-col max-lg:gap-2 max-md:flex-row"}>
@@ -41,7 +41,7 @@ function CartSummery() {
                 </div>
                 <Link href={"/checkout"}>
                     <Button type={"button"}
-                            className={" w-full py-2 rounded-lg bg-darkChocolate shadow shadow-black cursor-pointer"}>
+                            className={" w-full py-2 rounded-lg bg-darkChocolate shadow shadow-black cursor-pointer light:text-white"}>
                         {t("checkout")}
                     </Button>
                 </Link>

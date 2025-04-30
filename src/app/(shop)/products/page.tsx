@@ -17,7 +17,7 @@ async function Products({searchParams,}: { searchParams: Promise<{ [key: string]
             <div
                 className={"w-full min-h-dvh grid grid-cols-12 max-sm:grid-cols-1 gap-14 max-xl:gap-10  max-xl:px-10 p-35 max-md:px-5 max-xl:py-30"}>
                 <div className={"col-span-full flex flex-col  gap-7 px-5"}>
-                    <h2 className={"text-3xl font-semibold text-white max-sm:text-xl max-sm:mt-7"}>{t("title")}</h2>
+                    <h2 className={"text-3xl font-semibold text-white max-sm:text-xl max-sm:mt-7 light:text-black"}>{t("title")}</h2>
                     <SelectedFilter/>
                 </div>
                 <ProductsList volume={volume} gender={gender} fragrance={fragrance} page={page}/>

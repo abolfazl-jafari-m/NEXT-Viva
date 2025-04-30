@@ -24,7 +24,7 @@ function Slider({images, slug}: { images: string[], slug: string }) {
                 className={"w-3/4 h-fit"}
             >
                 {images.map((item) => (
-                    <SwiperSlide key={item} className={"w-full pagi"}>
+                    <SwiperSlide key={item} className={"w-full"}>
                         <Image
                             src={`http://api.alikooshesh.ir:3000${item}`}
                             alt={slug}

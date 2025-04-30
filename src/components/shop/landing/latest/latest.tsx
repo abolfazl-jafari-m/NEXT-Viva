@@ -13,7 +13,7 @@ async function Latest() {
     }
     return (
         <section className={"w-full  flex items-center flex-col p-15 max-xl:p-5 max-sm:p-1 overflow-hidden"}>
-            <h2 className={"text-4xl text-white font-bold max-md:mt-7 max-md:text-2xl"}>{t("title")}</h2>
+            <h2 className={"text-4xl text-white font-bold max-md:mt-7 max-md:text-2xl light:text-black"}>{t("title")}</h2>
             <div className={"grid grid-cols-3 px-15 max-lg:grid-cols-2 max-xl:px-7 max-sm:p-3 max-sm:grid-cols-1 mt-16 max-sm:mt-5  gap-5 gap-y-10 max-lg:gap-y-5 w-full"}>
                 {
                     data.records.map((product : Product) => (

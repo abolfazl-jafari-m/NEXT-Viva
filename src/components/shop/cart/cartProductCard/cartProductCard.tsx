@@ -17,7 +17,7 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
     const inc = useCartStore((state) => state.inc);
     return (
         <div
-            className={"bg-black ring-2 ring-zinc-800 rounded-lg shadow-lg shadow-black py-4 px-6 flex items-center justify-between max-lg:gap-5 max-sm:flex-col"}>
+            className={"bg-black light:bg-gray-800 ring-2 ring-zinc-800 rounded-lg shadow-lg shadow-black py-4 px-6 flex items-center justify-between max-lg:gap-5 max-sm:flex-col"}>
             <div className={"flex items-center gap-4 max-sm:w-full"}>
                 <CgClose className={"text-2xl text-white cursor-pointer"} onClick={() => remove(cartItem.id)}/>
                 <Link href={`/products/${cartItem.id}`}>

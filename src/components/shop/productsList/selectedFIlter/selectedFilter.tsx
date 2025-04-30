@@ -22,12 +22,12 @@ function SelectedFilter() {
     if (filters.length <= 0) return null;
     return (
         <div className={"flex items-center  gap-5 "}>
-            <h5 className={"text-white/60"}>فیلتر های اعمال شده :</h5>
+            <h5 className={"text-white/60 light:text-black"}>فیلتر های اعمال شده :</h5>
             <div className={"flex items-center gap-3"}>
                 {
                     filters.map((filter) => (
                         <div
-                            className={"px-2 py-0.5 text-sm rounded-md bg-gold text-white flex items-center justify-between gap-2"}
+                            className={"px-2 py-0.5 text-sm rounded-md bg-gold light:bg-darkerGold text-white flex items-center justify-between gap-2"}
                             key={filter[1]}>
                             <span>{filter[1]}</span>
                             <CgClose className={"cursor-pointer"} onClick={() => updateUrlSearchParams(filter)}/>

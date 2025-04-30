@@ -4,7 +4,7 @@ import {PuffLoader} from "react-spinners";
 function Loading() {
     return (
         <div className={"w-full h-screen flex items-center justify-center"}>
-            <PuffLoader color={"gold"} size={55}/>
+            <PuffLoader color={"#C59E01"} size={55}/>
         </div>
     );
 }

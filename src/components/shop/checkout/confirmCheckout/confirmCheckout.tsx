@@ -39,8 +39,8 @@ function ConfirmCheckout() {
     }
     return (
         <div className={"w-full min-h-screen flex items-center justify-center flex-col gap-5"}>
-            <p className={"text-2xl text-white"}>{t("areYouSure")}</p>
-            <div className={"flex items-center gap-10 text-white/80"}>
+            <p className={"text-2xl text-white light:text-black"}>{t("areYouSure")}</p>
+            <div className={"flex items-center gap-10 text-white/80 light:text-black/60"}>
                 <p>{t("payPrice")}</p>
                 <p>{priceFormatter(totalPrice - (totalPrice * discount / 100))} {t("currency")}</p>
             </div>

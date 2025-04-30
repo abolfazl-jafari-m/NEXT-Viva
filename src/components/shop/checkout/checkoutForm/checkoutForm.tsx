@@ -52,29 +52,29 @@ function CheckoutForm() {
     }
     return (
         <div className={"w-full min-h-screen flex items-center justify-center flex-col gap-8 py-25"}>
-            <h3 className={"text-2xl font-semibold text-white max-sm:text-xl"}>{t("interInfo")}</h3>
+            <h3 className={"text-2xl font-semibold text-white light:text-black max-sm:text-xl"}>{t("interInfo")}</h3>
             <form className={"grid grid-cols-2 max-sm:grid-cols-1 gap-5 w-1/3 max-lg:w-2/3 max-sm:w-4/5"} onSubmit={handleSubmit(checkoutHandler)}>
-                <div className={"flex flex-col gap-3 text-white/80"}>
+                <div className={"flex flex-col gap-3 text-white/80 light:text-black"}>
                     <label htmlFor={"name"}>{t("name")} :</label>
                     <input
-                        className={"rounded-lg ring ring-darkerGold px-3 py-2 outline-none placeholder:text-white/50 "} {...register("name", {required: t("nameError")})}
+                        className={"rounded-lg ring ring-darkerGold px-3 py-2 outline-none placeholder:text-white/50 light:placeholder:text-black/80 "} {...register("name", {required: t("nameError")})}
                         placeholder={t("namePlaceholder")}/>
                     {errors.name && <span className="text-red-500 text-xs font-light">{errors.name.message}</span>}
                 </div>
-                <div className={"flex flex-col gap-3 text-white/80"}>
+                <div className={"flex flex-col gap-3 text-white/80 light:text-black"}>
                     <label htmlFor={"lastName"}>{t("lastName")} :</label>
                     <input
-                        className={"rounded-lg ring ring-darkerGold px-3 py-2 outline-none placeholder:text-white/50 "} {...register("lastName", {
+                        className={"rounded-lg ring ring-darkerGold px-3 py-2 outline-none placeholder:text-white/50 light:placeholder:text-black/80 "} {...register("lastName", {
                         required: t("lastNameError")
                     })}
                         placeholder={t("lastNamePlaceholder")}/>
                     {errors.lastName &&
                         <span className="text-red-500 text-xs  font-light">{errors.lastName.message}</span>}
                 </div>
-                <div className={"flex flex-col gap-3 text-white/80"}>
+                <div className={"flex flex-col gap-3 text-white/80 light:text-black"}>
                     <label htmlFor={"phoneNumber"}>{t("phone")} :</label>
                     <input
-                        className={"rounded-lg ring ring-darkerGold px-3 py-2 outline-none placeholder:text-white/50 "} {...register("phoneNumber", {
+                        className={"rounded-lg ring ring-darkerGold px-3 py-2 outline-none placeholder:text-white/50 light:placeholder:text-black/80 "} {...register("phoneNumber", {
                         required: t("phoneError"),
                         pattern: {value: PhonePattern, message: t("phoneErrorRegex")}
                     })}
@@ -82,10 +82,10 @@ function CheckoutForm() {
                     {errors.phoneNumber &&
                         <span className="text-red-500 text-xs font-light">{errors.phoneNumber.message}</span>}
                 </div>
-                <div className={"flex flex-col gap-3 text-white/80 col-span-full "}>
+                <div className={"flex flex-col gap-3 text-white/80 light:text-black col-span-full "}>
                     <label htmlFor={"address"}>{t("Address")} :</label>
                     <textarea rows={6}
-                              className={"rounded-lg ring ring-darkerGold px-3 py-2 outline-none placeholder:text-white/50 "} {...register("address", {required: t("addressError")})}
+                              className={"rounded-lg ring ring-darkerGold px-3 py-2 outline-none placeholder:text-white/50 light:placeholder:text-black/80 "} {...register("address", {required: t("addressError")})}
                               placeholder={t("addressPlaceholder")}></textarea>
                     {errors.address &&
                         <span className="text-red-500 text-xs font-light">{errors.address.message}</span>}
@@ -103,7 +103,7 @@ function CheckoutForm() {
                     </Button>
                 </div>
             </form>
-            <div className={"flex items-center justify-between text-white w-1/3  max-lg:w-2/3 max-sm:w-4/5"}>
+            <div className={"flex items-center justify-between text-white light:text-black w-1/3  max-lg:w-2/3 max-sm:w-4/5"}>
                 <h4>{t("payPrice")}</h4>
                 <p>{priceFormatter(totalPrice - totalPrice * (discount / 100))} {t("currency")}</p>
             </div>

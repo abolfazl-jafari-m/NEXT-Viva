@@ -30,7 +30,7 @@ function Slider() {
             {
                 isLoading ?
                     <div className={"flex items-center justify-center w-full h-full"}>
-                        <PuffLoader color={"gold"} size={55}/>
+                        <PuffLoader color={"#C59E01"} size={55}/>
                     </div> :
                     <Swiper className={"w-full h-full flex items-center justify-center"}
                             slidesPerView={1}
@@ -49,8 +49,8 @@ function Slider() {
                                         <div
                                             className={"text-white flex-col flex gap-8  w-1/3 max-sm:w-3/4 max-sm:gap-5 max-sm:text-center"}>
                                             <h2 dir={"ltr"}
-                                                className={"font-semibold text-gold text-5xl font-fuzzy text-nowrap max-2xl:text-4xl max-lg:text-3xl max-xl:text-wrap "}>{product.title}</h2>
-                                            <p className={"text-white max-sm:hidden"}>{product.description}</p>
+                                                className={"font-semibold text-gold text-5xl font-fuzzy text-nowrap max-2xl:text-4xl max-lg:text-3xl max-xl:text-wrap light:text-darkerGold"}>{product.title}</h2>
+                                            <p className={"text-white max-sm:hidden light:text-black"}>{product.description}</p>
                                             <div className={"flex items-center max-lg:flex-col gap-4 max-lg:gap-10 "}>
                                                 <div
                                                     className={`relative text-4xl text-gold font-bold max-xl:text-2xl max-xl:text-nowrap max-sm:text-xl`}>

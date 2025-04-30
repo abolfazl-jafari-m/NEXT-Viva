@@ -25,7 +25,7 @@ function BestSeller() {
             {
                 isLoading ?
                     <div className={"flex items-center justify-center w-2/3  h-full"}>
-                        <PuffLoader color={"gold"} size={55}/>
+                        <PuffLoader color={"#C59E01"} size={55}/>
                     </div> :
                     <Swiper
                          className={"max-lg:w-full w-3/4"}
@@ -44,11 +44,11 @@ function BestSeller() {
                                              alt={product.slug} width={350} height={350} className={"max-lg:w-[250px]"}/>
                                         <div className={"flex flex-col gap-8 max-lg:gap-5 max-md:gap-3 "}>
                                             <h3 className={"text-4xl text-darkerGold  max-md:text-2xl font-bold font-fuzzy"}>{product.title}</h3>
-                                            <p className={"text-white line-clamp-3 max-lg:line-clamp-2 p-2 max-lg:p-0 "}>{product.description}</p>
+                                            <p className={"text-white line-clamp-3 max-lg:line-clamp-2 p-2 max-lg:p-0 light:text-black "}>{product.description}</p>
                                             <p className={"text-3xl font-bold text-darkerGold"}>{priceFormatter(+product.price)} {t("currency")}</p>
                                             <Link href={`/products/${product.id}`}>
                                                 <button
-                                                    className={"py-3 px-8 rounded-md bg-gold text-white/80 shadow shadow-black self-start cursor-pointer max-lg:px-4 max-lg:py-2 max-sm:text-sm"}>{t("buyNow")}
+                                                    className={"py-3 px-8 rounded-md bg-gold light:bg-darkerGold text-white/80 shadow shadow-black self-start cursor-pointer max-lg:px-4 max-lg:py-2 max-sm:text-sm"}>{t("buyNow")}
                                                 </button>
                                             </Link>
                                         </div>

@@ -12,7 +12,7 @@ function Cart() {
     return (
         <div className={"w-full min-h-screen grid grid-cols-6 max-md:grid-cols-1 p-30 grid-rows-6 max-2xl:px-10 max-sm:px-5 max-sm:py-20 gap-10 max-lg:gap-5"}>
             <div className={"col-span-full flex items-center row-span-1"}>
-                <h1 className={"text-3xl font-semibold text-white max-sm:text-xl"}>{t("title")}</h1>
+                <h1 className={"text-3xl font-semibold text-white max-sm:text-xl light:text-black"}>{t("title")}</h1>
             </div>
             <CartItems />
             <CartSummery />

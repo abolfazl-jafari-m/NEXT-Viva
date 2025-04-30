@@ -28,7 +28,7 @@ function WishlistProducts() {
     if (isLoading) {
         return (
             <div className={"flex items-center justify-center w-full h-full mt-16"}>
-                <PuffLoader color={"gold"} size={50}/>
+                <PuffLoader color={"#C59E01"} size={50}/>
             </div>)
     }
     return (
@@ -38,7 +38,7 @@ function WishlistProducts() {
                     products.map((product) => <WishlistProductCard key={product.id} product={product}/>)
                     :
                     <div className={"flex items-center justify-center w-full h-full pt-10"}>
-                        <p className={"text-white/70 font-semibold text-xl text-center max-sm:text-[16px]"}>{t("noFav")}</p>
+                        <p className={"text-white/70 font-semibold text-xl text-center max-sm:text-[16px] light:text-black"}>{t("noFav")}</p>
                     </div>
             }
         </div>

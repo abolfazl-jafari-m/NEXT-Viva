@@ -69,12 +69,12 @@ function Comments({productId}: { productId: string }) {
     }
     return (
         <section className={"w-full min-h-screen p-20 max-lg:p-15 max-md:p-10 max-sm:p-5"} id={"comments"}>
-            <h3 className={"text-white font-semibold text-5xl max-lg:text-3xl max-md:text-xl mb-10"}>{t("comments")}</h3>
+            <h3 className={"text-white light:text-black font-semibold text-5xl max-lg:text-3xl max-md:text-xl mb-10"}>{t("comments")}</h3>
             <div className={"flex flex-col gap-10"}>
                 <form className={"flex flex-col gap-4"} onSubmit={handleSubmit}>
                     <p className={"text-darkerGold text-xl"}>{t("addYourComment")}</p>
                     <input type={"text"} name={"comment"} value={comment} onChange={(e) => setComment(e.target.value)}
-                           className={"text-white font-extralight shadow shadow-black outline-none rounded-md py-2 px-8 border border-white w-full placeholder:text-white/40"}
+                           className={"text-white light:bg-primary font-extralight shadow shadow-black outline-none rounded-md py-2 px-8 border border-white light:border-black w-full placeholder:text-white/40"}
                            placeholder={t("writeHere")}/>
                     {isPending ?
                         <div className={"self-end"}>
@@ -82,7 +82,7 @@ function Comments({productId}: { productId: string }) {
                         </div>
                         :
                         <button
-                            className={"bg-secondary self-end px-8 py-2 max-md:px-5 max-md:py-1 max-sm:text-sm rounded-md shadow shadow-black cursor-pointer"}>{t("submitComment")}
+                            className={"bg-secondary light:bg-primary text-black  light:text-white self-end px-8 py-2 max-md:px-5 max-md:py-1 max-sm:text-sm rounded-md shadow shadow-black cursor-pointer"}>{t("submitComment")}
                         </button>}
                 </form>
                 {isLoading ?
@@ -94,16 +94,16 @@ function Comments({productId}: { productId: string }) {
                         {
                             comments.length === 0 ?
                                 <div className={"flex items-center justify-center mt-10"}>
-                                    <p className={"font-semibold text-2xl text-white max-md:text-xl max-sm:text-lg max-md:text-center"}>{t("beTheFirstOne")}</p>
+                                    <p className={"font-semibold text-2xl text-white max-md:text-xl max-sm:text-lg max-md:text- light:text-black"}>{t("beTheFirstOne")}</p>
                                 </div>
                                 :
                                 <>
                                     {comments.map((comment: Comment) => (
                                         <div key={comment.id} className={"flex items-center gap-5"}>
-                                            <FaCircleUser size={40} color={"white"}/>
+                                            <FaCircleUser size={40} className={"text-white light:text-black"}/>
                                             <div className={"flex flex-col gap-2"}>
-                                                <h4 className={"text-gold text-sm"}>{comment.username}</h4>
-                                                <p className={"text-white"}>{comment.comment}</p>
+                                                <h4 className={"text-gold light:text-darkerGold text-sm"}>{comment.username}</h4>
+                                                <p className={"text-white light:text-black"}>{comment.comment}</p>
                                             </div>
                                         </div>
                                     ))}
