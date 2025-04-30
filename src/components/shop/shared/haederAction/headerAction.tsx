@@ -5,14 +5,14 @@ import Search from "@/components/shop/shared/search/search";
 import dynamic from "next/dynamic";
 import CartItems from "@/components/shop/shared/cartItems/cartItems";
 import Link from "next/link";
-import ThemeButton from "@/components/shop/shared/themeButton/themeButton";
+const ThemeButton = dynamic(() => import('@/components/shop/shared/themeButton/themeButton' ), {ssr: false});
 
 const UserInfo = dynamic(() => import( "@/components/shop/shared/userInfo/userInfo"), {ssr: false});
 
 function HeaderAction() {
     return (
-        <div className={"flex items-center gap-6 max-lg:gap-2  max-md:hidden text-gold"}>
-            <ThemeButton />
+        <div className={"flex items-center gap-4 max-lg:gap-2  max-md:hidden text-gold"}>
+            <ThemeButton/>
             <Search/>
             <CartItems/>
             <Link href={"/wishlist"}><CgHeart size={24}/></Link>
