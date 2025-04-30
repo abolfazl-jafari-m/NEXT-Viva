@@ -3,18 +3,20 @@ import React from 'react';
 import {useOrderStore} from "@/lib/providers/OrderStoreProvider";
 import {FaCheck} from "react-icons/fa6";
 import {IoMdClose} from "react-icons/io";
-import {redirect} from "next/navigation";
+import {forbidden, useRouter} from "next/navigation";
 import {useTranslations} from "next-intl";
 
 function Result() {
     const t = useTranslations("payment");
+    const router = useRouter();
     const paymentResult = useOrderStore((state) => state.paymentStatus);
-    const setPaymentStatus = useOrderStore((state) => state.setPaymentStatus);
-
     const handlePaymentStatus = () => {
-        setPaymentStatus(null);
-        redirect("/")
+        router.push("/");
     }
+    if (paymentResult === null) {
+        forbidden();
+    }
+
     return (
         <div className={"w-full h-screen bg-secondary flex items-center justify-center flex-col gap-5"}>
 

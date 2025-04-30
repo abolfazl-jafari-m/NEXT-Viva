@@ -10,6 +10,7 @@ import {redirect} from "next/navigation";
 import {useTranslations} from "next-intl";
 import Link from "next/link";
 import {priceFormatter} from "@/lib/utils/helpers";
+import EmptyCart from "@/components/shop/checkout/emptyCart/emptyCart";
 
 function ConfirmCheckout() {
     const t = useTranslations("checkout");
@@ -32,6 +33,9 @@ function ConfirmCheckout() {
             deliver_time: null
         });
         redirect("/payment");
+    }
+    if (cartItems.length  <= 0) {
+       return <EmptyCart/>
     }
     return (
         <div className={"w-full min-h-screen flex items-center justify-center flex-col gap-5"}>

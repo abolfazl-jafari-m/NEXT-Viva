@@ -19,7 +19,10 @@ const nextConfig: NextConfig = {
                 pathname   :"/assets/**",
             },
         ],
-    }
+    },
+    experimental: {
+        authInterrupts: true,
+    },
 };
 
 const withNextIntl = createNextIntlPlugin(

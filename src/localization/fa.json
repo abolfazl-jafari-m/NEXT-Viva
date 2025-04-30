@@ -269,7 +269,8 @@
     "phoneErrorRegex": "فرمت شماره تلفن صحیح نمیباشد",
     "Address": "آدرس",
     "addressPlaceholder": "ادرس خود را وارد کنید",
-    "addressError": "وارد کردن آدرس الزامیست"
+    "addressError": "وارد کردن آدرس الزامیست",
+    "emptyCart" : "سبد خرید شما خالی میباشد"
   },
   "payment": {
     "cartNumber": "شماره کارت خود را وارد کنید",

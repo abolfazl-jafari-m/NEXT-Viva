@@ -9,6 +9,7 @@ import {redirect} from "next/navigation";
 import Link from "next/link";
 import {useTranslations} from "next-intl";
 import {priceFormatter} from "@/lib/utils/helpers";
+import EmptyCart from "@/components/shop/checkout/emptyCart/emptyCart";
 
 interface inputs {
     name: string;
@@ -44,6 +45,10 @@ function CheckoutForm() {
         });
         redirect("/payment");
 
+    }
+
+    if (cartItems.length <= 0) {
+        return <EmptyCart/>
     }
     return (
         <div className={"w-full min-h-screen flex items-center justify-center flex-col gap-8 py-25"}>
