@@ -44,7 +44,7 @@ function Comments({productId}: { productId: string }) {
             return null;
         }
         if (comment === "") {
-            toast.error(t("comment-required-message"), {
+            toast(t("comment-required-message"), {
                 style: {backgroundColor: "white", color: "#000"}, position: "top-right", icon: "🤦‍♂️"
             });
             return null;

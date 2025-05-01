@@ -92,4 +92,5 @@ export type CartItem = {
     price: string;
     quantity: string;
     volume: string;
+    inventory: string;
 }

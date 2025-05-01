@@ -25,7 +25,7 @@ function AddToCart({product}: { product: Product }) {
             })
             return;
         }
-        addToCart(product.id, product.title, volume.value, (+product.price - (+product.price * (+product.discount / 100))).toString(), quantity.value, product.images[0]);
+        addToCart(product.id, product.title, volume.value, (+product.price - (+product.price * (+product.discount / 100))).toString(), quantity.value, product.images[0] , product.inventory);
         toast.success(t("addToCart-success"), {
             "position": "top-right",
             style: {backgroundColor: "#fff", color: "#000", minWidth: "fit-content"},

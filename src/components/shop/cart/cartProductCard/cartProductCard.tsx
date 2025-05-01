@@ -15,6 +15,14 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
     const remove = useCartStore((state) => state.remove);
     const dec = useCartStore((state) => state.dec);
     const inc = useCartStore((state) => state.inc);
+
+    const increment = ()=>{
+        console.log(cartItem)
+        if (cartItem.quantity <= cartItem.inventory){
+            inc(cartItem.id);
+        }
+    }
+
     return (
         <div
             className={"bg-black light:bg-gray-800 ring-2 ring-zinc-800 rounded-lg shadow-lg shadow-black py-4 px-6 flex items-center justify-between max-lg:gap-5 max-sm:flex-col"}>
@@ -33,7 +41,7 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
             </div>
             <div className={"flex items-center gap-6 max-lg:flex-col-reverse max-lg:items-center max-sm:flex-row max-sm:justify-between max-sm:w-full"}>
                 <div className={"flex items-center gap-2 min-w-26 max-sm:min-w-fit max-lg:justify-center "}>
-                    <Button onClick={() => inc(cartItem.id)}
+                    <Button onClick={() => increment()}
                             className={"rounded-full bg-secondary p-1 ring ring-primary text-primary text-xs cursor-pointer"}
                             type={"button"}><FaPlus/></Button>
                     <p className={"text-white text-lg"}>{cartItem.quantity}</p>
