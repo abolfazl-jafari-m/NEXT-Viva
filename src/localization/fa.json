@@ -192,7 +192,7 @@
     "bitter": "تلخ",
     "sweet": "شیرین",
     "currency": "تومان",
-    "notInInventory" : "ناموحود"
+    "notInInventory" : "ناموجود"
   },
   "product-single": {
     "currency": "تومان",

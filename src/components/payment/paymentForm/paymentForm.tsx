@@ -18,7 +18,7 @@ function PaymentForm() {
     const setPaymentStatus = useOrderStore((state) => state.setPaymentStatus);
     const [isLoading, setIsLoading] = useState(false);
 
-    const paymentHandler = async (status: boolean) => {
+    const paymentHandler =  (status: boolean) => {
         setPaymentStatus(status);
         if (status) {
             setIsLoading(true);
