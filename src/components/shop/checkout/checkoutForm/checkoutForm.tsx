@@ -10,6 +10,7 @@ import Link from "next/link";
 import {useTranslations} from "next-intl";
 import {priceFormatter} from "@/lib/utils/helpers";
 import EmptyCart from "@/components/shop/checkout/emptyCart/emptyCart";
+import {UserInterface} from "@/interfaces/interfaces";
 
 interface inputs {
     name: string;
@@ -18,7 +19,7 @@ interface inputs {
     address: string;
 }
 
-function CheckoutForm() {
+function CheckoutForm({user} :{user :UserInterface}) {
     const t= useTranslations("checkout");
     const cartItems = useCartStore((state) => state.cartItems);
     const discount = useCartStore((state) => state.discount);
@@ -26,10 +27,10 @@ function CheckoutForm() {
     const setOrder = useOrderStore((state) => state.setOrder);
     const {formState: {errors}, register, handleSubmit} = useForm<inputs>({
         defaultValues: {
-            name: "",
-            lastName: "",
-            phoneNumber: "",
-            address: ""
+            name: user.name ?? "",
+            lastName: user.lastName ?? "",
+            phoneNumber: user.phoneNumber ?? "",
+            address: user.address ?? ""
         }
     })
 

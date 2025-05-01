@@ -161,7 +161,7 @@ function RegisterForm() {
                             :
                             (<>
                                 <button type={"button"} onClick={()=>router.back()}
-                                    className={"px-7 py-2 rounded-md  bg-secondary shadow shadow-black cursor-pointer"}>{t("back")}
+                                    className={"px-7 py-2 rounded-md  bg-secondary shadow shadow-black cursor-pointer text-black"}>{t("back")}
                                 </button>
                                 <button disabled={isLoading}
                                         className={"px-7 py-2 rounded-md text-white bg-darkerGold shadow shadow-black cursor-pointer"}>{t("singUp")}
