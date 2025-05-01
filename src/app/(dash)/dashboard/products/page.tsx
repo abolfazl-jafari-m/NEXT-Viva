@@ -32,7 +32,7 @@ function Products() {
     }
     if (isLoading) return (<TableLoader/>)
     return (
-        <div className={"flex flex-col gap-4 p-10 max-md:p-5"}>
+        <div className={"flex flex-col gap-4 p-10 max-md:p-5 text-black"}>
             <div className={"flex items-center justify-between w-full max-sm:flex-col gap-5"}>
                 <div className={"flex items-center gap-4 max-sm:justify-between max-md:w-full max-md:gap-2.5"}>
                     <h1 className={"font-bold text-4xl max-lg:text-2xl"}>{t("title")}</h1>

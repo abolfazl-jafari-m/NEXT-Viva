@@ -34,7 +34,7 @@ function InventoryTable({inventoryList}: { inventoryList: Product[] }) {
     return (
         <>
             <div
-                className={"overflow-x-auto w-full max-h-[500px] max-xl:max-h-[400px] max-md:max-h-[330px] overflow-y-auto no-scrollbar"}>
+                className={"overflow-x-auto w-full max-h-[500px] max-xl:max-h-[400px] max-md:max-h-[330px] overflow-y-auto no-scrollbar text-black"}>
                 <table className={"border border-black border-collapse w-full  bg-darkChocolate"}>
                     <thead className={"bg-darkChocolate text-white sticky top-0 left-0 right-0 w-full"}>
                     <tr className={"text-xl  text-center w-full max-md:text-lg max-sm:text-[15px]"}>
@@ -59,7 +59,7 @@ function InventoryTable({inventoryList}: { inventoryList: Product[] }) {
                     </tbody>
                 </table>
             </div>
-            <div className={"flex items-center gap-6 max-md:justify-between"}>
+            <div className={"flex items-center gap-6 max-md:justify-between text-black"}>
                 <div className={"flex items-center gap-4 text-lg"}>
                     <MdOutlineKeyboardArrowRight onClick={prev}/>
                     <MdOutlineKeyboardArrowLeft onClick={next}/>

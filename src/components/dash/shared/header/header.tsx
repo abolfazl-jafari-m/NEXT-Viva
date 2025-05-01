@@ -9,7 +9,7 @@ function Header() {
         <>
             <div className={"flex items-center justify-between py-2 px-9 w-full max-sm:px-4"}>
                 <div>
-                    <h1 className={"text-2xl font-bold max-sm:text-xl"}>{t("title")}</h1>
+                    <h1 className={"text-2xl font-bold max-sm:text-xl text-black"}>{t("title")}</h1>
                 </div>
                 <HeaderNav/>
             </div>

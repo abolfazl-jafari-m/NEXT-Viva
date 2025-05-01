@@ -23,7 +23,7 @@ async function Inventory() {
         <InventoryStoreProvider>
             <div className={"flex flex-col gap-5 p-10 max-md:p-4"}>
                 <div className={"flex items-center justify-between"}>
-                    <h1 className={"font-bold text-3xl max-md:text-2xl"}>{t("title")}</h1>
+                    <h1 className={"font-bold text-3xl max-md:text-2xl text-black"}>{t("title")}</h1>
                     <UpdateButton/>
                 </div>
                 <Suspense fallback={<TableLoader/>}>

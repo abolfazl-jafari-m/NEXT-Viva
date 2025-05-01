@@ -18,7 +18,7 @@ function UserInfo() {
 
     return (
         <li className={" flex items-center gap-2 max-sm:gap-1.5"}>
-            {user && <p className={"capitalize text-sm font-bold font-fuzzy max-sm:text-xs max-xs:hidden"}
+            {user && <p className={"capitalize text-sm font-bold font-fuzzy max-sm:text-xs max-xs:hidden text-black"}
                         dir={"ltr"}>welcome {user.name}🤙</p>}
             <div
                 className={"rounded-lg bg-darkChocolate overflow-hidden text-white shadow-md shadow-black w-8.5 h-8.5 text-xl flex items-center justify-center max-sm:h-6.5 max-sm:w-6.5 "}>

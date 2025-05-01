@@ -4,7 +4,7 @@ import {useCartStore} from "@/lib/providers/CartStoreProivder";
 import {MdDelete} from "react-icons/md";
 
 
-function Counter({productId}: { productId: string }) {
+function Counter({productId, inventory}: { productId: string, inventory: number }) {
     const remove = useCartStore((state) => state.remove);
     const dec = useCartStore((state) => state.dec);
     const inc = useCartStore((state) => state.inc);
@@ -23,22 +23,26 @@ function Counter({productId}: { productId: string }) {
 
     }
     const increment = () => {
-        setCounter(counter + 1);
-        if (item) inc(productId);
+        if (counter <= inventory) {
+            setCounter(counter + 1);
+            if (item) inc(productId);
+        }
     }
     return (
         <div className={"flex items-center gap-3"}>
             <div
                 className={"flex items-center gap-6 rounded-lg border border-darkChocolate px-3 py-2 bg-secondary w-fit max-sm:px-2 max-sm:py-1 max-md:gap-4 text-black"}>
-                <button className={"text-xl cursor-pointer"} type={"button"} onClick={increment}>+
+                <button className={"text-xl cursor-pointer"} type={"button"} onClick={increment}
+                        disabled={inventory <= 0}>+
                 </button>
-                <span>{counter}</span>
+                <span>{inventory <= 0 ? "ناموجود" : counter}</span>
                 <input hidden value={counter} name={"quantity"} readOnly={true}/>
-                <button className={" text-xl cursor-pointer"} type={"button"} onClick={decrement}>-
+                <button className={" text-xl cursor-pointer"} type={"button"} onClick={decrement}
+                        disabled={inventory <= 0}>-
                 </button>
             </div>
             {item?.quantity &&
-                <MdDelete  size={24} className={"cursor-pointer text-white light:text-black"} onClick={() => {
+                <MdDelete size={24} className={"cursor-pointer text-white light:text-black"} onClick={() => {
                     remove(productId);
                     setCounter(0);
                 }}/>

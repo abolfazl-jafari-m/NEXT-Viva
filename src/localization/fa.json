@@ -191,7 +191,8 @@
     "warm": "گرم",
     "bitter": "تلخ",
     "sweet": "شیرین",
-    "currency": "تومان"
+    "currency": "تومان",
+    "notInInventory" : "ناموحود"
   },
   "product-single": {
     "currency": "تومان",
@@ -225,7 +226,8 @@
     "seeCart": "مشاهده سبد خرید",
     "comment-required-message": "نظر خشک و خالی؟؟؟",
     "comment-success": "مرسی از نظر شما",
-    "comment-error": "مشکلی پیش امده لطفن بعدن تلاش کنید"
+    "comment-error": "مشکلی پیش امده لطفن بعدن تلاش کنید",
+    "informMe" : "وقتی موجود شد خبرم کن"
   },
   "cart": {
     "title": "سبد خرید",

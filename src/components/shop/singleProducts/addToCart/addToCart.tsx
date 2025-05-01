@@ -46,7 +46,7 @@ function AddToCart({product}: { product: Product }) {
                     </div>
                     <label htmlFor={"quantity"}
                            className={"text-darkerGold font-semibold text-xl"}>{t("quantity")}</label>
-                    <Counter productId={product.id}/>
+                    <Counter productId={product.id} inventory={+product.inventory}/>
                 </div>
                 <div className={"flex items-center gap-5 max-md:gap-3 max-lg:flex-col max-md:flex-row max-sm:flex-col"}>
                     {
@@ -57,10 +57,16 @@ function AddToCart({product}: { product: Product }) {
                                 </button>
                             </Link>
                             :
-                            <button
-                                className={"bg-darkChocolate text-white rounded-md px-10 py-3 cursor-pointer max-lg:text-nowrap max-md:px-4 max-md:py-2 max-sm:text-sm"}
-                                type={"submit"}>{t("addToCart")}
-                            </button>
+                            +product.inventory > 0 ?
+                                <button
+                                    className={"bg-darkChocolate text-white rounded-md px-10 py-3 cursor-pointer max-lg:text-nowrap max-md:px-4 max-md:py-2 max-sm:text-sm"}
+                                    type={"submit"}>{t("addToCart")}
+                                </button>
+                                :
+                                <button
+                                    className={"bg-darkChocolate text-white rounded-md px-10 py-3 cursor-pointer max-lg:text-nowrap max-md:px-4 max-md:py-2 max-sm:text-sm"}
+                                    type={"button"}>{t("informMe")}
+                                </button>
                     }
                     {
                         favorites.find(item => item === product.id) ?

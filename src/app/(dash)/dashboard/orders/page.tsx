@@ -27,9 +27,9 @@ function Orders() {
 
     if (isLoading) return (<TableLoader/>)
     return (
-        <div className={"flex flex-col gap-3 p-10 max-md:p-5"}>
+        <div className={"flex flex-col gap-3 p-10 max-md:p-5 text-black"}>
             <div>
-                <h1 className={"text-3xl font-bold max-md:text-2xl"}>{t("title")}</h1>
+                <h1 className={"text-3xl font-bold max-md:text-2xl "}>{t("title")}</h1>
             </div>
             <div className={"flex flex-col gap-4"}>
                 <div className={" xl:mr-auto max-xl:justify-between max-md:items-end  flex items-center gap-15 max-lg:gap-10 max-md:gap-4 max-md:flex-col"}>
