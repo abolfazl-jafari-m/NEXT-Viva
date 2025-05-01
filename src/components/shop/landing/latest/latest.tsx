@@ -4,7 +4,6 @@ import {getLatestProducts} from "@/services/products";
 import {Product} from "@/interfaces/interfaces";
 import {getTranslations} from "next-intl/server";
 
-
 async function Latest() {
     const t =await  getTranslations("latest");
     const data = await getLatestProducts(8);

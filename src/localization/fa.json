@@ -7,7 +7,8 @@
     "orders": "سفارشها",
     "inventory": "موجودی",
     "logout": "خروج از حساب کاربری",
-    "logoutMessage": "خروج با موفقیت انجام شد"
+    "logoutMessage": "خروج با موفقیت انجام شد",
+    "homepage": "مشاهده سایت"
   },
   "dashProducts": {
     "title": "محصولات",
@@ -192,7 +193,7 @@
     "bitter": "تلخ",
     "sweet": "شیرین",
     "currency": "تومان",
-    "notInInventory" : "ناموجود"
+    "notInInventory": "ناموجود"
   },
   "product-single": {
     "currency": "تومان",
@@ -227,7 +228,7 @@
     "comment-required-message": "نظر خشک و خالی؟؟؟",
     "comment-success": "مرسی از نظر شما",
     "comment-error": "مشکلی پیش امده لطفن بعدن تلاش کنید",
-    "informMe" : "وقتی موجود شد خبرم کن"
+    "informMe": "وقتی موجود شد خبرم کن"
   },
   "cart": {
     "title": "سبد خرید",
@@ -272,7 +273,7 @@
     "Address": "آدرس",
     "addressPlaceholder": "ادرس خود را وارد کنید",
     "addressError": "وارد کردن آدرس الزامیست",
-    "emptyCart" : "سبد خرید شما خالی میباشد"
+    "emptyCart": "سبد خرید شما خالی میباشد"
   },
   "payment": {
     "cartNumber": "شماره کارت خود را وارد کنید",

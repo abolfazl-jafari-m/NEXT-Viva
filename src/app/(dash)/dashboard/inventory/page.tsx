@@ -1,6 +1,5 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import InventoryTable from "@/components/dash/inventory/inventoryTable/inventoryTable";
-import TableLoader from "@/components/dash/base/tableLoader/tableLoader";
 import {API_KEY, API_URL} from "@/constants/configs";
 import {getTranslations} from "next-intl/server";
 import UpdateButton from "@/components/dash/inventory/updateButton/updateButton";
@@ -26,9 +25,7 @@ async function Inventory() {
                     <h1 className={"font-bold text-3xl max-md:text-2xl text-black"}>{t("title")}</h1>
                     <UpdateButton/>
                 </div>
-                <Suspense fallback={<TableLoader/>}>
-                    <InventoryTable inventoryList={products.records}/>
-                </Suspense>
+                <InventoryTable inventoryList={products.records}/>
             </div>
         </InventoryStoreProvider>
     );

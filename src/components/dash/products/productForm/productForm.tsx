@@ -101,7 +101,7 @@ function ProductForm({product}: { product?: Product }) {
     }
     const router = useRouter();
     return (
-        <form className={"grid grid-cols-2 gap-10 w-full  max-md:grid-cols-1"}
+        <form className={"grid grid-cols-2 gap-10 w-full  max-md:grid-cols-1 text-black"}
               onSubmit={handleSubmit(handleAddProduct)}>
             <div className={"flex flex-col gap-4"}>
                 <ControlledInput label={t("title")} control={control} name={"title"} error={errors.title}
