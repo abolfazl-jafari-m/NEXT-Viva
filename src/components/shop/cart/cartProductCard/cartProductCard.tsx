@@ -18,7 +18,7 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
 
     const increment = ()=>{
         console.log(cartItem)
-        if (cartItem.quantity <= cartItem.inventory){
+        if (cartItem.quantity < cartItem.inventory){
             inc(cartItem.id);
         }
     }

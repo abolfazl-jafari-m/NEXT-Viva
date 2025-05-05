@@ -23,7 +23,7 @@ function Counter({productId, inventory}: { productId: string, inventory: number 
 
     }
     const increment = () => {
-        if (counter <= inventory) {
+        if (counter < inventory) {
             setCounter(counter + 1);
             if (item) inc(productId);
         }
