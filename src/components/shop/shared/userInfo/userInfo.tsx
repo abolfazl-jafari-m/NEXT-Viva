@@ -7,6 +7,8 @@ import Link from "next/link";
 import {useTranslations} from "next-intl";
 import {IoExit} from "react-icons/io5";
 import {useRouter} from "next/navigation";
+import {AnimatePresence} from "motion/react";
+import {motion} from "motion/react";
 
 function UserInfo() {
     const t = useTranslations("header-shop")
@@ -19,14 +21,21 @@ function UserInfo() {
                 accessToken
                     ? <div className={"relative"}>
                         <FaUserCircle size={24} className={"cursor-pointer"} onClick={() => setIsOpen(!isOpen)}/>
-                        {isOpen && <button
-                            className={"absolute top-10  bg-gold rounded-full shadow shadow-black left-0 p-1 text-white/70 cursor-pointer"} onClick={() => {
-                            deleteCookie("accessToken");
-                            router.refresh();
-                        }}>
-                            <IoExit size={18}/>
-                        </button>}
+                        <AnimatePresence>
+                            {isOpen && <motion.ul initial={{opacity : 0 , scale : 0}} exit={{opacity : 0, scale : 0}} animate={{opacity : 1, scale : 1}} transition={{duration : 0.3 ,when : "afterChildren" }}
+                                                  className={"absolute top-11 left-0 rounded-md shadow shadow-black bg-white text-black text-nowrap flex flex-col gap-3 overflow-hidden"}>
+                                <motion.li initial={{y : -100}} exit={{y : -100}} animate={{y : 0}} transition={{stiffness : 1000}} className={"p-2 hover:bg-gold hover:text-white cursor-pointer"}>{t("profile")}</motion.li>
+                                <motion.li initial={{y : -100}} exit={{y : -100}} animate={{y : 0}} transition={{stiffness : 1000}}  className={"p-2 cursor-pointer flex items-center gap-6 hover:bg-gold hover:text-white"}
+                                       onClick={() => {
+                                           deleteCookie("accessToken");
+                                           router.refresh();
+                                       }}>
+                                    <p>{t("exit")}</p>
+                                    <IoExit size={18}/>
+                                </motion.li></motion.ul>}
+                        </AnimatePresence>
                     </div>
+
                     :
                     <>
                         <div className={"flex items-center justify-center gap-3"}>
