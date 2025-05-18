@@ -6,19 +6,19 @@
 @custom-variant light (&:is(.light *));
 @font-face {
     font-family: "yekan";
-    src: url("../assets/fonts/bYekan/BYekan.ttf");
+    src: url("/fonts/bYekan/BYekan.ttf");
     font-weight: normal;
 }
 
 @font-face {
     font-family: "yekan";
-    src: url("../assets/fonts/bYekan/BYekanBold.ttf");
+    src: url("/fonts/bYekan/BYekanBold.ttf");
     font-weight: bold;
 }
 
 @font-face {
     font-family: "fuzzy";
-    src: url("../assets/fonts/fuzzy/FuzzyBubbles-Bold.ttf");
+    src: url("/fonts/fuzzy/FuzzyBubbles-Bold.ttf");
     font-weight: bold;
 }
 
