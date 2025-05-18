@@ -40,7 +40,7 @@ function BestSeller() {
                             products?.map(product => (
                                 <SwiperSlide key={product.id}>
                                     <div className={"grid grid-cols-2 justify-items-center max-md:gap-5 p-10 max-lg:p-5 max-md:grid-cols-1 w-2/3 max-lg:w-full"}>
-                                        <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`}
+                                        <Image src={`https://viva-back-end.onrender.com${product.images[0]}`}
                                              alt={product.slug} width={350} height={350} className={"max-lg:w-[250px]"}/>
                                         <div className={"flex flex-col gap-8 max-lg:gap-5 max-md:gap-3 "}>
                                             <h3 className={"text-4xl text-darkerGold  max-md:text-2xl font-bold font-fuzzy"}>{product.title}</h3>

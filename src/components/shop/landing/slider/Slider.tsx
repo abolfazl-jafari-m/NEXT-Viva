@@ -65,7 +65,7 @@ function Slider() {
                                                 </Link>
                                             </div>
                                         </div>
-                                        <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`}
+                                        <Image src={`https://viva-back-end.onrender.com${product.images[0]}`}
                                                alt={"men PerFume"}
                                                width={450} height={450}
                                                className={"max-lg:w-[350px] max-md:w-[280px] max-sm:w-[200px] "}/>

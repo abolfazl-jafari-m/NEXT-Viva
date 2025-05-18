@@ -29,7 +29,7 @@ function CartProductCard({cartItem}: { cartItem: CartItem }) {
                 <CgClose className={"text-2xl text-white cursor-pointer"} onClick={() => remove(cartItem.id)}/>
                 <Link href={`/products/${cartItem.id}`}>
                     <div className={"flex gap-2"}>
-                        <Image src={`http://api.alikooshesh.ir:3000${cartItem.image}`} alt={cartItem.title} width={50}
+                        <Image src={`https://viva-back-end.onrender.com${cartItem.image}`} alt={cartItem.title} width={50}
                                height={50}
                                className={"rounded-lg  w-14 max-sm:w-17"}/>
                         <div className={"flex flex-col gap-2 text-white"}>

@@ -20,7 +20,7 @@ import {priceFormatter} from "@/lib/utils/helpers";
 export async function generateMetadata({params}: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const {id} = await params;
     const t = await getTranslations("product-single")
-    const response = await fetch(`http://api.alikooshesh.ir:3000/api/records/products/${id}`, {
+    const response = await fetch(`https://viva-back-end.onrender.com/api/records/products/${id}`, {
         headers: {
             api_key: API_KEY,
         }
@@ -41,7 +41,7 @@ export async function generateMetadata({params}: { params: Promise<{ id: string 
 async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
     const t = await getTranslations("product-single");
     const {id} = await params;
-    const response = await fetch(`http://api.alikooshesh.ir:3000/api/records/products/${id}`, {
+    const response = await fetch(`https://viva-back-end.onrender.com/api/records/products/${id}`, {
         headers: {
             api_key: API_KEY,
         }
@@ -70,7 +70,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                         </Link>
                     </div>
                     <div className={"flex items-center justify-center max-sm:row-start-1"}>
-                        <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"image"} width={400}
+                        <Image src={`https://viva-back-end.onrender.com${product.images[0]}`} alt={"image"} width={400}
                              height={400} className={"max-md:w-60 rounded-lg"}/>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                      className={"grid grid-cols-2 items-center w-full min-h-screen max-md:grid-cols-1 max-sm:justify-items-center"}>
                 <div className={"flex items-center justify-center"}>
                     <img
-                        src={`http://api.alikooshesh.ir:3000${product.images[1] ? product.images[1] : product.images[0]} `}
+                        src={`https://viva-back-end.onrender.com${product.images[1] ? product.images[1] : product.images[0]} `}
                         alt={product.slug} width={400} height={400}
                         className={"rounded-2xl drop-shadow-lg max-lg:w-78 "}/>
                 </div>

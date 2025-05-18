@@ -13,9 +13,8 @@ const nextConfig: NextConfig = {
         loaderFile :"./src/components/shop/shared/imageLoader/imageLoader.ts",
         remotePatterns: [
             {
-                protocol: 'http',
-                hostname: 'api.alikooshesh.ir',
-                port :"3000",
+                protocol: 'https',
+                hostname: 'viva-back-end.onrender.com',
                 pathname   :"/assets/**",
             },
         ],
