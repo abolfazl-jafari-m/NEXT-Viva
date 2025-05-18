@@ -16,7 +16,7 @@ function WishlistProductCard({product}: { product: Product }) {
         <div
             className={"rounded-lg shadow shadow-black ring-2 ring-zinc-600 bg-zinc-950 light:bg-secondary  flex  items-center justify-between gap-3 relative text-white light:text-black py-2 px-4 max-sm:justify-center max-sm:items-start max-sm:w-full max-sm:py-3 max-sm:relative"}>
             <div className={"flex items-center gap-5 max-sm:flex-col "}>
-                <Image src={`https://viva-back-end.onrender.com${product.images[0]}`} alt={product.slug} width={120}
+                <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={product.slug} width={120}
                        height={120} className={"rounded-lg max-sm:w-20"}/>
                 <div className={"flex flex-col gap-3 max-sm:items-center"}>
                     <h3 className={"text-xl font-semibold text-nowrap max-sm:text-lg"}>{product.title}</h3>

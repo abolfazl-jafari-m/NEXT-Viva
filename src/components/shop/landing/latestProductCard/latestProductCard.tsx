@@ -12,7 +12,7 @@ function LatestProductCard({product}: { product: Product }) {
     return (
         <SlideIn x={100}
             className={"flex gap-3 items-center bg-stone-950/80 light:bg-primary backdrop-blur-2xl rounded-2xl shadow-2xl ring-2 ring-primary light:ring-zinc-600 shadow-black p-3"}>
-            <Image src={`https://viva-back-end.onrender.com${product.images[0]}`} alt={"tom ford"} width={140} height={140} className={"max-lg:w-[100px]"}/>
+            <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"tom ford"} width={140} height={140} className={"max-lg:w-[100px]"}/>
             <div className={"flex flex-col h-full justify-between max-md:gap-4 p-1 flex-1 "}>
                 <div className={"flex flex-col gap-2 w-full"}>
                     <h2 className={"text-darkerGold font-semibold line-clamp-1 font-fuzzy"}>{product.title}</h2>

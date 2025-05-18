@@ -61,7 +61,7 @@ function Search() {
                                             products.map((product: Product) => (
                                                 <div key={product.id}
                                                      className={"flex items-center gap-3 rounded-md bg-black  ring ring-zinc-700 p-2"}>
-                                                    <Image src={`https://viva-back-end.onrender.com${product.images[0]}`}
+                                                    <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`}
                                                            width={55} height={55} alt={product.slug}
                                                            className={"h-14 w-14 rounded-lg shadow shadow"}/>
                                                     <div className={"flex flex-col gap-2 text-white"}>

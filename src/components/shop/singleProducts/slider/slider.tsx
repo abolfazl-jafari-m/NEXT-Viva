@@ -26,7 +26,7 @@ function Slider({images, slug}: { images: string[], slug: string }) {
                 {images.map((item) => (
                     <SwiperSlide key={item} className={"w-full"}>
                         <Image
-                            src={`https://viva-back-end.onrender.com${item}`}
+                            src={`http://api.alikooshesh.ir:3000${item}`}
                             alt={slug}
                             className="rounded-xl mx-auto"
                             width={400}
@@ -49,7 +49,7 @@ function Slider({images, slug}: { images: string[], slug: string }) {
                     {images.map((item) => (
                         <SwiperSlide key={`${item}-thumb`}>
                             <Image
-                                src={`https://viva-back-end.onrender.com${item}`}
+                                src={`http://api.alikooshesh.ir:3000${item}`}
                                 alt={slug}
                                 className="rounded-lg"
                                 width={150}
