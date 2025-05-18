@@ -11,6 +11,7 @@ import {deleteProduct} from "@/services/products";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import {BeatLoader} from "react-spinners";
+import Image from "next/image";
 
 function ProductTable({products}: { products: Product[] }) {
     const [productId, setProductId] = useState<string | null>(null);
@@ -76,7 +77,7 @@ function ProductTable({products}: { products: Product[] }) {
                             <tr key={item.id}
                                 className={"border border-black even:bg-secondary odd:bg-white text-center hover:bg-primary hover:text-white  transition-all duration-200 max-md:text-sm"}>
                                 <td className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>
-                                    <img src={`http://api.alikooshesh.ir:3000${item.images[0]}`} alt={item.title}
+                                    <Image src={`http://api.alikooshesh.ir:3000${item.images[0]}`} alt={item.title}
                                          className={"w-10 h-10 rounded-md mx-auto"}/>
                                 </td>
                                 <td className={"p-2 max-sm:border max-sm:border-black/50 text-nowrap"}>{item.title}</td>

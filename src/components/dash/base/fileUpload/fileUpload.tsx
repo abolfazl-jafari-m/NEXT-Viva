@@ -5,6 +5,7 @@ import {CgClose} from "react-icons/cg";
 import {BarLoader} from "react-spinners";
 import {useTranslations} from "next-intl";
 import toast from "react-hot-toast";
+import Image from "next/image";
 
 interface IProps {
     // id: string;
@@ -97,7 +98,7 @@ function FileUpload({values, setValues}: IProps
                                     <span
                                         className={"absolute rounded-full -top-1 -right-1 p-1 bg-primary text-white text-sm cursor-pointer "}
                                         onClick={() => setValues(prevState => prevState.filter(image => image !== item))}><CgClose/></span>
-                                            <img src={`http://api.alikooshesh.ir:3000${item}`} alt={`image-${index}`}
+                                            <Image src={`http://api.alikooshesh.ir:3000${item}`} alt={`image-${index}`}
                                                  className={"w-full h-full rounded-md"}/>
                                         </div>
                                     ))
