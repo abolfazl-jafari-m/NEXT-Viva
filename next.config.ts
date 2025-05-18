@@ -9,8 +9,8 @@ const nextConfig: NextConfig = {
         ignoreDuringBuilds: true,
     },
     images : {
-        loader :"custom",
-        loaderFile :"./src/components/shop/shared/imageLoader/imageLoader.ts",
+        // loader :"custom",
+        // loaderFile :"./src/components/shop/shared/imageLoader/imageLoader.ts",
         remotePatterns: [
             {
                 protocol: 'https',

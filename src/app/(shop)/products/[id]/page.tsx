@@ -70,7 +70,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                         </Link>
                     </div>
                     <div className={"flex items-center justify-center max-sm:row-start-1"}>
-                        <Image src={`https://viva-back-end.onrender.com${product.images[0]}`} alt={"image"} width={400}
+                        <Image src={`http://api.alikooshesh.ir:3000${product.images[0]}`} alt={"image"} width={400}
                              height={400} className={"max-md:w-60 rounded-lg"}/>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
                      className={"grid grid-cols-2 items-center w-full min-h-screen max-md:grid-cols-1 max-sm:justify-items-center"}>
                 <div className={"flex items-center justify-center"}>
                     <img
-                        src={`https://viva-back-end.onrender.com${product.images[1] ? product.images[1] : product.images[0]} `}
+                        src={`http://api.alikooshesh.ir:3000${product.images[1] ? product.images[1] : product.images[0]}`}
                         alt={product.slug} width={400} height={400}
                         className={"rounded-2xl drop-shadow-lg max-lg:w-78 "}/>
                 </div>
