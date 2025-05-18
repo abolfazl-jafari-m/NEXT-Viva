@@ -104,10 +104,17 @@ async function SingleProducts({params}: { params: Promise<{ id: string }> }) {
             <section id={"details"}
                      className={"grid grid-cols-2 items-center w-full min-h-screen max-md:grid-cols-1 max-sm:justify-items-center"}>
                 <div className={"flex items-center justify-center"}>
-                    <img
-                        src={`http://api.alikooshesh.ir:3000${product.images[1] ? product.images[1] : product.images[0]}`}
-                        alt={product.slug} width={400} height={400}
-                        className={"rounded-2xl drop-shadow-lg max-lg:w-78 "}/>
+                    {product.images[1] ?
+                        <Image
+                            src={`http://api.alikooshesh.ir:3000${product.images[1]}`}
+                            alt={product.slug} width={400} height={400}
+                            className={"rounded-2xl drop-shadow-lg max-lg:w-78 "}/>
+                        :
+                        <Image
+                            src={`http://api.alikooshesh.ir:3000${product.images[0]}`}
+                            alt={product.slug} width={400} height={400}
+                            className={"rounded-2xl drop-shadow-lg max-lg:w-78 "}/>
+                    }
                 </div>
                 <div
                     className={"grid grid-cols-3  gap-x-20 gap-y-10 w-fit max-md:grid-cols-4  max-md:items-center max-md:w-full max-sm:w-4/6 max-sm:grid-cols-1 max-md:gap-x-10 max-sm:gap-2 max-sm:my-10"}>
